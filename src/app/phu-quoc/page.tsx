@@ -3,6 +3,8 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import useEmblaCarousel from 'embla-carousel-react'
+import { motion } from 'framer-motion'
+import { Star, Sun, Calendar } from 'lucide-react'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { OffersSection } from '../components/OffersSection'
@@ -159,18 +161,6 @@ export default function PhuQuocPage() {
 
         {/* Centred title */}
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="px-4 py-1.5 glass-dark rounded-full text-white text-xs font-bold tracking-widest uppercase">
-              Biển đảo
-            </span>
-            <div className="flex items-center gap-1.5 text-yellow-400 glass-dark px-3 py-1.5 rounded-full text-sm font-bold">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              4.9 <span className="text-white/80 font-normal ml-1">(15k+ đánh giá)</span>
-            </div>
-          </div>
-
           <h1 className="text-7xl md:text-9xl font-black text-white mb-6 tracking-tighter text-glow">
             Phú Quốc
           </h1>
@@ -179,52 +169,41 @@ export default function PhuQuocPage() {
             Thiên đường đảo ngọc với những bãi biển cát trắng mịn màng, nước biển trong xanh và
             những khu nghỉ dưỡng đẳng cấp quốc tế.
           </p>
-        </div>
 
-        {/* Stat cards */}
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-8 pb-10 flex justify-end gap-4">
-          <div className="glass-dark px-6 py-5 rounded-2xl flex items-center gap-4 hover:-translate-y-1 transition-transform">
-            <div className="bg-yellow-400/20 p-3 rounded-full">
-              <svg
-                className="w-8 h-8 text-yellow-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
+          {/* Info items — fade-in up */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+            className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6"
+          >
+            {/* Review */}
+            <div className="glass-dark flex items-center gap-3 px-5 py-3 rounded-2xl">
+              <Star className="w-5 h-5 text-yellow-400 fill-yellow-400 flex-shrink-0" />
+              <span className="text-sm font-semibold text-white">
+                4.9{' '}
+                <span className="text-white/70 font-normal">(15k+ đánh giá)</span>
+              </span>
             </div>
-            <div>
-              <p className="text-2xl font-bold text-white leading-none mb-1">28°C</p>
-              <p className="text-sm text-white/70 font-medium">Nắng đẹp</p>
+
+            {/* Weather */}
+            <div className="glass-dark flex items-center gap-3 px-5 py-3 rounded-2xl">
+              <Sun className="w-5 h-5 text-yellow-300 flex-shrink-0" />
+              <span className="text-sm font-semibold text-white">
+                28°C{' '}
+                <span className="text-white/70 font-normal">– Nắng đẹp</span>
+              </span>
             </div>
-          </div>
-          <div className="glass-dark px-6 py-5 rounded-2xl flex items-center gap-4 hover:-translate-y-1 transition-transform">
-            <div className="bg-blue-400/20 p-3 rounded-full">
-              <svg
-                className="w-8 h-8 text-blue-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+
+            {/* Best time */}
+            <div className="glass-dark flex items-center gap-3 px-5 py-3 rounded-2xl">
+              <Calendar className="w-5 h-5 text-blue-300 flex-shrink-0" />
+              <span className="text-sm font-semibold text-white">
+                T.11 – T.4{' '}
+                <span className="text-white/70 font-normal">(Mùa đẹp nhất)</span>
+              </span>
             </div>
-            <div>
-              <p className="text-2xl font-bold text-white leading-none mb-1">T.11 - T.4</p>
-              <p className="text-sm text-white/70 font-medium">Mùa đẹp nhất</p>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </header>
 

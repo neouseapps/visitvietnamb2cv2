@@ -782,17 +782,6 @@ const NewsSection = () => (
 )
 
 const Footer = () => {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email.trim()) {
-      setSubmitted(true)
-      setEmail('')
-    }
-  }
-
   return (
     <footer id="download" className="bg-navy pt-24 pb-12 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] opacity-50"></div>
@@ -810,28 +799,6 @@ const Footer = () => {
               Trải nghiệm tương lai của ngành du lịch. Tải ứng dụng ngay hoặc để lại email để nhận
               quyền truy cập sớm vào tính năng AI Premium.
             </p>
-
-            <form
-              onSubmit={handleSubmit}
-              className="flex items-center bg-white/10 p-1.5 rounded-full backdrop-blur-sm border border-white/10 max-w-md mb-8"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={
-                  submitted ? 'Đã đăng ký thành công! ✓' : 'Để lại email để trải nghiệm sớm'
-                }
-                className="bg-transparent text-white placeholder-gray-400 px-4 py-2 w-full focus:outline-none text-sm"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-orange-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors whitespace-nowrap"
-              >
-                Đăng ký
-              </button>
-            </form>
 
             <div className="flex items-center gap-4">
               <a
@@ -871,52 +838,6 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="relative flex justify-end">
-            <div
-              className="absolute inset-0 opacity-50 rounded-3xl"
-              style={{
-                backgroundImage:
-                  'url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSIvPjwvc3ZnPg==")',
-              }}
-            ></div>
-            <div className="flex items-center gap-6 relative z-10">
-              <div className="bg-white p-4 rounded-2xl shadow-2xl flex flex-col items-center">
-                <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://visitvietnam.com/app"
-                  alt="QR Code"
-                  className="w-24 h-24 mb-2"
-                />
-                <p className="text-xs font-bold text-gray-900">Quét để tải app</p>
-              </div>
-              <div className="w-48 h-64 bg-gray-900 rounded-l-[2rem] rounded-r-none border-t-[6px] border-l-[6px] border-b-[6px] border-gray-800 shadow-2xl overflow-hidden relative">
-                <img
-                  src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=400&auto=format&fit=crop"
-                  className="w-full h-full object-cover opacity-80"
-                  alt="Map"
-                />
-                <div className="absolute bottom-4 left-4 right-0 bg-white/90 backdrop-blur rounded-l-xl p-3 shadow-lg">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-white">
-                      <svg
-                        className="w-3 h-3"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-xs font-bold text-gray-800">Lịch trình đã sẵn sàng!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 border-b border-white/10 pb-12">

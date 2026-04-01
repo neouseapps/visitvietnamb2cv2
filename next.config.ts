@@ -12,6 +12,7 @@ import type { Configuration } from 'webpack'
  */
 
 const nextConfig: NextConfig = {
+  turbopack: {},
   images: {
     remotePatterns: [
       {

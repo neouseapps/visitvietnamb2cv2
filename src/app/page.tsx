@@ -24,8 +24,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/40 to-navy/90"></div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-[12px] border border-white/20">
-          <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md border border-white/20">
+          <span className="w-2 h-2 rounded-full bg-accent-orange animate-pulse"></span>
           Trợ lý AI du lịch cá nhân của bạn
         </div>
         <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
@@ -33,12 +33,12 @@ const HeroSection = () => {
           <br />
           dẫn lối bởi AI
         </h1>
-        <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-medium">
+        <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto font-medium">
           Lên kế hoạch hoàn hảo trong vài giây. Chỉ cần nói cho chúng tôi biết bạn muốn đi đâu, AI
           của chúng tôi sẽ lo phần còn lại.
         </p>
 
-        <div className="bg-white p-2 rounded-full max-w-3xl mx-auto flex items-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform hover:scale-[1.02] transition-transform duration-300">
+        <div className="bg-white p-2 rounded-full max-w-3xl mx-auto flex items-center shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
           <div className="flex-1 flex items-center pl-6 pr-2 py-3">
             <svg
               className="w-6 h-6 text-gray-400 mr-3 flex-shrink-0"
@@ -59,12 +59,12 @@ const HeroSection = () => {
               onChange={(e) => setSearchValue(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
               placeholder="Bạn muốn đi đâu? Ví dụ: Lịch trình 3 ngày ở Đà Nẵng..."
-              className="w-full text-lg text-gray-800 placeholder-gray-400 bg-transparent focus:outline-none focus:ring-0"
+              className="w-full text-lg text-[var(--color-text-default)] placeholder-gray-400 bg-transparent focus:outline-none focus:ring-0"
             />
           </div>
           <button
             onClick={handleSearch}
-            className="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full transition-colors flex items-center justify-center flex-shrink-0 shadow-md group"
+            className="bg-accent-orange hover:bg-orange-600 text-white p-4 rounded-full transition-colors flex items-center justify-center flex-shrink-0 shadow-md group"
           >
             <svg
               className="w-6 h-6 transform group-hover:translate-x-1 transition-transform"
@@ -82,10 +82,10 @@ const HeroSection = () => {
           </button>
         </div>
 
-        <div className="mt-8 flex items-center justify-center gap-6 text-sm text-gray-300">
+        <div className="mt-8 flex items-center justify-center gap-6 text-sm text-white/70">
           {['Cá nhân hóa 100%', 'Đặt chỗ tức thì', 'Hỗ trợ 24/7'].map((item) => (
             <span key={item} className="flex items-center gap-1">
-              <svg className="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-4 h-4 text-accent-orange" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -135,8 +135,7 @@ const destinations = [
 const DestinationCard = ({ dest }: { dest: (typeof destinations)[0] }) => (
   <a
     href="#"
-    className="group relative rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 block"
-    style={{ aspectRatio: '3/4' }}
+    className="group relative rounded-card overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 block aspect-[3/4]"
     onClick={(e) => e.preventDefault()}
   >
     <img
@@ -144,7 +143,7 @@ const DestinationCard = ({ dest }: { dest: (typeof destinations)[0] }) => (
       alt={dest.name}
       className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent"></div>
     <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end">
       <div className="flex items-center gap-2 mb-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
         <span className="bg-white/20 backdrop-blur-md text-white text-xs px-2 py-1 rounded font-medium tracking-wide">
@@ -155,7 +154,7 @@ const DestinationCard = ({ dest }: { dest: (typeof destinations)[0] }) => (
         </span>
       </div>
       <h3 className="text-2xl font-bold text-white mb-1">{dest.name}</h3>
-      <p className="text-gray-200 text-sm font-medium">{dest.desc}</p>
+      <p className="text-white/80 text-sm font-medium">{dest.desc}</p>
     </div>
   </a>
 )
@@ -167,14 +166,14 @@ const DestinationsSection = () => (
   >
     <div className="flex justify-between items-end mb-12">
       <div>
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Điểm đến nổi bật</h2>
-        <p className="text-gray-500">
+        <h2 className="text-3xl font-bold text-[var(--color-text-default)] mb-2">Điểm đến nổi bật</h2>
+        <p className="text-[var(--color-text-dim)]">
           Khám phá những vùng đất tươi đẹp nhất Việt Nam qua lăng kính thông minh.
         </p>
       </div>
       <a
         href="#"
-        className="hidden sm:flex items-center text-sm font-semibold text-navy hover:text-orange-500 transition-colors gap-1"
+        className="hidden sm:flex items-center text-sm font-semibold text-navy hover:text-accent-orange transition-colors gap-1"
         onClick={(e) => e.preventDefault()}
       >
         Xem tất cả điểm đến
@@ -509,7 +508,7 @@ const FeaturesSection = () => (
           </p>
           <a
             href="#"
-            className="text-navy font-semibold text-sm hover:text-orange-500 flex items-center gap-1"
+            className="text-navy font-semibold text-sm hover:text-accent-orange flex items-center gap-1"
             onClick={(e) => e.preventDefault()}
           >
             Tìm hiểu giải pháp B2B
@@ -542,7 +541,7 @@ const FeaturesSection = () => (
           </p>
           <a
             href="#"
-            className="text-navy font-semibold text-sm hover:text-orange-500 flex items-center gap-1"
+            className="text-navy font-semibold text-sm hover:text-accent-orange flex items-center gap-1"
             onClick={(e) => e.preventDefault()}
           >
             Cổng thông tin Gov
@@ -598,7 +597,7 @@ const NewsSection = () => (
         </div>
         <a
           href="/newsroom"
-          className="hidden sm:flex items-center text-sm font-semibold text-navy hover:text-orange-500 transition-colors gap-1"
+          className="hidden sm:flex items-center text-sm font-semibold text-navy hover:text-accent-orange transition-colors gap-1"
         >
           Đọc thêm bài viết
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -632,7 +631,7 @@ const NewsSection = () => (
               <p className="text-gray-500 text-sm mb-4 line-clamp-2">{article.desc}</p>
               <a
                 href="#"
-                className="text-navy font-semibold text-sm hover:text-orange-500 transition-colors"
+                className="text-navy font-semibold text-sm hover:text-accent-orange transition-colors"
                 onClick={(e) => e.preventDefault()}
               >
                 Đọc chi tiết

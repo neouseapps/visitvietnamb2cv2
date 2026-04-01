@@ -150,7 +150,7 @@ export default function AboutPage() {
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+        <div className="max-w-[1440px] mx-auto px-8 relative z-10 text-center">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-widest mb-8">
             Câu chuyện Visit Vietnam
           </span>
@@ -174,7 +174,7 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-80">
               <div className="flex items-center gap-3">
-                <ShieldCheck className="w-8 h-8 text-yellow-400" />
+                <ShieldCheck className="w-8 h-8 text-accent-orange" />
                 <div className="text-left text-white">
                   <p className="text-xs font-bold uppercase leading-tight">
                     Bộ Văn hóa, Thể thao
@@ -184,7 +184,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Compass className="w-8 h-8 text-blue-400" />
+                <Compass className="w-8 h-8 text-[var(--color-brand-primary-bright)]" />
                 <div className="text-left text-white">
                   <p className="text-xs font-bold uppercase leading-tight">
                     Tổng cục Du lịch
@@ -203,11 +203,11 @@ export default function AboutPage() {
       ================================================================ */}
       <section className="py-24 bg-section-bg relative">
         <div className="absolute top-0 inset-x-0 h-40 opacity-5 bg-gradient-navy-fade" />
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-[1440px] mx-auto px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-sm font-bold text-accent-red tracking-widest uppercase mb-3">
+            <p className="text-sm font-bold text-accent-red tracking-widest uppercase mb-3">
               Công nghệ cốt lõi
-            </h2>
+            </p>
             <h3 className="text-3xl md:text-4xl font-serif font-bold text-navy mb-4">
               3 Trụ cột định hình tương lai
             </h3>
@@ -219,8 +219,8 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Card 1 */}
-            <div className="bg-white p-10 rounded-3xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(155,28,28,0.15)] transition-all duration-300 hover:-translate-y-2 group border border-slate-100">
-              <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center text-accent-red mb-8 group-hover:scale-110 group-hover:bg-accent-red group-hover:text-white transition-all duration-300">
+            <div className="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border border-slate-100">
+              <div className="w-16 h-16 bg-[var(--color-bg-danger-bright)] rounded-2xl flex items-center justify-center text-accent-red mb-8 group-hover:scale-110 group-hover:bg-accent-red group-hover:text-white transition-all duration-300">
                 <Brain className="w-8 h-8" />
               </div>
               <h4 className="text-xl font-bold text-navy mb-4 font-serif">AI Cá nhân hóa</h4>
@@ -232,8 +232,8 @@ export default function AboutPage() {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white p-10 rounded-3xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(11,27,61,0.2)] transition-all duration-300 hover:-translate-y-2 group border border-slate-100">
-              <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-navy mb-8 group-hover:scale-110 group-hover:bg-navy group-hover:text-white transition-all duration-300">
+            <div className="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border border-slate-100">
+              <div className="w-16 h-16 bg-[var(--color-brand-secondary)] rounded-2xl flex items-center justify-center text-navy mb-8 group-hover:scale-110 group-hover:bg-navy group-hover:text-white transition-all duration-300">
                 <Database className="w-8 h-8" />
               </div>
               <h4 className="text-xl font-bold text-navy mb-4 font-serif">Dữ liệu địa phương</h4>
@@ -245,8 +245,8 @@ export default function AboutPage() {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white p-10 rounded-3xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(155,28,28,0.15)] transition-all duration-300 hover:-translate-y-2 group border border-slate-100">
-              <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 mb-8 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+            <div className="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border border-slate-100">
+              <div className="w-16 h-16 bg-[var(--color-bg-warning-bright)] rounded-2xl flex items-center justify-center text-accent-orange mb-8 group-hover:scale-110 group-hover:bg-accent-orange group-hover:text-white transition-all duration-300">
                 <Share2 className="w-8 h-8" />
               </div>
               <h4 className="text-xl font-bold text-navy mb-4 font-serif">Hệ sinh thái kết nối</h4>
@@ -263,7 +263,7 @@ export default function AboutPage() {
           3. VISION & MISSION
       ================================================================ */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1440px] mx-auto px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image column */}
             <div className="relative">
@@ -290,7 +290,7 @@ export default function AboutPage() {
             <div className="space-y-12">
               {/* Vision */}
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-navy text-xs font-bold uppercase tracking-widest mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-brand-secondary)] text-navy text-xs font-bold uppercase tracking-widest mb-4">
                   <Eye className="w-3.5 h-3.5" /> Tầm nhìn
                 </div>
                 <h3 className="text-3xl font-serif font-bold text-navy mb-4 leading-tight">
@@ -307,7 +307,7 @@ export default function AboutPage() {
 
               {/* Mission */}
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-accent-red text-xs font-bold uppercase tracking-widest mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-bg-danger-bright)] text-accent-red text-xs font-bold uppercase tracking-widest mb-4">
                   <Target className="w-3.5 h-3.5" /> Sứ mệnh
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-navy mb-4 leading-tight">
@@ -346,7 +346,7 @@ export default function AboutPage() {
           4. PROBLEM vs SOLUTION
       ================================================================ */}
       <section className="py-24 bg-section-bg border-y border-slate-100 relative bg-dot-navy">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1440px] mx-auto px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-sm font-bold text-accent-red tracking-widest uppercase mb-3 block">
               Câu chuyện thay đổi
@@ -398,8 +398,8 @@ export default function AboutPage() {
                   },
                 ].map((item) => (
                   <li key={item.title} className="flex items-start gap-4">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-red-50 flex items-center justify-center shrink-0">
-                      <X className="w-3 h-3 text-red-500" strokeWidth={3} />
+                    <div className="mt-1 w-6 h-6 rounded-full bg-[var(--color-bg-danger-bright)] flex items-center justify-center shrink-0">
+                      <X className="w-3 h-3 text-accent-red" strokeWidth={3} />
                     </div>
                     <div>
                       <h5 className="font-bold text-slate-700 mb-1">{item.title}</h5>
@@ -411,7 +411,7 @@ export default function AboutPage() {
             </div>
 
             {/* Visit Vietnam */}
-            <div className="bg-navy rounded-3xl p-8 md:p-10 shadow-[0_20px_40px_-10px_rgba(11,27,61,0.2)] text-white relative overflow-hidden">
+            <div className="bg-navy rounded-3xl p-8 md:p-10 shadow-xl text-white relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-accent-red/20 blur-3xl rounded-full -translate-y-1/2 translate-x-1/3" />
               <div className="flex items-center gap-3 mb-8 relative z-10">
                 <div className="w-12 h-12 rounded-full bg-accent-red flex items-center justify-center text-white shadow-lg">
@@ -439,8 +439,8 @@ export default function AboutPage() {
                   },
                 ].map((item) => (
                   <li key={item.title} className="flex items-start gap-4">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-green-400" strokeWidth={3} />
+                    <div className="mt-1 w-6 h-6 rounded-full bg-[var(--color-bg-success-bright)] flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-[var(--color-text-success-default)]" strokeWidth={3} />
                     </div>
                     <div>
                       <h5 className="font-bold text-white mb-1">{item.title}</h5>
@@ -460,9 +460,9 @@ export default function AboutPage() {
       <section className="py-24 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-dot-white" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-red rounded-full blur-[100px] opacity-30 pointer-events-none" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500 rounded-full blur-[100px] opacity-20 pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-primary rounded-full blur-[100px] opacity-20 pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-[1440px] mx-auto px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-4">
               Quy mô hệ sinh thái
@@ -508,7 +508,7 @@ export default function AboutPage() {
           6. CONTACT
       ================================================================ */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1440px] mx-auto px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy mb-4">
               Kết nối với Visit Vietnam
@@ -584,7 +584,7 @@ export default function AboutPage() {
             <div className="relative z-10 w-full md:w-auto flex shrink-0">
               <a
                 href="#"
-                className="w-full text-center md:w-auto px-8 py-4 bg-accent-red hover:bg-accent-red-dark font-bold rounded-xl transition-colors shadow-lg"
+                className="w-full text-center md:w-auto px-8 py-4 bg-accent-red hover:bg-accent-red-dark font-bold rounded-full transition-colors shadow-lg"
               >
                 Xem bản đồ
               </a>

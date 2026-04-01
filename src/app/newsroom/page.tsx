@@ -112,9 +112,6 @@ export default function NewsroomPage() {
 
         <header className="pt-36 pb-24 px-8 text-center">
           <div className="max-w-4xl mx-auto">
-            <span className="px-4 py-1.5 glass-dark rounded-full text-white text-xs font-bold tracking-widest uppercase mb-6 inline-block">
-              NEWSROOM
-            </span>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tighter">
               Tin tức &amp; Sự kiện
             </h1>
@@ -156,19 +153,6 @@ export default function NewsroomPage() {
                 đẹp nhất thế giới, trong đó Phú Quốc vinh dự góp mặt với vẻ đẹp thiên nhiên hoang sơ
                 và dịch vụ nghỉ dưỡng đẳng cấp.
               </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop"
-                    alt="Author"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="font-bold text-navy">Minh Anh</p>
-                  <p className="text-xs text-gray-400 font-medium">Biên tập viên cao cấp</p>
-                </div>
-              </div>
             </div>
           </div>
         </section>

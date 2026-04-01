@@ -174,7 +174,7 @@ export default function PhuQuocPage() {
       {/* ── HERO ── */}
       <header className="relative h-[85vh] min-h-[600px] w-full flex flex-col justify-between overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2940&auto=format&fit=crop"
+          src="/images/phu-quoc-hero.jpg"
           alt="Phu Quoc Sunset"
           className="absolute inset-0 w-full h-full object-cover"
         />

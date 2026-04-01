@@ -67,7 +67,7 @@ const articles = [
   },
 ]
 
-const FILTERS = ['Tất cả', 'Cẩm nang', 'Sự kiện'] as const
+const FILTERS = ['Tất cả', 'Thông cáo báo chí', 'Cẩm nang', 'Sự kiện', 'Văn hóa', 'Ẩm thực'] as const
 type Filter = (typeof FILTERS)[number]
 
 function NewsCard({ article }: { article: (typeof articles)[number] }) {
@@ -177,21 +177,17 @@ export default function NewsroomPage() {
         <section>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
             <h3 className="text-3xl font-extrabold text-navy tracking-tight">Bài viết mới nhất</h3>
-            <div className="flex gap-2 flex-wrap">
+            <select
+              value={activeFilter}
+              onChange={(e) => setActiveFilter(e.target.value as Filter)}
+              className="px-5 py-2.5 rounded-full border border-gray-200 bg-white text-sm font-bold text-navy hover:border-orange-500 transition-colors focus:outline-none focus:border-orange-500"
+            >
               {FILTERS.map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setActiveFilter(f)}
-                  className={`px-5 py-2.5 rounded-full border text-sm font-bold transition-all ${
-                    activeFilter === f
-                      ? 'bg-orange-500 border-orange-500 text-white'
-                      : 'bg-white border-gray-200 text-gray-600 hover:border-orange-500 hover:text-orange-500'
-                  }`}
-                >
+                <option key={f} value={f}>
                   {f}
-                </button>
+                </option>
               ))}
-            </div>
+            </select>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

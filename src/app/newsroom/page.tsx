@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { Navbar } from '../components/Navbar'
+import { Footer } from '../components/Footer'
 
 const articles = [
   {
@@ -215,33 +216,7 @@ export default function NewsroomPage() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-100 py-12 mt-auto">
-        <div className="max-w-[1600px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3">
-            <div className="bg-navy p-1.5 rounded-lg">
-              <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 12l3 3v7h5v-5h4v5h5v-7l3-3L12 2zm0 2.8l7 7V20h-1v-5H6v5H5v-8.2l7-7z" />
-              </svg>
-            </div>
-            <span className="font-bold text-xl text-navy">Visit Vietnam</span>
-          </div>
-          <p className="text-gray-500 text-sm">
-            © 2024 Visit Vietnam. All rights reserved. Developed for excellence.
-          </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-gray-400 hover:text-navy transition-colors">
-              Facebook
-            </a>
-            <a href="#" className="text-gray-400 hover:text-navy transition-colors">
-              Instagram
-            </a>
-            <a href="#" className="text-gray-400 hover:text-navy transition-colors">
-              TikTok
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

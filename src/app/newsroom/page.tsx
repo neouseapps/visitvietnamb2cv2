@@ -213,36 +213,6 @@ export default function NewsroomPage() {
             </button>
           </div>
         </section>
-
-        {/* Newsletter */}
-        <section className="bg-navy rounded-panel p-16 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
-            <svg viewBox="0 0 400 400" fill="none" className="w-full h-full">
-              <circle cx="200" cy="200" r="150" stroke="white" strokeWidth="2" />
-              <circle cx="200" cy="200" r="100" stroke="white" strokeWidth="1" />
-              <circle cx="200" cy="200" r="200" stroke="white" strokeWidth="0.5" />
-            </svg>
-          </div>
-          <div className="relative z-10 max-w-2xl">
-            <h3 className="text-4xl font-extrabold text-white mb-4">
-              Đăng ký nhận tin từ chúng tôi
-            </h3>
-            <p className="text-gray-300 text-lg mb-8">
-              Đừng bỏ lỡ những ưu đãi đặc biệt và tin tức du lịch hấp dẫn nhất được gửi trực tiếp
-              đến hòm thư của bạn.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Địa chỉ email của bạn"
-                className="flex-1 bg-white/10 border border-white/20 rounded-full px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-all"
-              />
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold transition-colors whitespace-nowrap">
-                Đăng ký ngay
-              </button>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}

@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
+import { OffersSection } from '../components/OffersSection'
 
 const experiences = [
   {
@@ -420,6 +421,7 @@ export default function PhuQuocPage() {
           </div>
         </section>
       </main>
+      <OffersSection />
       <Footer />
     </div>
   )

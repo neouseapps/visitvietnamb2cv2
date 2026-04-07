@@ -1,15 +1,8 @@
 import type { NextConfig } from 'next'
 import type { Configuration } from 'webpack'
+import createNextIntlPlugin from 'next-intl/plugin'
 
-/**
- * next-intl plugin is installed and configured in src/i18n/.
- * Activate by wrapping nextConfig with createNextIntlPlugin once
- * pages are moved into the src/app/[locale]/ structure.
- *
- * import createNextIntlPlugin from 'next-intl/plugin'
- * const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
- * export default withNextIntl(nextConfig)
- */
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
 const nextConfig: NextConfig = {
   turbopack: {},
@@ -18,6 +11,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
       },
     ],
   },
@@ -32,4 +29,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+export default withNextIntl(nextConfig)

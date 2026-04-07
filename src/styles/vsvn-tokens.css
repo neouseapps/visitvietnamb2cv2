@@ -24,17 +24,17 @@
      COLOR — BRAND
      Source: VSVN Theme / color/bg/brand & color/text/brand
   ----------------------------------------------------------- */
-  --color-brand-primary: #0055d2;
-  --color-brand-primary-bright: #1a70ff;
-  --color-brand-primary-hover: #0044b0;
-  --color-brand-primary-bright-hover: #0055d2;
+  --color-brand-primary:              #ca842f;
+  --color-brand-primary-bright:       #fde7db;
+  --color-brand-primary-hover:        #b87429;
+  --color-brand-primary-bright-hover: #fbd2b8;
 
-  --color-brand-secondary: #eaf1ff;
-  --color-brand-secondary-hover: #d0e2ff;
+  --color-brand-secondary:            #f8b117;
+  --color-brand-secondary-hover:      #e09a04;
 
-  --color-text-brand-primary: #0055d2;
-  --color-text-brand-primary-bright: #1a70ff;
-  --color-text-brand-secondary: #1a70ff;
+  --color-text-brand-primary:         #fef7e6;
+  --color-text-brand-primary-bright:  #f8b117;
+  --color-text-brand-secondary:       #feeecd;
 
   /* -----------------------------------------------------------
      COLOR — NEUTRAL BACKGROUNDS
@@ -50,6 +50,9 @@
   --color-bg-bright-hover: #f5f5f5;
   --color-bg-inverse: #111111;
   --color-bg-inverse-hover: #2a2a2a;
+  --color-bg-neutral-inverse: #242421;
+  --color-bg-neutral-inverse-hover: #3a3a36;
+  --color-bg-brand-primary-dim: #7a4917;
 
   /* -----------------------------------------------------------
      COLOR — TEXT
@@ -67,7 +70,7 @@
   ----------------------------------------------------------- */
   --color-border-default: #dedede;
   --color-border-input: #c8c8c8;
-  --color-border-brand-primary-bright: #1a70ff;
+  --color-border-brand-primary-bright: #9c0512;
 
   /* -----------------------------------------------------------
      COLOR — STATUS / SEMANTIC
@@ -87,6 +90,7 @@
   /* Success */
   --color-bg-success-default: #26c870;
   --color-bg-success-bright: #dcfce7;
+  --color-bg-success-subtle: #e8faf0;   /* light green tint, bg cho icon containers */
   --color-bg-success-hover: #148048;
   --color-bg-success-bright-hover: #1a9e5c;
   --color-text-success-default: #26c870;
@@ -128,6 +132,11 @@
   --color-alpha-white-70: rgba(255, 255, 255, 0.7);
   --color-alpha-white-80: rgba(255, 255, 255, 0.8);
   --color-alpha-white-100: rgba(255, 255, 255, 1);
+
+  /* -----------------------------------------------------------
+     NAVIGATION
+  ----------------------------------------------------------- */
+  --Navigation-VSVN-Background: linear-gradient(180deg, var(--color-alpha-black-20) 0%, var(--color-alpha-black-0) 100%);
 
   /* -----------------------------------------------------------
      COLOR — FOCUS
@@ -314,6 +323,28 @@
   --layout-breakpoint-min: 280px;
   --layout-breakpoint-max: 1920px;
   --layout-design-width: 1366px;
+
+  /* -----------------------------------------------------------
+     WEB TYPOGRAPHY ALIASES — design spec variable names
+     Maps spec-standard names → existing VSVN token values
+  ----------------------------------------------------------- */
+  --typography-font-family-display: var(--font-display);      /* "SVN-Ryhmes Display" */
+  --typography-font-family-default: var(--font-default);      /* "SVN-Selecta" */
+
+  --web_typo-display-extralarge-font-size:      48px;
+  --web_typo-display-extralarge-line-height:    54px;
+  --web_typo-display-extralarge-letter-spacing: -0.48px;
+
+  --web_typo-body-extralarge-font-size:         18px;
+  --web_typo-body-extralarge-line-height:       28px;
+
+  --color-text-neutral-inverse: var(--color-text-inverse);    /* #ffffff */
+
+  /* -----------------------------------------------------------
+     FIGMA APP CARD TOKENS — AiContext component (node 3762:32053)
+  ----------------------------------------------------------- */
+  --color-bg-neutral-bright:        #f7f6f4;   /* warm off-white card background */
+  --color-border-brand-primary-dim: #501116;   /* wine-red card border */
 }
 
 /* =============================================================

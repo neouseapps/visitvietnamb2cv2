@@ -1,51 +1,21 @@
 'use client'
 
-// TODO: migrate to useTranslations (next-intl) when [locale] routing is configured
-
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { Bell, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import useEmblaCarousel from 'embla-carousel-react'
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-const QUICK_PROMPTS = [
-  '🌴 Lịch trình 3N2Đ cho gia đình',
-  '❤️ Kỳ nghỉ trăng mật lãng mạn',
-  '🎒 Phượt tự túc 4 ngày',
-]
-
-// ─── LeftPanel ────────────────────────────────────────────────────────────────
-
-function LeftPanel() {
-  return (
-    <div className="lg:w-1/3 flex items-start gap-4">
-      <div
-        className="w-14 h-14 bg-accent-orange flex items-center justify-center text-white flex-shrink-0 shadow-lg shadow-orange-500/30"
-        style={{ borderRadius: 'var(--radius-md)' }}
-      >
-        <Bell className="w-7 h-7" />
-      </div>
-      <div>
-        <h2 className="text-2xl font-bold text-white mb-2">Hỏi AI để lên lịch trình</h2>
-        <p className="text-sm text-[var(--color-text-dim)]">
-          Thiết kế chuyến đi cá nhân hóa trong vài giây.
-        </p>
-      </div>
-    </div>
-  )
-}
-
 // ─── SubmitButton ─────────────────────────────────────────────────────────────
 
-function SubmitButton() {
+function SubmitButton({ label }: { label: string }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
     <motion.button
       type="submit"
-      aria-label="Trải nghiệm AI trong app"
-      className="bg-accent-orange hover:bg-orange-600 text-white rounded-full h-11 flex items-center justify-center gap-2 px-3 flex-shrink-0 overflow-hidden transition-colors"
+      aria-label={label}
+      className="bg-bg-warning-default hover:bg-orange-600 text-white rounded-full h-11 flex items-center justify-center gap-2 px-3 flex-shrink-0 overflow-hidden transition-colors"
       animate={{ width: isHovered ? 'auto' : '2.75rem' }}
       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
       onHoverStart={() => setIsHovered(true)}
@@ -62,7 +32,7 @@ function SubmitButton() {
             transition={{ duration: 0.2 }}
             className="whitespace-nowrap text-sm font-semibold pr-2"
           >
-            Trải nghiệm AI trong app
+            {label}
           </motion.span>
         )}
       </AnimatePresence>
@@ -94,7 +64,7 @@ function ChipCarousel({ chips, selectedOption, onSelect }: ChipCarouselProps) {
               className={[
                 'whitespace-nowrap rounded-full px-4 py-1.5 text-sm transition-colors flex-shrink-0',
                 isSelected
-                  ? 'bg-accent-orange text-white border border-accent-orange'
+                  ? 'bg-bg-warning-default text-white border border-bg-warning-default'
                   : 'bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white',
               ].join(' ')}
             >
@@ -112,15 +82,17 @@ function ChipCarousel({ chips, selectedOption, onSelect }: ChipCarouselProps) {
 interface AIInputPillProps {
   selectedOption: string
   onChipSelect: (chip: string) => void
+  submitLabel: string
+  chips: string[]
 }
 
-function AIInputPill({ selectedOption, onChipSelect }: AIInputPillProps) {
+function AIInputPill({ selectedOption, onChipSelect, submitLabel, chips }: AIInputPillProps) {
   return (
-    <div className="rounded-card bg-navy-mid border border-white/10 w-full">
+    <div className="rounded-card bg-bg-inverse-hover border border-white/10 w-full">
       {/* Selected option display row */}
       <div className="flex items-center gap-3 px-6 py-4">
         <p className="flex-1 text-white text-base min-w-0 truncate">{selectedOption}</p>
-        <SubmitButton />
+        <SubmitButton label={submitLabel} />
       </div>
 
       {/* Thin separator */}
@@ -128,7 +100,7 @@ function AIInputPill({ selectedOption, onChipSelect }: AIInputPillProps) {
 
       {/* Chip carousel */}
       <div className="px-4 py-3">
-        <ChipCarousel chips={QUICK_PROMPTS} selectedOption={selectedOption} onSelect={onChipSelect} />
+        <ChipCarousel chips={chips} selectedOption={selectedOption} onSelect={onChipSelect} />
       </div>
     </div>
   )
@@ -137,16 +109,31 @@ function AIInputPill({ selectedOption, onChipSelect }: AIInputPillProps) {
 // ─── AIItinerarySection (main export) ────────────────────────────────────────
 
 export function AIItinerarySection() {
-  const [selectedOption, setSelectedOption] = useState(QUICK_PROMPTS[0])
+  const t = useTranslations('AIItinerarySection')
+  const quickPrompts = [0, 1, 2].map(i => t(`quickPrompts.${i}`))
+  const [selectedOption, setSelectedOption] = useState(quickPrompts[0])
 
   return (
-    <section className="bg-navy border-b border-white/10 w-full relative z-20">
+    <section className="bg-bg-inverse border-b border-white/10 w-full relative z-20">
       <div className="max-w-[1600px] mx-auto px-8 py-10 flex flex-col lg:flex-row items-center gap-10">
-        <LeftPanel />
+        <div className="lg:w-1/3 flex items-start gap-4">
+          <div
+            className="w-14 h-14 bg-bg-warning-default flex items-center justify-center text-white flex-shrink-0 shadow-lg shadow-orange-500/30"
+            style={{ borderRadius: 'var(--radius-md)' }}
+          >
+            <Bell className="w-7 h-7" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-2">{t('title')}</h2>
+            <p className="text-sm text-[var(--color-text-dim)]">{t('subtitle')}</p>
+          </div>
+        </div>
         <div className="lg:w-2/3 w-full">
           <AIInputPill
             selectedOption={selectedOption}
             onChipSelect={setSelectedOption}
+            submitLabel={t('submitLabel')}
+            chips={quickPrompts}
           />
         </div>
       </div>

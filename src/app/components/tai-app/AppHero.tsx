@@ -3,14 +3,15 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { QrCode } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 
 
 export function AppHero() {
   const t = useTranslations('TaiAppPage.Hero')
+  const locale = useLocale()
   return (
     <section className="relative pt-[70px] pb-16 lg:pt-[102px] lg:pb-16 overflow-hidden bg-white">
-      <div className="max-w-[920px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={`${locale === 'en' ? 'max-w-[1100px]' : 'max-w-[960px]'} mx-auto px-4 sm:px-6 lg:px-8`}>
         <div className="flex flex-col items-center text-center space-y-6">
           {/* Callout */}
           <motion.div
@@ -51,7 +52,7 @@ export function AppHero() {
             className="relative w-full max-w-md flex justify-center"
           >
             <Image
-              src="/images/hero-app-mockup.png"
+              src={locale === 'en' ? '/images/hero-app-mockup-en.png' : '/images/hero-app-mockup.png'}
               alt="Visit Vietnam app — màn hình khám phá điểm đến"
               width={560}
               height={600}

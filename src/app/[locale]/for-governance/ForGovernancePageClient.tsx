@@ -7,7 +7,6 @@ import { Navbar } from '../../components/Navbar'
 import { Footer } from '../../components/Footer'
 import { Button } from '../../components/ui/button'
 import {
-  ShieldCheck,
   Database,
   Clock,
   EyeOff,
@@ -59,12 +58,10 @@ function HeroSection() {
       />
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/20" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
 
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 mt-16">
         <div className="max-w-[832px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md border border-white/20">
-            <ShieldCheck className="w-4 h-4 text-[var(--color-brand-primary)]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md">
             {t('badge')}
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-white leading-[1.2] mb-6">
@@ -75,8 +72,8 @@ function HeroSection() {
           </p>
 
           {/* Sponsorship block */}
-          <div className="mb-8 backdrop-blur-sm rounded-[32px] px-10 py-6 inline-block" style={{ backgroundColor: 'color-mix(in srgb, var(--color-brand-primary) 45%, transparent)' }}>
-            <div className="inline-flex items-center px-3 py-1 rounded-full border border-white/20 bg-white/10 mb-8">
+          <div className="mb-8 backdrop-blur-md rounded-[32px] px-10 py-6 inline-block" style={{ backgroundColor: 'color-mix(in srgb, var(--color-brand-primary) 30%, rgba(255,255,255,0.08))', border: '1px solid rgba(255,255,255,0.18)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 8px rgba(0,0,0,0.04)' }}>
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 mb-8">
               <span className="text-xs font-bold tracking-widest uppercase text-white/70">{tSponsor('title')}</span>
             </div>
             <div className="flex items-center justify-center gap-6">
@@ -143,7 +140,7 @@ function PainPointsSection() {
   }))
 
   return (
-    <section className="py-24 bg-[var(--color-bg-dim)]">
+    <section className="py-16 bg-[var(--color-bg-dim)]">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
@@ -190,7 +187,7 @@ function DashboardFeaturesSection() {
   }))
 
   return (
-    <section id="features" className="py-24 bg-[var(--color-bg-default)]">
+    <section id="features" className="py-16 bg-[var(--color-bg-default)]">
       <div className="max-w-[1440px] mx-auto px-8">
         {/* Row 1: headline left, subtitle + CTA right */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
@@ -293,7 +290,7 @@ function ValuePropsSection() {
   return (
     <section className="py-16 text-white" style={{ background: 'linear-gradient(180deg, var(--color-alpha-black-20) 0%, var(--color-alpha-black-80) 100%), var(--color-bg-brand-primary-dim)' }}>
       <div className="max-w-[1440px] mx-auto px-8">
-        <div className="text-center max-w-[704px] mx-auto mb-12">
+        <div className="text-center max-w-[520px] mx-auto mb-12">
           <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
             {t('eyebrow')}
           </h2>
@@ -327,7 +324,7 @@ function ContactFormSection() {
   const t = useTranslations('ForGovernancePage.Contact')
 
   return (
-    <section id="contact" className="py-24 bg-[var(--color-bg-dim)]">
+    <section id="contact" className="py-16 bg-[var(--color-bg-dim)]">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">

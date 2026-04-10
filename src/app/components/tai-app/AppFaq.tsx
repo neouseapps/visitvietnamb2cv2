@@ -17,7 +17,7 @@ export function AppFaq() {
   )
 
   return (
-    <section className="py-24 bg-[var(--color-bg-default)]">
+    <section className="py-16 bg-[var(--color-bg-default)]">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="max-w-3xl mx-auto">
           <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase text-center mb-2">
@@ -34,7 +34,7 @@ export function AppFaq() {
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className={`border-b border-[var(--color-border-default)] ${idx === 0 ? 'border-t' : ''}`}
+                className={idx < faqs.length - 1 ? 'border-b border-[var(--color-border-default)]' : ''}
               >
                 <button
                   className="w-full py-4 flex justify-between items-center text-left gap-4"

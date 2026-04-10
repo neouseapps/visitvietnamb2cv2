@@ -212,7 +212,7 @@ export default function BaNaPageClient() {
       </header>
 
       {/* ── EXPERIENCES ── */}
-      <section className="w-full py-24 px-8 max-w-[1440px] mx-auto bg-bg-dim relative">
+      <section className="w-full py-16 px-8 max-w-[1440px] mx-auto bg-bg-dim relative">
         <div className="mb-8">
           <h2 className="text-3xl font-bold font-default text-[var(--color-text-default)] tracking-tight mb-2">
             {tExp('title')}

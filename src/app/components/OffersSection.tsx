@@ -173,7 +173,7 @@ export const OffersSection = () => {
   }
 
   return (
-    <section className="w-full py-24 px-8 max-w-[1440px] mx-auto bg-bg-dim relative">
+    <section className="w-full py-16 px-8 max-w-[1440px] mx-auto bg-bg-dim relative">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
         <div>
@@ -193,7 +193,7 @@ export const OffersSection = () => {
         </div>
         <button
           onClick={() => handleExplore('all')}
-          className="flex items-center text-sm font-semibold text-bg-inverse hover:text-bg-warning-default transition-colors gap-1 border border-[var(--color-border-default)] bg-[var(--color-bg-default)] px-4 py-2 rounded-full shadow-sm hover:shadow-md"
+          className="hidden md:flex items-center text-sm font-semibold text-bg-inverse hover:text-bg-warning-default transition-colors gap-1 border border-[var(--color-border-default)] bg-[var(--color-bg-default)] px-4 py-2 rounded-full shadow-sm hover:shadow-md"
         >
           {t('viewAll')}
         </button>
@@ -208,6 +208,16 @@ export const OffersSection = () => {
             onExplore={() => handleExplore(offer.id)}
           />
         ))}
+      </div>
+
+      {/* Mobile-only: button below cards */}
+      <div className="flex md:hidden justify-center mt-8">
+        <button
+          onClick={() => handleExplore('all')}
+          className="flex items-center text-sm font-semibold text-bg-inverse hover:text-bg-warning-default transition-colors gap-1 border border-[var(--color-border-default)] bg-[var(--color-bg-default)] px-4 py-2 rounded-full shadow-sm hover:shadow-md"
+        >
+          {t('viewAll')}
+        </button>
       </div>
     </section>
   )

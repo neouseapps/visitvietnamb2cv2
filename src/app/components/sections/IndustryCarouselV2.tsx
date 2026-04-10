@@ -237,7 +237,7 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
   const currentRows = SLIDES[slide]
 
   return (
-    <section className="pt-[60px] pb-[60px] bg-white">
+    <section className="py-16 bg-white">
       {/* Header */}
       <div className="max-w-[1440px] mx-auto px-8 mb-[60px] text-center">
 <h2 className="text-3xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">

@@ -6,7 +6,7 @@ import { TestimonialCarousel } from '../sections/TestimonialCarousel'
 export function AppTestimonials() {
   const t = useTranslations('TaiAppPage.Testimonials')
   return (
-    <section className="py-12 bg-[var(--color-bg-dim)]">
+    <section className="py-16 bg-[var(--color-bg-dim)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">

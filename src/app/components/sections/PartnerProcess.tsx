@@ -38,7 +38,7 @@ export function PartnerProcess() {
   }
 
   return (
-    <section id="how-it-works" className="py-24 bg-[var(--color-bg-dim)] scroll-mt-24">
+    <section id="how-it-works" className="py-16 bg-[var(--color-bg-dim)] scroll-mt-24">
       <div className="max-w-[1440px] mx-auto px-8">
 
         {/* Header */}

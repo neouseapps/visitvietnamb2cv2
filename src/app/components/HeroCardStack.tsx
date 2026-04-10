@@ -129,7 +129,7 @@ export function HeroCardStack() {
         const cardContent = (
           <div
             className="flex flex-col gap-3 px-4 py-4 rounded-[22px]"
-            style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', position: 'relative' }}
+            style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', position: 'relative' }}
           >
             {/* ── Row 1: GIF + text ── */}
             <div className="flex flex-row items-center gap-3">
@@ -148,8 +148,8 @@ export function HeroCardStack() {
                 className="font-default text-left flex-1"
                 style={{
                   color: 'var(--color-text-default)',
-                  fontSize: 15,
-                  fontWeight: 500,
+                  fontSize: 17,
+                  fontWeight: 400,
                   lineHeight: '22px',
                   letterSpacing: '-0.3px',
                 }}
@@ -163,15 +163,20 @@ export function HeroCardStack() {
             <div
               className="flex items-center justify-center rounded-full w-full"
               style={{
-                background: 'var(--color-bg-inverse)',
+                background: 'rgba(255,255,255,0.6)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
                 padding: '10px 16px',
-                boxShadow: '0px 2px 8px rgba(0,0,0,0.12)',
+                boxShadow: hovered
+                  ? 'inset 0 1px 0 rgba(255,255,255,0.8), 0px 6px 24px rgba(0,0,0,0.06)'
+                  : 'inset 0 1px 0 rgba(255,255,255,0.8), 0px 0px 0px rgba(0,0,0,0)',
+                transition: 'box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
               <span
                 className="font-default overflow-hidden text-ellipsis whitespace-nowrap"
                 style={{
-                  color: 'var(--color-text-neutral-inverse, #f7f6f4)',
+                  color: 'var(--color-text-default)',
                   fontSize: 13,
                   fontWeight: 500,
                   lineHeight: '20px',

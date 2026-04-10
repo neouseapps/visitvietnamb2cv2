@@ -16,7 +16,7 @@ const inputClass =
 
 function FieldLabel({ children, required }: { children: React.ReactNode; required?: boolean }) {
   return (
-    <span className="shrink-0 sm:w-[180px] text-sm font-medium text-[var(--color-text-default)] flex items-center gap-0.5">
+    <span className="shrink-0 sm:w-[180px] text-sm font-normal text-[var(--color-text-dim)] flex items-center gap-0.5">
       {children}
       {required && <span className="text-[var(--color-text-danger-default)]">*</span>}
     </span>
@@ -97,7 +97,7 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
   }, [])
 
   return (
-    <section id="register" className="pb-24 bg-[var(--color-bg-dim)] scroll-mt-20">
+    <section id="register" className="py-16 bg-[var(--color-bg-dim)] scroll-mt-20">
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto rounded-3xl overflow-hidden bg-[var(--color-bg-default)] shadow-sm border border-[var(--color-border-default)]">
           <div className="relative">
@@ -134,9 +134,8 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
             {/* Title */}
             <div className="text-center">
               <h2
-                className="font-display font-medium text-[var(--color-text-default)] mb-2"
+                className="font-display font-medium text-[var(--color-text-default)] mb-2 text-2xl md:text-[length:var(--text-display-medium-size)]"
                 style={{
-                  fontSize: 'var(--text-display-medium-size)',
                   lineHeight: 'var(--text-display-medium-lh)',
                   letterSpacing: 'var(--text-display-medium-ls)',
                   fontWeight: 'var(--text-display-medium-weight-moderate)',
@@ -255,7 +254,7 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
                 >
                   {t('sections.license')}
                 </h3>
-                <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+                <div className="flex flex-row items-center gap-4">
                   <div className="shrink-0 sm:w-[180px]">
                     <p className="text-sm font-medium text-[var(--color-text-default)] flex items-center gap-0.5">
                       {t('fields.licenseFile')}<span className="text-[var(--color-text-danger-default)]">*</span>
@@ -267,10 +266,9 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
                     <button
                       type="button"
                       onClick={() => licenseRef.current?.click()}
-                      className="inline-flex items-center gap-2 h-10 px-4 rounded-xl bg-[var(--color-bg-dim)] border border-[var(--color-border-default)] text-sm font-semibold text-[var(--color-text-default)] hover:bg-[var(--color-bg-dim-variant)] transition-colors"
+                      className="inline-flex items-center h-10 px-4 rounded-xl bg-[var(--color-bg-dim)] border border-[var(--color-border-default)] text-sm font-semibold text-[var(--color-text-default)] hover:bg-[var(--color-bg-dim-variant)] transition-colors"
                     >
                       {licenseFile ? licenseFile.name : t('fields.uploadFile')}
-                      <Upload className="w-5 h-5" aria-hidden="true" />
                     </button>
                   </div>
                 </div>

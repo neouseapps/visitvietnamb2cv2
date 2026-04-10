@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { Button } from '@/app/components/ui/button'
 
 // ─── Arrow icon ───────────────────────────────────────────────────────────────
@@ -15,11 +15,13 @@ const ArrowRight = () => (
 // ─── Phone mockup ─────────────────────────────────────────────────────────────
 
 function PhoneChatMockup() {
+  const locale = useLocale()
+  const src = locale === 'en' ? '/images/app-feature-01-en.png' : '/images/app-feature-01.png'
   return (
     <img
-      src="/images/app-feature-01.png"
+      src={src}
       alt="Visit Vietnam app"
-      className="w-[600px] h-[600px] object-cover rounded-[40px]"
+      className="w-full max-w-[600px] h-auto object-contain rounded-[40px]"
       draggable={false}
     />
   )
@@ -35,7 +37,7 @@ export function AISection() {
   }))
 
   return (
-    <section id="ai-assistant" className="py-24 bg-white relative overflow-hidden">
+    <section id="ai-assistant" className="py-16 bg-white relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* Col 1: Phone mockup — desktop only */}

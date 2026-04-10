@@ -23,7 +23,7 @@ function GooglePlayIcon() {
 export function AppDownloadCTA() {
   const t = useTranslations('TaiAppPage.CTA')
   return (
-    <section className="pb-12 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-5xl mx-auto bg-[var(--color-bg-inverse)] rounded-3xl overflow-hidden relative p-8">
         {/* Decorative blobs */}
         <div
@@ -66,20 +66,20 @@ export function AppDownloadCTA() {
               className="flex flex-col gap-3 w-full"
             >
               {/* Mobile: 3 items in 1 row. Desktop: 2-col grid with QR spanning 2. */}
-              <div className="grid grid-cols-2 gap-3 w-full" style={{ gridAutoRows: '1fr' }}>
-                <button className="flex items-center justify-center gap-3 bg-white/5 backdrop-blur-sm text-white px-4 py-4 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                  <AppleIcon />
-                  <div className="text-lg font-bold leading-none hidden sm:block">App Store</div>
-                </button>
-                <button className="flex items-center justify-center gap-3 bg-white/5 backdrop-blur-sm text-white px-4 py-4 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                  <GooglePlayIcon />
-                  <div className="text-lg font-bold leading-none hidden sm:block">Google Play</div>
-                </button>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-6 w-full" style={{ gridAutoRows: '1fr' }}>
+                <div className="flex items-center justify-start">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/app-store-badge.png" alt="Download on the App Store" className="h-[52px] w-auto object-contain" draggable={false} />
+                </div>
+                <div className="flex items-center justify-end">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/google-play-badge.png" alt="Get it on Google Play" className="h-[52px] w-auto object-contain" draggable={false} />
+                </div>
 
                 {/* TODO: replace QrCode placeholder with a real QR code image */}
-                <div className="col-span-2 hidden lg:flex flex-row items-center justify-center gap-4 bg-white/5 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/10">
+                <div className="col-span-2 hidden lg:flex flex-row items-center justify-center gap-4 bg-white/5 backdrop-blur-sm px-6 py-2 rounded-2xl border border-white/10">
                   <div className="shrink-0">
-                    <QrCode className="w-10 h-10 text-white" />
+                    <QrCode className="w-8 h-8 text-white" />
                   </div>
                   <p className="text-white/70 font-medium">{t('scanToDownload')}</p>
                 </div>

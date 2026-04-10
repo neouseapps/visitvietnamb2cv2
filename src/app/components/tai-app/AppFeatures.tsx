@@ -2,17 +2,26 @@
 
 import Image from 'next/image'
 import { Calendar, Smartphone, Compass, Share2, ArrowRight } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 
-const FEATURE_STATIC = [
+const FEATURE_STATIC_VI = [
   { icon: Calendar, image: '/images/app-feature-01.png' },
   { icon: Smartphone, image: '/images/app-feature-02.png' },
   { icon: Compass, image: '/images/app-feature-03.png' },
   { icon: Share2, image: '/images/app-feature-04.png' },
 ]
 
+const FEATURE_STATIC_EN = [
+  { icon: Calendar, image: '/images/app-feature-01-en.png' },
+  { icon: Smartphone, image: '/images/app-feature-02-en.png' },
+  { icon: Compass, image: '/images/app-feature-03-en.png' },
+  { icon: Share2, image: '/images/app-feature-04-en.png' },
+]
+
 export function AppFeatures() {
   const t = useTranslations('TaiAppPage.Features')
+  const locale = useLocale()
+  const FEATURE_STATIC = locale === 'en' ? FEATURE_STATIC_EN : FEATURE_STATIC_VI
   const features = [0,1,2,3].map(i => ({
     ...FEATURE_STATIC[i],
     title: t(`items.${i}.title`),
@@ -21,7 +30,7 @@ export function AppFeatures() {
     bullets: [0,1,2].map(j => t(`items.${i}.bullets.${j}`)).filter(Boolean),
   }))
   return (
-    <section className="py-24 bg-[var(--color-bg-default)] overflow-hidden">
+    <section className="py-16 bg-[var(--color-bg-default)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20">

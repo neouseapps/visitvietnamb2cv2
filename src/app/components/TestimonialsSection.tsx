@@ -97,7 +97,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-24 bg-white border-y border-[var(--color-border-default)]"
+      className="py-16 bg-white"
     >
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="flex flex-col items-center gap-10 lg:grid lg:gap-16 lg:items-center"

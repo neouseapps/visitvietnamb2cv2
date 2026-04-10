@@ -83,13 +83,10 @@ function HeroSection() {
         className="object-cover object-center"
         priority
       />
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 mt-16">
         <div className="max-w-[832px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-[var(--color-bg-warning-default)] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md">
             {t('badge')}
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-white leading-[1.2] mb-6">
@@ -160,7 +157,7 @@ function FeaturesSection() {
     desc: t(`items.${i}.desc`),
   }))
   return (
-    <section id="features" className="py-24 bg-[var(--color-bg-dim)]">
+    <section id="features" className="py-16 bg-[var(--color-bg-dim)]">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
@@ -211,7 +208,7 @@ function FaqSection() {
     [],
   )
   return (
-    <section className="py-24 bg-[var(--color-bg-default)]">
+    <section className="py-16 bg-[var(--color-bg-default)]">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] text-center mb-10">
@@ -239,7 +236,7 @@ function FaqSection() {
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className={`border-b border-[var(--color-border-default)] ${idx === 0 ? 'border-t' : ''}`}
+                className={`border-[var(--color-border-default)] ${idx < faqs.length - 1 ? 'border-b' : ''}`}
               >
                 <button
                   className="w-full py-4 flex justify-between items-center text-left gap-4"

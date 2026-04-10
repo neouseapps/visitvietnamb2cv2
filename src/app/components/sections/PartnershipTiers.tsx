@@ -291,7 +291,7 @@ export function PartnershipTiers() {
   }
 
   return (
-    <section id="pricing" className="py-24 bg-bg-inverse relative overflow-hidden">
+    <section id="pricing" className="py-16 bg-bg-inverse relative overflow-hidden">
       <div className="absolute inset-0 opacity-30 bg-dot-brand" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-primary rounded-full blur-[100px] opacity-30 pointer-events-none" />
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-primary rounded-full blur-[100px] opacity-20 pointer-events-none" />

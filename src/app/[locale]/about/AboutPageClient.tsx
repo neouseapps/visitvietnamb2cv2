@@ -133,12 +133,12 @@ export default function AboutPageClient() {
           <img
             src="/images/hero-about.png"
             alt="Vietnam Landscape"
-            className="w-full h-full object-cover object-center opacity-60"
+            className="w-full h-full object-cover object-center"
           />
         </div>
 
         <div className="max-w-[1440px] mx-auto px-8 relative z-10 text-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-6">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white text-sm font-medium mb-6">
             {tHero('badge')}
           </span>
           <h1
@@ -194,7 +194,7 @@ export default function AboutPageClient() {
       {/* ================================================================
           2. 3 PILLARS
       ================================================================ */}
-      <section className="py-24 bg-bg-dim relative">
+      <section className="py-16 bg-bg-dim relative">
         <div className="absolute top-0 inset-x-0 h-40 opacity-5 bg-gradient-fade" />
         <div className="max-w-[1440px] mx-auto px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto mb-16">
@@ -231,7 +231,7 @@ export default function AboutPageClient() {
       {/* ================================================================
           3. VISION & MISSION
       ================================================================ */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-2xl mx-auto px-8 text-center flex flex-col gap-16">
             {/* Vision */}
             <div>
@@ -266,7 +266,7 @@ export default function AboutPageClient() {
       {/* ================================================================
           3b. COMMITMENTS
       ================================================================ */}
-      <section className="py-12 bg-bg-dim">
+      <section className="py-16 bg-bg-dim">
         <div className="max-w-[1440px] mx-auto px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h3 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.3]">
@@ -297,7 +297,7 @@ export default function AboutPageClient() {
       {/* ================================================================
           4. PROBLEM vs SOLUTION
       ================================================================ */}
-      <section className="py-24 bg-bg-dim relative bg-dot">
+      <section className="py-16 bg-bg-dim relative bg-dot">
         <div className="max-w-[1440px] mx-auto px-8">
           <div className="text-center max-w-[868px] mx-auto mb-16">
             <span className="text-sm font-bold text-bg-danger-hover tracking-widest uppercase mb-3 block">
@@ -362,7 +362,7 @@ export default function AboutPageClient() {
       {/* ================================================================
           5. STATS
       ================================================================ */}
-      <section className="py-24 bg-bg-inverse relative overflow-hidden">
+      <section className="py-16 bg-bg-inverse relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-dot-white" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-primary rounded-full blur-[100px] opacity-30 pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-primary rounded-full blur-[100px] opacity-20 pointer-events-none" />
@@ -411,7 +411,7 @@ export default function AboutPageClient() {
       {/* ================================================================
           6. CONTACT
       ================================================================ */}
-      <section id="contact" className="py-24 bg-white">
+      <section id="contact" className="py-16 bg-white">
         <div className="max-w-[1440px] mx-auto px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-default font-bold text-bg-inverse mb-4">

@@ -38,34 +38,36 @@ const HeroSection = () => {
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/40 to-navy/90"></div>
+      <div className="absolute inset-0 bg-black/10"></div>
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 pt-[120px] md:pt-0">
         <div className="max-w-2xl text-center mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium mb-6 border border-white/20" style={{ background: '#ffffff', color: 'var(--color-brand-primary, #ca842f)' }}>
-          {t('badge')}
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium mb-6 relative overflow-hidden" style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', color: '#ffffff', background: 'rgba(255,255,255,0.2)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(255,255,255,0.1), 0 1px 8px rgba(0,0,0,0.12)' }}>
+          {/* liquid iridescent shimmer layer */}
+          <span aria-hidden className="absolute inset-0 rounded-full pointer-events-none" style={{ background: 'linear-gradient(115deg, rgba(255,255,255,0.45) 0%, rgba(180,220,255,0.2) 30%, rgba(200,180,255,0.2) 60%, rgba(255,255,255,0.35) 100%)' }} />
+          <span className="relative z-10">{t('badge')}</span>
         </div>
         <h1
-          className="font-display font-medium italic text-white leading-[1.2] mb-6 text-[40px] md:text-[80px]"
+          className="font-display font-medium italic text-white leading-[1.2] mb-6 text-[36px] md:text-[76px]"
           style={{ textShadow: '3.421px 17px 24px rgba(0, 0, 0, 0.30), 0 2px 8px rgba(0, 0, 0, 0.15)' }}
         >
           {t('title').split('\n').map((line, i) => (
             <React.Fragment key={i}>{i > 0 && <br />}{line}</React.Fragment>
           ))}
         </h1>
-        <p
-          className="font-semibold mb-6 max-w-sm mx-auto"
-          style={{
-            fontFamily: 'var(--typography-font-family-default, SVN-Selecta)',
-            fontSize: 22,
-            lineHeight: '32px',
-            letterSpacing: '0',
-            color: 'var(--color-text-neutral-inverse)',
-            textShadow: '0 4px 24px rgba(150, 80, 10, 0.85), 0 2px 8px rgba(180, 100, 20, 0.60)',
-          }}
-        >
-          {t('subtitle')}
-        </p>
-        {/* AI Trip Card Stack */}
-        <div className="mt-[120px] w-full flex justify-center">
+        {/* AI Trip Card Stack + subtitle */}
+        <div className="mt-[168px] w-full flex flex-col items-center gap-4">
+          <p
+            className="font-medium max-w-[464px] mx-auto text-[16px] md:text-[24px]"
+            style={{
+              fontFamily: 'var(--typography-font-family-default, SVN-Selecta)',
+              lineHeight: '32px',
+              letterSpacing: '0',
+              color: 'var(--color-text-neutral-inverse)',
+              textShadow: '0 2px 12px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.15)',
+            }}
+          >
+            {t('subtitle')}
+          </p>
           <HeroCardStack />
         </div>
 
@@ -213,7 +215,7 @@ const FeaturesSection = () => {
   }))
 
   return (
-    <section id="experiences" className="py-24 bg-white border-t border-slate-100">
+    <section id="experiences" className="py-16 bg-white">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-block font-semibold text-sm tracking-wider uppercase mb-3" style={{color: 'var(--color-bg-warning-default)'}}>
@@ -231,7 +233,7 @@ const FeaturesSection = () => {
           {/* Row 1: 3 items */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16">
             {features.slice(0, 3).map((feat) => (
-              <div key={feat.title} className="flex flex-col gap-4">
+              <div key={feat.title} className="flex flex-col gap-4 items-center text-center md:items-start md:text-left">
                 <div className={`w-14 h-14 rounded-2xl ${feat.bg} ${feat.text} flex items-center justify-center flex-shrink-0 shadow-sm border ${feat.border}`}>
                   {feat.icon}
                 </div>
@@ -250,7 +252,7 @@ const FeaturesSection = () => {
           {/* Row 2: 2 items, centered on desktop */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:w-2/3 md:mx-auto">
             {features.slice(3).map((feat) => (
-              <div key={feat.title} className="flex flex-col gap-4">
+              <div key={feat.title} className="flex flex-col gap-4 items-center text-center md:items-start md:text-left">
                 <div className={`w-14 h-14 rounded-2xl ${feat.bg} ${feat.text} flex items-center justify-center flex-shrink-0 shadow-sm border ${feat.border}`}>
                   {feat.icon}
                 </div>
@@ -275,7 +277,7 @@ const FeaturesSection = () => {
 const ForBusinessSection = () => {
   const t = useTranslations('HomePage.ForBusiness')
   return (
-    <section id="for-business" className="py-24 bg-bg-dim border-t border-slate-100">
+    <section id="for-business" className="py-16 bg-bg-dim">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-xs font-semibold text-[var(--color-text-dim-variant)] uppercase tracking-wider mb-4">
@@ -290,7 +292,7 @@ const ForBusinessSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <div className="bg-white rounded-3xl p-5 border border-slate-200 flex flex-col items-start hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-3xl p-5 flex flex-col items-start hover:shadow-md transition-shadow">
             <div className="bg-slate-50 p-3 rounded-md shadow-sm text-bg-inverse mb-5 border border-gray-100">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -305,7 +307,7 @@ const ForBusinessSection = () => {
             </Button>
           </div>
 
-          <div className="bg-white rounded-3xl p-5 border border-slate-200 flex flex-col items-start hover:shadow-md transition-shadow">
+          <div className="bg-white rounded-3xl p-5 flex flex-col items-start hover:shadow-md transition-shadow">
             <div className="bg-slate-50 p-3 rounded-md shadow-sm text-bg-inverse mb-5 border border-gray-100">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -342,7 +344,7 @@ const NewsSection = () => {
   }))
 
   return (
-    <section id="news" className="py-24 bg-white">
+    <section id="news" className="py-16 bg-white">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="flex justify-between items-end mb-12">
           <div>

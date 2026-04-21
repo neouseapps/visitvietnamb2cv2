@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Eye, Hotel, Utensils, Map, Ticket, ShoppingBag, Plane, Car, Bike, Sparkles, Calendar, MoreHorizontal } from 'lucide-react'
+import { ChevronRight, Hotel, Utensils, Map, Ticket, ShoppingBag, Plane, Car, Bike, Sparkles, Calendar, MoreHorizontal } from 'lucide-react'
 import { Button } from '@/app/components/ui/button'
 import { useTranslations } from 'next-intl'
 
@@ -12,23 +12,17 @@ const ICONS = [Hotel, Utensils, Map, Ticket, ShoppingBag, Plane, Car, Bike, Spar
 const SECTOR_KEYS = ['accommodation', 'food', 'tours', 'attractions', 'shopping', 'scheduledTransport', 'onDemandTransport', 'vehicleRental', 'spa', 'events', 'other']
 
 const CARD_COLORS = [
-  { text: '#2563EB', bg: '#EFF6FF' },
-  { text: '#16A34A', bg: '#F0FDF4' },
-  { text: '#EA580C', bg: '#FFF7ED' },
-  { text: '#7C3AED', bg: '#F5F3FF' },
-  { text: '#DB2777', bg: '#FDF2F8' },
-  { text: '#0D9488', bg: '#F0FDFA' },
-  { text: '#EA580C', bg: '#FFF7ED' },
-  { text: '#16A34A', bg: '#F0FDF4' },
-  { text: '#7C3AED', bg: '#F5F3FF' },
-  { text: '#DB2777', bg: '#FDF2F8' },
-  { text: '#0D9488', bg: '#F0FDFA' },
-]
-
-// Slide 1: indices 0–5 (3/3), Slide 2: indices 6–10 (3/2)
-const SLIDES = [
-  [[0, 1, 2], [3, 4, 5]],
-  [[6, 7, 8], [9, 10]],
+  { text: 'var(--color-industry-accommodation)',         bg: 'var(--color-industry-accommodation-bg)' },
+  { text: 'var(--color-industry-food)',                  bg: 'var(--color-industry-food-bg)' },
+  { text: 'var(--color-industry-tours)',                 bg: 'var(--color-industry-tours-bg)' },
+  { text: 'var(--color-industry-attractions)',           bg: 'var(--color-industry-attractions-bg)' },
+  { text: 'var(--color-industry-shopping)',              bg: 'var(--color-industry-shopping-bg)' },
+  { text: 'var(--color-industry-transport-scheduled)',   bg: 'var(--color-industry-transport-scheduled-bg)' },
+  { text: 'var(--color-industry-transport-demand)',      bg: 'var(--color-industry-transport-demand-bg)' },
+  { text: 'var(--color-industry-rental)',                bg: 'var(--color-industry-rental-bg)' },
+  { text: 'var(--color-industry-spa)',                   bg: 'var(--color-industry-spa-bg)' },
+  { text: 'var(--color-industry-events)',                bg: 'var(--color-industry-events-bg)' },
+  { text: 'var(--color-industry-other)',                 bg: 'var(--color-industry-other-bg)' },
 ]
 
 function scrollToRegister() {
@@ -38,7 +32,7 @@ function scrollToRegister() {
   window.scrollTo({ top: y, behavior: 'smooth' })
 }
 
-// ─── Feature Card ─────────────────────────────────────────────────────────────
+// ─── Desktop Card ─────────────────────────────────────────────────────────────
 
 function FeatureCard({
   icon: Icon,
@@ -46,112 +40,98 @@ function FeatureCard({
   desc,
   benefits,
   color,
-  sectorKey,
-  onSectorSelect,
+  selected,
+  onSelect,
 }: {
   icon: React.ElementType
   label: string
   desc: string
   benefits: string[]
   color: { text: string; bg: string }
-  sectorKey: string
-  onSectorSelect?: (key: string) => void
+  selected: boolean
+  onSelect: () => void
 }) {
   const [hovered, setHovered] = useState(false)
   const t = useTranslations('IndustryCarousel')
 
-  function handleCta() {
-    onSectorSelect?.(sectorKey)
-    scrollToRegister()
-  }
-
   return (
     <div
-      className="w-[280px] h-[280px] bg-white rounded-[2rem] p-6 flex flex-col justify-between cursor-pointer relative overflow-hidden"
+      className="w-full bg-white rounded-[1.5rem] p-5 flex flex-col cursor-pointer relative"
       style={{
-        boxShadow: hovered
-          ? '0 12px 40px -8px rgba(0,0,0,0.12)'
-          : '0 1px 3px 0 rgba(0,0,0,0.06)',
-        transition: 'box-shadow 0.3s ease',
+        boxShadow: selected
+          ? `0 0 0 2px ${color.text}, 0 8px 24px -8px rgba(0,0,0,0.12)`
+          : hovered
+            ? '0 8px 24px -8px rgba(0,0,0,0.10)'
+            : '0 1px 3px 0 rgba(0,0,0,0.06)',
+        transition: 'box-shadow 0.25s ease',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={onSelect}
     >
-      {/* Floating icon area */}
-      <div className="flex justify-center items-center flex-1">
+      {/* Selected checkmark */}
+      {selected && (
+        <div
+          className="absolute top-4 right-4 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold z-10"
+          style={{ backgroundColor: color.text }}
+        >
+          ✓
+        </div>
+      )}
+
+      {/* Floating icon */}
+      <div className="flex justify-center py-5">
         <div className="relative flex flex-col items-center">
-          {/* Floating icon */}
           <motion.div
-            animate={{ y: hovered ? -14 : [0, -10, 0] }}
+            animate={{ y: hovered ? -8 : [0, -6, 0] }}
             transition={
               hovered
-                ? { duration: 0.3, ease: 'easeOut' }
+                ? { duration: 0.25, ease: 'easeOut' }
                 : { duration: 3, repeat: Infinity, ease: 'easeInOut' }
             }
-            className="w-20 h-20 rounded-2xl flex items-center justify-center"
+            className="w-16 h-16 rounded-2xl flex items-center justify-center"
             style={{ backgroundColor: color.bg }}
           >
-            <Icon className="w-10 h-10" style={{ color: color.text }} aria-hidden="true" />
+            <Icon className="w-8 h-8" style={{ color: color.text }} aria-hidden="true" />
           </motion.div>
-
-          {/* Detached shadow below icon */}
           <motion.div
-            animate={{
-              opacity: hovered ? 0.04 : 0.1,
-              scaleX: hovered ? 0.6 : 1,
-            }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="w-12 h-3 rounded-full mt-3"
-            style={{
-              background: color.text,
-              filter: 'blur(6px)',
-            }}
+            animate={{ opacity: hovered ? 0.04 : 0.08, scaleX: hovered ? 0.5 : 1 }}
+            transition={{ duration: 0.25 }}
+            className="w-10 h-2 rounded-full mt-2"
+            style={{ background: color.text, filter: 'blur(5px)' }}
           />
         </div>
       </div>
 
-      {/* Bottom content */}
-      <div className="flex items-end justify-between gap-3">
-        <p className="text-lg font-medium text-slate-900 leading-6">{label}</p>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="shrink-0 p-2"
-          onClick={handleCta}
-          aria-label={t('contactCta')}
-        >
-          <Eye className="w-4 h-4" />
-        </Button>
-      </div>
+      {/* Label */}
+      <p className="text-base font-semibold text-[var(--color-text-default)] mb-1.5">
+        {label}
+      </p>
 
-      {/* Hover overlay */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 16 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
-        className="absolute inset-0 rounded-[2rem] p-6 flex flex-col justify-between"
-        style={{ backgroundColor: color.bg }}
+      {/* Description — always visible, no hover needed */}
+      <p className="text-sm text-[var(--color-text-dim)] leading-5 mb-3 line-clamp-2">
+        {desc}
+      </p>
+
+      {/* First benefit — quick proof point */}
+      <p className="text-xs text-[var(--color-text-dim)] flex items-start gap-1.5 flex-1">
+        <span style={{ color: color.text }} className="mt-0.5 shrink-0">•</span>
+        <span className="line-clamp-1">{benefits[0]}</span>
+      </p>
+
+      {/* CTA */}
+      <div
+        className="mt-4 pt-3 border-t border-[var(--color-border-default)] flex items-center gap-1 text-xs font-semibold"
+        style={{ color: color.text }}
       >
-        <div className="flex flex-col gap-3">
-          <p className="text-sm font-medium text-slate-600 leading-5">{desc}</p>
-          <ul className="flex flex-col gap-1.5">
-            {benefits.map((b, i) => (
-              <li key={i} className="text-sm font-medium text-slate-700 flex items-start gap-2">
-                <span style={{ color: color.text }} className="mt-0.5">•</span>
-                {b}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <Button variant="ghost" size="sm" className="w-full" onClick={handleCta}>
-          {t('contactCta')}
-        </Button>
-      </motion.div>
+        {t('contactCta')}
+        <ChevronRight className="w-3.5 h-3.5" />
+      </div>
     </div>
   )
 }
 
-// ─── Mobile Card (always expanded) ───────────────────────────────────────────
+// ─── Mobile Card ──────────────────────────────────────────────────────────────
 
 function MobileCard({
   icon: Icon,
@@ -159,57 +139,66 @@ function MobileCard({
   desc,
   benefits,
   color,
-  sectorKey,
-  onSectorSelect,
+  selected,
+  onSelect,
 }: {
   icon: React.ElementType
   label: string
   desc: string
   benefits: string[]
   color: { text: string; bg: string }
-  sectorKey: string
-  onSectorSelect?: (key: string) => void
+  selected: boolean
+  onSelect: () => void
 }) {
   const t = useTranslations('IndustryCarousel')
 
-  function handleCta() {
-    onSectorSelect?.(sectorKey)
-    scrollToRegister()
-  }
-
   return (
     <div
-      className="w-full h-[360px] rounded-[2rem] p-6 flex flex-col items-center gap-4 text-center"
+      className="w-full min-h-[340px] rounded-[2rem] p-6 flex flex-col items-center gap-4 text-center relative cursor-pointer"
       style={{
         backgroundColor: color.bg,
-        boxShadow: '0 1px 3px 0 rgba(0,0,0,0.06)',
+        boxShadow: selected
+          ? `0 0 0 2.5px ${color.text}, 0 4px 12px -4px rgba(0,0,0,0.10)`
+          : '0 1px 3px 0 rgba(0,0,0,0.06)',
+        transition: 'box-shadow 0.25s ease',
       }}
+      onClick={onSelect}
     >
+      {/* Selected badge */}
+      {selected && (
+        <div
+          className="absolute top-4 right-4 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
+          style={{ backgroundColor: color.text }}
+        >
+          ✓
+        </div>
+      )}
+
       <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.6)' }}>
         <Icon className="w-8 h-8" style={{ color: color.text }} aria-hidden="true" />
       </div>
-      <p className="text-lg font-medium text-slate-900 leading-6">{label}</p>
-      <p className="text-sm font-medium text-slate-600 leading-5 text-left w-full">{desc}</p>
+      <p className="text-lg font-semibold text-[var(--color-text-default)] leading-6">{label}</p>
+      <p className="text-sm text-[var(--color-text-dim)] leading-5 text-left w-full">{desc}</p>
       <ul className="flex flex-col gap-1.5 w-full text-left">
         {benefits.map((b, i) => (
-          <li key={i} className="text-sm font-medium text-slate-700 flex items-start gap-2">
-            <span style={{ color: color.text }} className="mt-0.5">•</span>
+          <li key={i} className="text-sm text-[var(--color-text-dim)] flex items-start gap-2">
+            <span style={{ color: color.text }} className="mt-0.5 shrink-0">•</span>
             {b}
           </li>
         ))}
       </ul>
-      <Button variant="ghost" size="sm" className="w-full" onClick={handleCta}>
+      <Button variant="ghost" size="sm" className="w-full mt-auto" onClick={onSelect}>
         {t('contactCta')}
       </Button>
     </div>
   )
 }
 
-// ─── Slideshow ────────────────────────────────────────────────────────────────
+// ─── IndustryCarouselV2 ───────────────────────────────────────────────────────
 
 export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: string) => void }) {
   const t = useTranslations('IndustryCarousel')
-  const [slide, setSlide] = useState(0)
+  const [selectedSector, setSelectedSector] = useState<string | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
   const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => ({
@@ -221,37 +210,32 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
     color: CARD_COLORS[i],
   }))
 
-  const renderCard = (i: number) => (
-    <FeatureCard
-      key={i}
-      icon={cards[i].icon}
-      label={cards[i].label}
-      desc={cards[i].desc}
-      benefits={cards[i].benefits}
-      color={cards[i].color}
-      sectorKey={cards[i].sectorKey}
-      onSectorSelect={onSectorSelect}
-    />
-  )
+  const selectedCard = cards.find(c => c.sectorKey === selectedSector)
 
-  const currentRows = SLIDES[slide]
+  function handleSelect(sectorKey: string) {
+    setSelectedSector(sectorKey)
+    onSectorSelect?.(sectorKey)
+    scrollToRegister()
+  }
 
   return (
     <section className="py-16 bg-white">
-      {/* Header */}
-      <div className="max-w-[1440px] mx-auto px-8 mb-[60px] text-center">
-<h2 className="text-3xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
-          {t('title')}
-        </h2>
-        <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-2xl mx-auto mb-6">
-          {t('subtitle')}
-        </p>
-        <Button variant="secondary" size="md" onClick={scrollToRegister}>
+      {/* Header — left-aligned, CTA on right */}
+      <div className="max-w-[1440px] mx-auto px-8 mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <h2 className="text-3xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
+            {t('title')}
+          </h2>
+          <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-xl">
+            {t('subtitle')}
+          </p>
+        </div>
+        <Button variant="secondary" size="md" className="shrink-0" onClick={scrollToRegister}>
           {t('contactCta')}
         </Button>
       </div>
 
-      {/* Mobile: slide carousel */}
+      {/* Mobile: swipe carousel */}
       <div className="md:hidden overflow-hidden">
         <motion.div
           className="flex gap-4 px-6"
@@ -261,8 +245,8 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.2}
           onDragEnd={(_, info) => {
-            if (info.offset.x < -60 && activeIndex < cards.length - 1) setActiveIndex(prev => prev + 1)
-            else if (info.offset.x > 60 && activeIndex > 0) setActiveIndex(prev => prev - 1)
+            if (info.offset.x < -60 && activeIndex < cards.length - 1) setActiveIndex(p => p + 1)
+            else if (info.offset.x > 60 && activeIndex > 0) setActiveIndex(p => p - 1)
           }}
         >
           {cards.map((card, i) => (
@@ -273,66 +257,59 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
                 desc={card.desc}
                 benefits={card.benefits}
                 color={card.color}
-                sectorKey={card.sectorKey}
-                onSectorSelect={onSectorSelect}
+                selected={selectedSector === card.sectorKey}
+                onSelect={() => handleSelect(card.sectorKey)}
               />
             </div>
           ))}
         </motion.div>
-        <div className="flex justify-center gap-1.5 mt-10">
-          {cards.map((_, i) => (
-            <div
+
+        {/* Pagination — tappable dots, larger hit area */}
+        <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Sectors">
+          {cards.map((card, i) => (
+            <button
               key={i}
-              className={`h-1.5 rounded-full transition-all ${i === activeIndex ? 'w-4 bg-[var(--color-text-default)]' : 'w-1.5 bg-[var(--color-border-default)]'}`}
+              role="tab"
+              aria-selected={activeIndex === i}
+              aria-label={card.label}
+              onClick={() => setActiveIndex(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === activeIndex
+                  ? 'w-5 bg-[var(--color-text-default)]'
+                  : 'w-2 bg-[var(--color-border-default)]'
+              }`}
             />
           ))}
         </div>
       </div>
 
-      {/* Desktop: slide system */}
+      {/* Desktop: 4-column grid — all 11 sectors visible, no pagination */}
       <div className="hidden md:block max-w-[1440px] mx-auto px-8">
-        <div className="flex items-center gap-4">
-          {/* Prev button */}
-          <button
-            onClick={() => setSlide(0)}
-            disabled={slide === 0}
-            className="flex-shrink-0 w-10 h-10 rounded-full border border-[var(--color-border-default)] flex items-center justify-center transition-all hover:bg-[var(--color-bg-dim)] disabled:opacity-30 disabled:pointer-events-none"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-5 h-5 text-[var(--color-text-default)]" />
-          </button>
-
-          {/* Cards grid */}
-          <div className="flex-1 flex flex-col gap-6">
-            {currentRows.map((row, rowIdx) => (
-              <div key={rowIdx} className="flex flex-wrap gap-6 justify-center">
-                {row.map(renderCard)}
-              </div>
-            ))}
-          </div>
-
-          {/* Next button */}
-          <button
-            onClick={() => setSlide(1)}
-            disabled={slide === 1}
-            className="flex-shrink-0 w-10 h-10 rounded-full border border-[var(--color-border-default)] flex items-center justify-center transition-all hover:bg-[var(--color-bg-dim)] disabled:opacity-30 disabled:pointer-events-none"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-5 h-5 text-[var(--color-text-default)]" />
-          </button>
-        </div>
-
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-[60px]">
-          {SLIDES.map((_, i) => (
-            <button
+        <div className="grid grid-cols-3 lg:grid-cols-4 gap-5">
+          {cards.map((card, i) => (
+            <FeatureCard
               key={i}
-              onClick={() => setSlide(i)}
-              className={`h-2 rounded-full transition-all ${i === slide ? 'bg-[var(--color-text-default)] w-4' : 'bg-[var(--color-border-default)] w-2'}`}
-              aria-label={`Slide ${i + 1}`}
+              icon={card.icon}
+              label={card.label}
+              desc={card.desc}
+              benefits={card.benefits}
+              color={card.color}
+              selected={selectedSector === card.sectorKey}
+              onSelect={() => handleSelect(card.sectorKey)}
             />
           ))}
         </div>
+
+        {/* Sector selection confirmation */}
+        <motion.div
+          initial={false}
+          animate={{ opacity: selectedCard ? 1 : 0, y: selectedCard ? 0 : 8 }}
+          transition={{ duration: 0.2 }}
+          className="mt-6 text-center text-sm font-medium text-[var(--color-brand-primary)]"
+          aria-live="polite"
+        >
+          {selectedCard && `✓ ${selectedCard.label} — ${t('sectorSelectedHint')}`}
+        </motion.div>
       </div>
     </section>
   )

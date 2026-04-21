@@ -93,7 +93,7 @@ export function HeroCardStack() {
       .btn-gradient-spin {
         --btn-angle: 0deg;
         animation: btn-spin 3s linear infinite;
-        background: conic-gradient(from var(--btn-angle), #c084fc, #818cf8, #60a5fa, #c084fc) !important;
+        background: conic-gradient(from var(--btn-angle), #ca842f, #f8b117, #e07b00, #ca842f) !important;
       }
       @property --card-angle {
         syntax: '<angle>';
@@ -104,21 +104,20 @@ export function HeroCardStack() {
         to { --card-angle: 360deg; }
       }
       @keyframes card-shadow-spin {
-        0%   { box-shadow: 0 12px 36px rgba(192,132,252,0.55), 0 0 20px rgba(192,132,252,0.25); }
-        33%  { box-shadow: 0 12px 36px rgba(129,140,248,0.55), 0 0 20px rgba(129,140,248,0.25); }
-        66%  { box-shadow: 0 12px 36px rgba(96,165,250,0.55),  0 0 20px rgba(96,165,250,0.25); }
-        100% { box-shadow: 0 12px 36px rgba(192,132,252,0.55), 0 0 20px rgba(192,132,252,0.25); }
+        0%   { box-shadow: 0 12px 36px rgba(202,132,47,0.50), 0 0 20px rgba(202,132,47,0.20); }
+        50%  { box-shadow: 0 12px 36px rgba(248,177,23,0.50), 0 0 20px rgba(248,177,23,0.20); }
+        100% { box-shadow: 0 12px 36px rgba(202,132,47,0.50), 0 0 20px rgba(202,132,47,0.20); }
       }
       .card-shadow-anim { animation: card-shadow-spin 3s linear infinite; }
       .card-gradient-layer {
         position: absolute; inset: 0; border-radius: 24px;
         animation: card-spin 3s linear infinite;
-        background: conic-gradient(from var(--card-angle), #c084fc, #818cf8, #60a5fa, #c084fc);
+        background: conic-gradient(from var(--card-angle), #ca842f, #f8b117, #e07b00, #ca842f);
         transition: opacity 0.35s ease;
       }
     `}</style>
     <Link
-      href="/tai-app"
+      href="/"
       className="block w-full max-w-[420px] rounded-[24px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)] focus-visible:ring-offset-2"
       aria-label={t('ariaLabel')}
       onMouseEnter={() => { setPaused(true); setHovered(true) }}

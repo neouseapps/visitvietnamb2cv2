@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
@@ -32,7 +32,6 @@ const track = LOGOS.length < MIN_FOR_SEAMLESS ? [...LOGOS, ...LOGOS] : LOGOS
 // ─── Marquee track ────────────────────────────────────────────────────────────
 
 function LogoMarquee() {
-  const [paused, setPaused] = useState(false)
   const items = [...track, ...track] // duplicate for seamless loop
 
   return (
@@ -43,8 +42,6 @@ function LogoMarquee() {
         maskImage: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)',
       }}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       <style>{`
         @keyframes marquee {
@@ -56,24 +53,13 @@ function LogoMarquee() {
         className="flex items-center gap-12 w-max"
         style={{
           animation: 'marquee 30s linear infinite',
-          animationPlayState: paused ? 'paused' : 'running',
+          animationPlayState: 'running',
         }}
       >
         {items.map((logo, i) => (
           <div
             key={`${logo.alt}-${i}`}
-            className="flex-shrink-0 transition-all duration-300"
-            style={{ filter: 'grayscale(1)', opacity: 0.55 }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLElement
-              el.style.filter = 'grayscale(0)'
-              el.style.opacity = '1'
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLElement
-              el.style.filter = 'grayscale(1)'
-              el.style.opacity = '0.55'
-            }}
+            className="flex-shrink-0"
           >
             <Image
               src={logo.src}

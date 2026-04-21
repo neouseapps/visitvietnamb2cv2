@@ -49,15 +49,12 @@ export function AISection() {
         <div className="flex flex-col max-w-xl">
           <div
             className="inline-block font-semibold text-sm tracking-wider uppercase mb-3"
-            style={{ color: 'var(--color-bg-warning-default)' }}
+            style={{ color: 'var(--color-text-eyebrow)' }}
           >
             {t('eyebrow')}
           </div>
 
-          <h2
-            className="font-bold text-[var(--color-text-default)] mb-2 font-default"
-            style={{ fontSize: 32, lineHeight: '40px', letterSpacing: '-0.32px' }}
-          >
+          <h2 className="text-4xl font-bold text-[var(--color-text-default)] mb-2 font-default leading-tight tracking-tight">
             {t('title').split('\n').map((line, i) => (
               <span key={i}>{line}{i === 0 && <br />}</span>
             ))}
@@ -98,7 +95,7 @@ export function AISection() {
           </div>
 
           <Button asChild variant="primary" size="lg" rightIcon={<ArrowRight />}>
-            <Link href="/tai-app">{t('cta')}</Link>
+            <Link href="/">{t('cta')}</Link>
           </Button>
         </div>
 

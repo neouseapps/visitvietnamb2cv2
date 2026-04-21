@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -41,7 +42,7 @@ const offerData = [
   },
 ]
 
-function OfferCard({ offer, onExplore }: { offer: OfferCardData; onExplore: () => void }) {
+function OfferCard({ offer }: { offer: OfferCardData }) {
   const t = useTranslations('OffersSection')
 
   return (
@@ -130,20 +131,16 @@ function OfferCard({ offer, onExplore }: { offer: OfferCardData; onExplore: () =
           </div>
 
           {/* CTA */}
-          <motion.button
-            onClick={onExplore}
-            className="flex items-center text-white bg-transparent border-0 p-0 cursor-pointer w-fit"
+          <Link
+            href="/"
+            className="flex items-center text-white w-fit"
             style={{
               fontSize: 16,
               lineHeight: '24px',
               fontWeight: 400,
-              gap: 'var(--spacing-sm)',
+              gap: 8,
+              textDecoration: 'none',
             }}
-            variants={{
-              rest: { gap: 8 },
-              hover: { gap: 12 },
-            }}
-            transition={{ duration: 0.2 }}
           >
             {t('exploreCta')}
             <motion.span
@@ -152,7 +149,7 @@ function OfferCard({ offer, onExplore }: { offer: OfferCardData; onExplore: () =
             >
               <ArrowRight size={20} />
             </motion.span>
-          </motion.button>
+          </Link>
         </div>
       </div>
     </motion.article>
@@ -168,56 +165,53 @@ export const OffersSection = () => {
     description: t(`items.${i}.description`),
   }))
 
-  const handleExplore = (id: string) => {
-    alert(`Đang xem ưu đãi: ${id}`)
-  }
-
   return (
     <section className="w-full py-16 px-8 max-w-[1440px] mx-auto bg-bg-dim relative">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
         <div>
-          <div className="inline-block font-semibold text-sm tracking-wider uppercase mb-3" style={{color: 'var(--color-bg-warning-default)'}}>
+          <div className="inline-block font-semibold text-sm tracking-wider uppercase mb-3" style={{color: 'var(--color-text-eyebrow)'}}>
             {t('eyebrow')}
           </div>
-          <h2
-            className="text-3xl font-bold text-[var(--color-text-default)] mb-2 font-default"
-          >
+          <h2 className="text-4xl font-bold text-[var(--color-text-default)] mb-2 font-default leading-tight tracking-tight">
             {t('title')}
           </h2>
-          <p
-            className="text-[var(--color-text-dim)]"
-          >
+          <p className="text-[var(--color-text-dim)]">
             {t('subtitle')}
           </p>
         </div>
-        <button
-          onClick={() => handleExplore('all')}
+        <Link
+          href="/"
           className="hidden md:flex items-center text-sm font-semibold text-bg-inverse hover:text-bg-warning-default transition-colors gap-1 border border-[var(--color-border-default)] bg-[var(--color-bg-default)] px-4 py-2 rounded-full shadow-sm hover:shadow-md"
         >
           {t('viewAll')}
-        </button>
+        </Link>
       </div>
 
       {/* Cards grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {OFFERS.map((offer) => (
-          <OfferCard
-            key={offer.id}
-            offer={offer}
-            onExplore={() => handleExplore(offer.id)}
-          />
-        ))}
-      </div>
+      {OFFERS.length === 0 ? (
+        <div className="flex items-center justify-center py-16 text-[var(--color-text-dim)]">
+          {t('emptyState')}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {OFFERS.map((offer) => (
+            <OfferCard
+              key={offer.id}
+              offer={offer}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Mobile-only: button below cards */}
       <div className="flex md:hidden justify-center mt-8">
-        <button
-          onClick={() => handleExplore('all')}
+        <Link
+          href="/"
           className="flex items-center text-sm font-semibold text-bg-inverse hover:text-bg-warning-default transition-colors gap-1 border border-[var(--color-border-default)] bg-[var(--color-bg-default)] px-4 py-2 rounded-full shadow-sm hover:shadow-md"
         >
           {t('viewAll')}
-        </button>
+        </Link>
       </div>
     </section>
   )

@@ -14,6 +14,12 @@ const inputClass =
   'focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)] focus:border-transparent ' +
   'transition-all'
 
+const inputErrorClass =
+  'w-full h-10 px-3 rounded-xl bg-[var(--color-bg-default)] border border-[var(--color-text-danger-default)] ' +
+  'text-[var(--color-text-default)] text-sm placeholder:text-[var(--color-text-dim-variant)] ' +
+  'focus:outline-none focus:ring-2 focus:ring-[var(--color-text-danger-default)] focus:border-transparent ' +
+  'transition-all'
+
 function FieldLabel({ children, required }: { children: React.ReactNode; required?: boolean }) {
   return (
     <span className="shrink-0 sm:w-[180px] text-sm font-normal text-[var(--color-text-dim)] flex items-center gap-0.5">
@@ -21,6 +27,11 @@ function FieldLabel({ children, required }: { children: React.ReactNode; require
       {required && <span className="text-[var(--color-text-danger-default)]">*</span>}
     </span>
   )
+}
+
+function FieldError({ show, message }: { show: boolean; message: string }) {
+  if (!show) return null
+  return <p className="text-xs text-[var(--color-text-danger-default)] mt-1">{message}</p>
 }
 
 function FormRow({ children }: { children: React.ReactNode }) {
@@ -66,6 +77,7 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
   const [soDT, setSoDT] = useState('')
   const [licenseFile, setLicenseFile] = useState<File | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [submitAttempted, setSubmitAttempted] = useState(false)
 
   const licenseRef = useRef<HTMLInputElement>(null)
   const showChiTiet = linhVuc === otherOption
@@ -93,8 +105,12 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
 
   const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault()
+    if (!isValid) {
+      setSubmitAttempted(true)
+      return
+    }
     setSubmitted(true)
-  }, [])
+  }, [isValid])
 
   return (
     <section id="register" className="py-16 bg-[var(--color-bg-dim)] scroll-mt-20">
@@ -170,20 +186,22 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
                   <FormRow>
                     <FieldLabel required>{t('fields.companyName')}</FieldLabel>
                     <div className="flex-1">
-                      <input type="text" className={inputClass} value={tenCongTy} onChange={(e) => setTenCongTy(e.target.value)} />
+                      <input type="text" className={submitAttempted && !tenCongTy.trim() ? inputErrorClass : inputClass} value={tenCongTy} onChange={(e) => setTenCongTy(e.target.value)} />
+                      <FieldError show={submitAttempted && !tenCongTy.trim()} message={t('errors.required')} />
                     </div>
                   </FormRow>
                   <FormRow>
                     <FieldLabel required>{t('fields.businessCode')}</FieldLabel>
                     <div className="flex-1">
-                      <input type="text" className={inputClass} value={maSoDN} onChange={(e) => setMaSoDN(e.target.value)} />
+                      <input type="text" className={submitAttempted && !maSoDN.trim() ? inputErrorClass : inputClass} placeholder="VD: 0123456789" value={maSoDN} onChange={(e) => setMaSoDN(e.target.value)} />
+                      <FieldError show={submitAttempted && !maSoDN.trim()} message={t('errors.required')} />
                     </div>
                   </FormRow>
                   <FormRow>
                     <FieldLabel required>{t('fields.sector')}</FieldLabel>
                     <div className="flex-1 relative">
                       <select
-                        className={`${inputClass} appearance-none pr-10 ${linhVuc === '' ? 'text-[var(--color-text-dim-variant)]' : ''}`}
+                        className={`${submitAttempted && !linhVuc ? inputErrorClass : inputClass} appearance-none pr-10 ${linhVuc === '' ? 'text-[var(--color-text-dim-variant)]' : ''}`}
                         value={linhVuc}
                         onChange={(e) => { setLinhVuc(e.target.value); setChiTietLinhVuc('') }}
                       >
@@ -193,13 +211,15 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
                         ))}
                       </select>
                       <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-text-dim-variant)] pointer-events-none" aria-hidden="true" />
+                      <FieldError show={submitAttempted && !linhVuc} message={t('errors.required')} />
                     </div>
                   </FormRow>
                   {showChiTiet && (
                     <FormRow>
                       <FieldLabel required>{t('fields.sectorDetail')}</FieldLabel>
                       <div className="flex-1">
-                        <input type="text" className={inputClass} value={chiTietLinhVuc} onChange={(e) => setChiTietLinhVuc(e.target.value)} />
+                        <input type="text" className={submitAttempted && !chiTietLinhVuc.trim() ? inputErrorClass : inputClass} value={chiTietLinhVuc} onChange={(e) => setChiTietLinhVuc(e.target.value)} />
+                        <FieldError show={submitAttempted && !chiTietLinhVuc.trim()} message={t('errors.required')} />
                       </div>
                     </FormRow>
                   )}
@@ -220,7 +240,8 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
                   <FormRow>
                     <FieldLabel required>{t('fields.fullName')}</FieldLabel>
                     <div className="flex-1">
-                      <input type="text" className={inputClass} value={hoTen} onChange={(e) => setHoTen(e.target.value)} />
+                      <input type="text" className={submitAttempted && !hoTen.trim() ? inputErrorClass : inputClass} value={hoTen} onChange={(e) => setHoTen(e.target.value)} />
+                      <FieldError show={submitAttempted && !hoTen.trim()} message={t('errors.required')} />
                     </div>
                   </FormRow>
                   <FormRow>
@@ -232,13 +253,15 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
                   <FormRow>
                     <FieldLabel required>Email</FieldLabel>
                     <div className="flex-1">
-                      <input type="email" className={inputClass} value={email} onChange={(e) => setEmail(e.target.value)} />
+                      <input type="email" className={submitAttempted && !email.trim() ? inputErrorClass : inputClass} value={email} onChange={(e) => setEmail(e.target.value)} />
+                      <FieldError show={submitAttempted && !email.trim()} message={t('errors.required')} />
                     </div>
                   </FormRow>
                   <FormRow>
                     <FieldLabel required>{t('fields.phone')}</FieldLabel>
                     <div className="flex-1">
-                      <input type="tel" className={inputClass} value={soDT} onChange={(e) => setSoDT(e.target.value)} />
+                      <input type="tel" className={submitAttempted && !soDT.trim() ? inputErrorClass : inputClass} value={soDT} onChange={(e) => setSoDT(e.target.value)} />
+                      <FieldError show={submitAttempted && !soDT.trim()} message={t('errors.required')} />
                     </div>
                   </FormRow>
                 </div>
@@ -266,10 +289,15 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
                     <button
                       type="button"
                       onClick={() => licenseRef.current?.click()}
-                      className="inline-flex items-center h-10 px-4 rounded-xl bg-[var(--color-bg-dim)] border border-[var(--color-border-default)] text-sm font-semibold text-[var(--color-text-default)] hover:bg-[var(--color-bg-dim-variant)] transition-colors"
+                      className={`inline-flex items-center h-10 px-4 rounded-xl border text-sm font-semibold transition-colors ${
+                        submitAttempted && !licenseFile
+                          ? 'bg-[var(--color-bg-default)] border-[var(--color-text-danger-default)] text-[var(--color-text-default)]'
+                          : 'bg-[var(--color-bg-dim)] border-[var(--color-border-default)] text-[var(--color-text-default)] hover:bg-[var(--color-bg-dim-variant)]'
+                      }`}
                     >
                       {licenseFile ? licenseFile.name : t('fields.uploadFile')}
                     </button>
+                    <FieldError show={submitAttempted && !licenseFile} message={t('errors.required')} />
                   </div>
                 </div>
               </div>
@@ -281,7 +309,6 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
                   variant="primary"
                   size="lg"
                   className="w-full"
-                  disabled={!isValid}
                 >
                   {t('submit')}
                 </Button>

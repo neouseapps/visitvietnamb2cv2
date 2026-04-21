@@ -9,7 +9,12 @@
     "downloadAppDark": "Tải app ngay",
     "langVN": "Tiếng Việt (VN)",
     "langEN": "English (EN)",
-    "closeMenu": "Đóng menu"
+    "closeMenu": "Đóng menu",
+    "platform": "Về nền tảng",
+    "aboutPlatform": "Giới thiệu nền tảng",
+    "forBusiness": "Dành cho doanh nghiệp",
+    "forGovernance": "Dành cho chính phủ",
+    "tagline": "Nền tảng du lịch số quốc gia"
   },
   "Footer": {
     "tagline": "Kết nối hành trình, lan tỏa bản sắc Việt",
@@ -38,18 +43,30 @@
   },
   "HomePage": {
     "Hero": {
-      "badge": "Nền tảng du lịch số quốc gia",
-      "title": "Du lịch Việt Nam,\ntheo \"gu\" bạn chọn",
-      "subtitle": "Đi đúng nơi, trải nghiệm đúng chất với hành trình được cá nhân hoá bằng AI"
+      "badge": "Trợ lý du lịch AI cá nhân hóa",
+      "title": "Du lịch thông minh, đậm tính bản địa",
+      "subtitle": "Đi sành, ăn chất, trải nghiệm chuẩn local theo cách của riêng bạn"
     },
     "Destinations": {
       "title": "Điểm đến nổi bật",
       "subtitle": "Khám phá những vùng đất tươi đẹp nhất Việt Nam qua lăng kính thông minh.",
       "items": {
-        "0": { "name": "Đà Nẵng", "desc": "Thành phố đáng sống nhất Việt Nam" },
-        "1": { "name": "Hội An", "desc": "Nét đẹp hoài cổ vượt thời gian" },
-        "2": { "name": "Huế", "desc": "Di sản văn hóa cố đô mộng mơ" },
-        "3": { "name": "Bà Nà Hills", "desc": "Đường lên tiên cảnh, khí hậu 4 mùa" }
+        "0": {
+          "name": "Đà Nẵng",
+          "desc": "Thành phố đáng sống nhất Việt Nam"
+        },
+        "1": {
+          "name": "Hội An",
+          "desc": "Nét đẹp hoài cổ vượt thời gian"
+        },
+        "2": {
+          "name": "Huế",
+          "desc": "Di sản văn hóa cố đô mộng mơ"
+        },
+        "3": {
+          "name": "Bà Nà Hills",
+          "desc": "Đường lên tiên cảnh, khí hậu 4 mùa"
+        }
       }
     },
     "Features": {
@@ -133,8 +150,8 @@
     },
     "Hero": {
       "badge": "Giới thiệu Visit Vietnam",
-      "title": "Nền tảng du lịch số hàng đầu cho hành trình khám phá Việt Nam trọn vẹn",
-      "subtitle": "Kết nối thông tin, dịch vụ và trải nghiệm, giúp du khách khám phá Việt Nam dễ dàng và liền mạch",
+      "title": "Kết nối trọn hành trình khám phá Việt Nam",
+      "subtitle": "Tích hợp thông tin, dịch vụ và trải nghiệm, giúp du khách khám phá Việt Nam dễ dàng và liền mạch",
       "cta": "Khám phá ngay"
     },
     "Ecosystem": {
@@ -156,7 +173,7 @@
         },
         "1": {
           "title": "Dữ liệu bản địa xác thực",
-          "desc": "Cơ sở dữ liệu 34 tỉnh thành mở ra góc nhìn bản địa sâu sắc và những điểm đến độc quyền trên nền tảng chính thống"
+          "desc": "Cơ sở dữ liệu phủ rộng toàn quốc, mở ra góc nhìn bản địa sâu sắc và những điểm đến độc quyền trên nền tảng chính thức"
         },
         "2": {
           "title": "Kết nối hệ sinh thái",
@@ -174,19 +191,40 @@
       "title": "Kết nối du lịch, nâng tầm trải nghiệm",
       "desc": "Kiến tạo hành trình du lịch Việt Nam liền mạch, vận hành tối ưu bằng dữ liệu – thúc đẩy trải nghiệm vượt trội và tăng trưởng bền vững.",
       "items": {
-        "0": { "strong": "Kết nối du khách:", "text": "Mang đến những trải nghiệm địa phương xác thực, độc đáo và liền mạch." },
-        "1": { "strong": "Hỗ trợ doanh nghiệp:", "text": "Cung cấp công cụ số hóa mạnh mẽ giúp đối tác tối ưu vận hành và tăng trưởng doanh thu." },
-        "2": { "strong": "Tôn vinh văn hóa:", "text": "Đóng góp vào việc bảo tồn di sản, bảo vệ môi trường và phát triển cộng đồng bản địa." }
+        "0": {
+          "strong": "Kết nối du khách:",
+          "text": "Mang đến những trải nghiệm địa phương xác thực, độc đáo và liền mạch."
+        },
+        "1": {
+          "strong": "Hỗ trợ doanh nghiệp:",
+          "text": "Cung cấp công cụ số hóa mạnh mẽ giúp đối tác tối ưu vận hành và tăng trưởng doanh thu."
+        },
+        "2": {
+          "strong": "Tôn vinh văn hóa:",
+          "text": "Đóng góp vào việc bảo tồn di sản, bảo vệ môi trường và phát triển cộng đồng bản địa."
+        }
       },
       "quote": "\"Đưa Việt Nam ra thế giới, mang thế giới đến Việt Nam.\""
     },
     "Commitments": {
       "title": "Visit Vietnam cam kết",
       "items": {
-        "0": { "title": "Tin cậy", "desc": "Dữ liệu xác thực có nguồn gốc" },
-        "1": { "title": "Bản địa", "desc": "Cung cấp các thông tin chuyên sâu về thị trường và trải nghiệm từng địa phương" },
-        "2": { "title": "Minh bạch", "desc": "Thông tin về giá cả và chính sách rõ ràng nhất quán" },
-        "3": { "title": "Tối ưu", "desc": "Tối ưu hiệu quả vận hành và trải nghiệm người dùng" }
+        "0": {
+          "title": "Tin cậy",
+          "desc": "Dữ liệu xác thực có nguồn gốc"
+        },
+        "1": {
+          "title": "Bản địa",
+          "desc": "Cung cấp các thông tin chuyên sâu về thị trường và trải nghiệm từng địa phương"
+        },
+        "2": {
+          "title": "Minh bạch",
+          "desc": "Thông tin về giá cả và chính sách rõ ràng nhất quán"
+        },
+        "3": {
+          "title": "Tối ưu",
+          "desc": "Tối ưu hiệu quả vận hành và trải nghiệm người dùng"
+        }
       }
     },
     "Problems": {
@@ -195,31 +233,73 @@
       "subtitle": "Từ thực trạng phân mảnh của ngành du lịch Việt Nam, chúng tôi kiến tạo một nền tảng toàn diện, kết nối và tối ưu bằng công nghệ số.",
       "traditionalTitle": "Du lịch truyền thống",
       "items": {
-        "0": { "title": "Thông tin thiếu tin cậy", "desc": "Dữ liệu rời rạc và đánh giá thiếu xác thực khiến du khách khó đưa ra quyết định." },
-        "1": { "title": "Thiếu trải nghiệm bản địa", "desc": "Chỉ dừng ở các điểm du lịch phổ biến, thiếu trải nghiệm văn hóa địa phương chân thực." },
-        "2": { "title": "Rào cản ngôn ngữ và hỗ trợ hạn chế", "desc": "Khó khăn trong giao tiếp và thiếu hỗ trợ kịp thời trong suốt hành trình." },
-        "3": { "title": "Trải nghiệm không liền mạch", "desc": "Phải sử dụng nhiều nền tảng khác nhau để tìm kiếm và đặt dịch vụ, thiếu sự kết nối." }
+        "0": {
+          "title": "Thông tin thiếu tin cậy",
+          "desc": "Dữ liệu rời rạc và đánh giá thiếu xác thực khiến du khách khó đưa ra quyết định."
+        },
+        "1": {
+          "title": "Thiếu trải nghiệm bản địa",
+          "desc": "Chỉ dừng ở các điểm du lịch phổ biến, thiếu trải nghiệm văn hóa địa phương chân thực."
+        },
+        "2": {
+          "title": "Rào cản ngôn ngữ và hỗ trợ hạn chế",
+          "desc": "Khó khăn trong giao tiếp và thiếu hỗ trợ kịp thời trong suốt hành trình."
+        },
+        "3": {
+          "title": "Trải nghiệm không liền mạch",
+          "desc": "Phải sử dụng nhiều nền tảng khác nhau để tìm kiếm và đặt dịch vụ, thiếu sự kết nối."
+        }
       }
     },
     "Solutions": {
       "title": "Giải pháp Visit Vietnam",
       "items": {
-        "0": { "title": "Dữ liệu xác thực, đáng tin cậy", "desc": "Thông tin được kiểm chứng có nguồn gốc, hình ảnh thực tế và đánh giá minh bạch." },
-        "1": { "title": "Lịch trình tối ưu bằng AI", "desc": "Tạo kế hoạch nhanh chóng, tự động tối ưu theo sở thích, thời gian và hành trình di chuyển cá nhân." },
-        "2": { "title": "Trợ lý AI đa ngôn ngữ hỗ trợ 24/7", "desc": "Hỗ trợ liên tục, giải quyết mọi nhu cầu trong suốt chuyến đi." },
-        "3": { "title": "Trải nghiệm liền mạch", "desc": "Kết nối hệ sinh thái đa dạng cung cấp đầy đủ các giải pháp và dịch vụ du lịch - tất cả trong một nền tảng duy nhất." }
+        "0": {
+          "title": "Dữ liệu xác thực, đáng tin cậy",
+          "desc": "Thông tin được kiểm chứng có nguồn gốc, hình ảnh thực tế và đánh giá minh bạch."
+        },
+        "1": {
+          "title": "Lịch trình tối ưu bằng AI",
+          "desc": "Tạo kế hoạch nhanh chóng, tự động tối ưu theo sở thích, thời gian và hành trình di chuyển cá nhân."
+        },
+        "2": {
+          "title": "Trợ lý AI đa ngôn ngữ hỗ trợ 24/7",
+          "desc": "Hỗ trợ liên tục, giải quyết mọi nhu cầu trong suốt chuyến đi."
+        },
+        "3": {
+          "title": "Trải nghiệm liền mạch",
+          "desc": "Kết nối hệ sinh thái đa dạng cung cấp đầy đủ các giải pháp và dịch vụ du lịch - tất cả trong một nền tảng duy nhất."
+        }
       }
     },
     "Stats": {
       "title": "Vị thế quy mô lớn",
       "subtitle": "Chúng tôi tự hào sở hữu liên minh đối tác quy mô lớn, phủ sóng toàn quốc.",
       "items": {
-        "0": { "label": "Tỉnh thành", "sublabel": "Phủ sóng toàn quốc" },
-        "1": { "label": "Điểm đến", "sublabel": "Dữ liệu xác thực và cập nhật" },
-        "2": { "label": "Trải nghiệm", "sublabel": "Hoạt động và tour bản địa đa dạng" },
-        "3": { "label": "Đối tác B2B", "sublabel": "Kết nối trong hệ sinh thái" },
-        "4": { "label": "Các quốc gia", "sublabel": "Người dùng toàn cầu" },
-        "5": { "label": "Người dùng", "sublabel": "Đang hoạt động và tăng trưởng" }
+        "0": {
+          "label": "Tỉnh thành",
+          "sublabel": "Phủ sóng toàn quốc"
+        },
+        "1": {
+          "label": "Điểm đến",
+          "sublabel": "Dữ liệu xác thực và cập nhật"
+        },
+        "2": {
+          "label": "Trải nghiệm",
+          "sublabel": "Hoạt động và tour bản địa đa dạng"
+        },
+        "3": {
+          "label": "Đối tác B2B",
+          "sublabel": "Kết nối trong hệ sinh thái"
+        },
+        "4": {
+          "label": "Các quốc gia",
+          "sublabel": "Người dùng toàn cầu"
+        },
+        "5": {
+          "label": "Người dùng",
+          "sublabel": "Đang hoạt động và tăng trưởng"
+        }
       }
     },
     "Contact": {
@@ -228,9 +308,21 @@
       "ctaPrimary": "Khám phá ngay",
       "ctaSecondary": "Đăng ký đối tác",
       "items": {
-        "0": { "title": "Hỗ trợ chung", "desc": "Giải đáp các câu hỏi về nền tảng và dịch vụ dành cho người dùng.", "email": "support01@visitvietnam.asia" },
-        "1": { "title": "Quan hệ đối tác kinh doanh", "desc": "Dành cho đối tác B2B, đại lý du lịch, khách sạn và nhà cung cấp dịch vụ.", "email": "partner@visitvietnam.asia" },
-        "2": { "title": "Truyền thông & báo chí", "desc": "Yêu cầu phỏng vấn và tài liệu truyền thông thương hiệu.", "email": "info@visitvietnam.asia" }
+        "0": {
+          "title": "Hỗ trợ chung",
+          "desc": "Giải đáp các câu hỏi về nền tảng và dịch vụ dành cho người dùng.",
+          "email": "support01@visitvietnam.asia"
+        },
+        "1": {
+          "title": "Quan hệ đối tác kinh doanh",
+          "desc": "Dành cho đối tác B2B, đại lý du lịch, khách sạn và nhà cung cấp dịch vụ.",
+          "email": "partner@visitvietnam.asia"
+        },
+        "2": {
+          "title": "Truyền thông & báo chí",
+          "desc": "Yêu cầu phỏng vấn và tài liệu truyền thông thương hiệu.",
+          "email": "info@visitvietnam.asia"
+        }
       }
     }
   },
@@ -250,19 +342,37 @@
       "floatingJustNow": "Vừa xong"
     },
     "Stats": {
-      "0": { "label": "Doanh nghiệp" },
-      "1": { "label": "Điểm đến" },
-      "2": { "label": "Lượt du khách trên nền tảng" }
+      "0": {
+        "label": "Doanh nghiệp"
+      },
+      "1": {
+        "label": "Điểm đến"
+      },
+      "2": {
+        "label": "Lượt du khách trên nền tảng"
+      }
     },
     "Features": {
       "eyebrow": "Đặc quyền của đối tác",
       "title": "Tăng trưởng kinh doanh cùng Visit Vietnam",
       "subtitle": "Nền tảng du lịch số hàng đầu: Quản trị thông minh – Dữ liệu chuyên sâu – Tối ưu doanh thu.",
       "items": {
-        "0": { "title": "Kết nối với du khách toàn cầu", "desc": "Tiếp cận đúng tệp khách hàng tiềm năng thông qua nguồn traffic chất lượng cao hoàn toàn miễn phí." },
-        "1": { "title": "Tối ưu vận hành du lịch Việt Nam bằng dữ liệu số", "desc": "Thấu hiểu hành vi khách hàng qua dữ liệu tập trung, giúp doanh nghiệp ra quyết định nhanh chóng và chính xác." },
-        "2": { "title": "Nền tảng du lịch Việt Nam đáng tin cậy", "desc": "Khẳng định vị thế thương hiệu và tăng tỷ lệ chuyển đổi nhờ sự đồng hành của Chính phủ và các tập đoàn lớn." },
-        "3": { "title": "Gia nhập cộng đồng du lịch số", "desc": "Kết nối trực tiếp với các đối tác trong hệ sinh thái để học hỏi, mở rộng hợp tác và khai thác cơ hội bán chéo." }
+        "0": {
+          "title": "Kết nối với du khách toàn cầu",
+          "desc": "Tiếp cận đúng tệp khách hàng tiềm năng thông qua nguồn traffic chất lượng cao hoàn toàn miễn phí."
+        },
+        "1": {
+          "title": "Tối ưu vận hành du lịch Việt Nam bằng dữ liệu số",
+          "desc": "Thấu hiểu hành vi khách hàng qua dữ liệu tập trung, giúp doanh nghiệp ra quyết định nhanh chóng và chính xác."
+        },
+        "2": {
+          "title": "Nền tảng du lịch Việt Nam đáng tin cậy",
+          "desc": "Khẳng định vị thế thương hiệu và tăng tỷ lệ chuyển đổi nhờ sự đồng hành của Chính phủ và các tập đoàn lớn."
+        },
+        "3": {
+          "title": "Gia nhập cộng đồng du lịch số",
+          "desc": "Kết nối trực tiếp với các đối tác trong hệ sinh thái để học hỏi, mở rộng hợp tác và khai thác cơ hội bán chéo."
+        }
       }
     },
     "FAQ": {
@@ -271,12 +381,30 @@
       "contactLabel": "Liên hệ trợ giúp:",
       "hotline": "Hotline",
       "items": {
-        "0": { "q": "Visit Vietnam là gì?", "a": "Visit Vietnam là nền tảng du lịch số quốc gia giúp doanh nghiệp làm chủ kỷ nguyên số, kết nối trực tiếp với du khách toàn cầu và tối ưu hóa vận hành dựa trên dữ liệu thông minh." },
-        "1": { "q": "Chi phí tham gia được tính như thế nào?", "a": "Visit Vietnam đồng hành cùng doanh nghiệp dựa trên hiệu quả thực tế: Đối tác chỉ chi trả phí dịch vụ (hoa hồng) khi phát sinh giao dịch thành công." },
-        "2": { "q": "Quy trình phê duyệt mất bao lâu?", "a": "Chỉ từ 2 - 3 ngày làm việc. Ngay sau khi doanh nghiệp cung cấp đầy đủ thông tin theo yêu cầu, hệ thống sẽ tiến hành xác thực và kích hoạt hồ sơ nhanh chóng." },
-        "3": { "q": "Quyền lợi cốt lõi khi trở thành đối tác là gì?", "a": "Gia nhập hệ sinh thái quốc gia giúp doanh nghiệp nâng tầm thương hiệu, tiếp cận tệp khách hàng chất lượng và nhận bộ giải pháp hỗ trợ kinh doanh toàn diện từ Visit Vietnam." },
-        "4": { "q": "Làm thế nào để thương hiệu hiển thị nổi bật hơn?", "a": "Doanh nghiệp có thể nâng cấp gói đối tác để nhận đặc quyền ưu tiên hiển thị tại các vị trí \"vàng\" và tham gia sâu rộng vào các chiến dịch truyền thông tầm cỡ quốc gia." },
-        "5": { "q": "Tôi có thể đo lường hiệu quả hợp tác bằng cách nào?", "a": "Tối ưu quản trị thông qua Dashboard chuyên sâu. Nền tảng cung cấp báo cáo định kỳ về lượt tiếp cận, tỷ lệ chuyển đổi và hiệu quả kinh doanh chi tiết theo từng cấp độ đối tác." }
+        "0": {
+          "q": "Visit Vietnam là gì?",
+          "a": "Visit Vietnam là nền tảng du lịch số quốc gia giúp doanh nghiệp làm chủ kỷ nguyên số, kết nối trực tiếp với du khách toàn cầu và tối ưu hóa vận hành dựa trên dữ liệu thông minh."
+        },
+        "1": {
+          "q": "Chi phí tham gia được tính như thế nào?",
+          "a": "Visit Vietnam đồng hành cùng doanh nghiệp dựa trên hiệu quả thực tế: Đối tác chỉ chi trả phí dịch vụ (hoa hồng) khi phát sinh giao dịch thành công."
+        },
+        "2": {
+          "q": "Quy trình phê duyệt mất bao lâu?",
+          "a": "Chỉ từ 2 - 3 ngày làm việc. Ngay sau khi doanh nghiệp cung cấp đầy đủ thông tin theo yêu cầu, hệ thống sẽ tiến hành xác thực và kích hoạt hồ sơ nhanh chóng."
+        },
+        "3": {
+          "q": "Quyền lợi cốt lõi khi trở thành đối tác là gì?",
+          "a": "Gia nhập hệ sinh thái quốc gia giúp doanh nghiệp nâng tầm thương hiệu, tiếp cận tệp khách hàng chất lượng và nhận bộ giải pháp hỗ trợ kinh doanh toàn diện từ Visit Vietnam."
+        },
+        "4": {
+          "q": "Làm thế nào để thương hiệu hiển thị nổi bật hơn?",
+          "a": "Doanh nghiệp có thể nâng cấp gói đối tác để nhận đặc quyền ưu tiên hiển thị tại các vị trí \"vàng\" và tham gia sâu rộng vào các chiến dịch truyền thông tầm cỡ quốc gia."
+        },
+        "5": {
+          "q": "Tôi có thể đo lường hiệu quả hợp tác bằng cách nào?",
+          "a": "Tối ưu quản trị thông qua Dashboard chuyên sâu. Nền tảng cung cấp báo cáo định kỳ về lượt tiếp cận, tỷ lệ chuyển đổi và hiệu quả kinh doanh chi tiết theo từng cấp độ đối tác."
+        }
       }
     }
   },
@@ -308,18 +436,78 @@
       "loadMore": "Xem thêm"
     },
     "Articles": {
-      "0": { "title": "Khám phá thiên đường hải sản tại chợ đêm Phú Quốc", "excerpt": "Từ gỏi cá trích đến nhum biển nướng, hãy cùng chúng tôi điểm qua những món ăn không thể bỏ lỡ khi ghé thăm đảo ngọc.", "category": "Ẩm thực", "date": "12 Th05, 2024" },
-      "1": { "title": "Lịch trình 4 ngày 3 đêm hoàn hảo cho lần đầu đến Phú Quốc", "excerpt": "Lên kế hoạch chi tiết từ phương tiện di chuyển, nơi ở đến các hoạt động vui chơi tại Nam đảo và Bắc đảo.", "category": "Cẩm nang", "date": "10 Th05, 2024" },
-      "2": { "title": "Lễ hội âm nhạc biển lớn nhất mùa hè chuẩn bị đổ bộ", "excerpt": "Hàng ngàn du khách dự kiến sẽ hội tụ tại Bãi Trường để tham gia chuỗi sự kiện âm nhạc và thể thao dưới nước sôi động.", "category": "Sự kiện", "date": "08 Th05, 2024" },
-      "3": { "title": "Vẻ đẹp mang đậm hơi thở Địa Trung Hải tại \"Thị trấn Hoàng Hôn\"", "excerpt": "Chiêm ngưỡng những dãy phố rực rỡ sắc màu và cây cầu Hôn biểu tượng mới của du lịch Việt Nam.", "category": "Cẩm nang", "date": "05 Th05, 2024" },
-      "4": { "title": "Chiến dịch \"Đảo Ngọc Xanh\": Chung tay bảo vệ rạn san hô", "excerpt": "Sáng kiến bền vững nhằm bảo tồn đa dạng sinh học biển Phú Quốc và nâng cao nhận thức cộng đồng.", "category": "Sự kiện", "date": "02 Th05, 2024" },
-      "5": { "title": "Cáp treo Hòn Thơm đạt kỷ lục mới về lượng khách tham quan", "excerpt": "Hệ thống cáp treo vượt biển dài nhất thế giới tiếp tục khẳng định vị thế là trải nghiệm buộc phải thử khi đến Việt Nam.", "category": "Cẩm nang", "date": "28 Th04, 2024" },
-      "6": { "title": "Hội An lọt danh sách điểm đến văn hóa hàng đầu châu Á", "excerpt": "Phố cổ Hội An tiếp tục được vinh danh nhờ sự giao thoa độc đáo giữa kiến trúc truyền thống và lối sống hiện đại.", "category": "Văn hóa", "date": "25 Th04, 2024" },
-      "7": { "title": "Mùa hoa dã quỳ Đà Lạt — Thiên đường vàng trên cao nguyên", "excerpt": "Tháng 11 về, những triền đồi quanh Đà Lạt ngập tràn sắc vàng của hoa dã quỳ — trải nghiệm không thể bỏ lỡ.", "category": "Cẩm nang", "date": "22 Th04, 2024" },
-      "8": { "title": "Ẩm thực đường phố Hà Nội lọt top 10 thế giới", "excerpt": "CNN Travel gọi tên Hà Nội trong danh sách những thiên đường ẩm thực đường phố tốt nhất toàn cầu năm 2024.", "category": "Ẩm thực", "date": "18 Th04, 2024" },
-      "9": { "title": "Ra mắt ứng dụng AI du lịch cá nhân hóa đầu tiên tại Việt Nam", "excerpt": "Visit Vietnam chính thức ra mắt trợ lý du lịch AI — giúp lên lịch trình, gợi ý điểm đến và đặt chỗ liền mạch.", "category": "Thông cáo báo chí", "date": "15 Th04, 2024" },
-      "10": { "title": "Sapa mùa nước đổ — Kỳ quan ruộng bậc thang chín vàng", "excerpt": "Tháng 9 và 10 là thời điểm lý tưởng để chiêm ngưỡng những thửa ruộng bậc thang óng ánh vàng tại Sapa và Mù Cang Chải.", "category": "Cẩm nang", "date": "10 Th04, 2024" },
-      "11": { "title": "Festival Huế 2024 — Lễ hội văn hóa lớn nhất miền Trung", "excerpt": "Festival Huế năm nay quy tụ hàng trăm đoàn nghệ thuật trong và ngoài nước, tái hiện vẻ huy hoàng của cố đô.", "category": "Sự kiện", "date": "05 Th04, 2024" }
+      "0": {
+        "title": "Khám phá thiên đường hải sản tại chợ đêm Phú Quốc",
+        "excerpt": "Từ gỏi cá trích đến nhum biển nướng, hãy cùng chúng tôi điểm qua những món ăn không thể bỏ lỡ khi ghé thăm đảo ngọc.",
+        "category": "Ẩm thực",
+        "date": "12 Th05, 2024"
+      },
+      "1": {
+        "title": "Lịch trình 4 ngày 3 đêm hoàn hảo cho lần đầu đến Phú Quốc",
+        "excerpt": "Lên kế hoạch chi tiết từ phương tiện di chuyển, nơi ở đến các hoạt động vui chơi tại Nam đảo và Bắc đảo.",
+        "category": "Cẩm nang",
+        "date": "10 Th05, 2024"
+      },
+      "2": {
+        "title": "Lễ hội âm nhạc biển lớn nhất mùa hè chuẩn bị đổ bộ",
+        "excerpt": "Hàng ngàn du khách dự kiến sẽ hội tụ tại Bãi Trường để tham gia chuỗi sự kiện âm nhạc và thể thao dưới nước sôi động.",
+        "category": "Sự kiện",
+        "date": "08 Th05, 2024"
+      },
+      "3": {
+        "title": "Vẻ đẹp mang đậm hơi thở Địa Trung Hải tại \"Thị trấn Hoàng Hôn\"",
+        "excerpt": "Chiêm ngưỡng những dãy phố rực rỡ sắc màu và cây cầu Hôn biểu tượng mới của du lịch Việt Nam.",
+        "category": "Cẩm nang",
+        "date": "05 Th05, 2024"
+      },
+      "4": {
+        "title": "Chiến dịch \"Đảo Ngọc Xanh\": Chung tay bảo vệ rạn san hô",
+        "excerpt": "Sáng kiến bền vững nhằm bảo tồn đa dạng sinh học biển Phú Quốc và nâng cao nhận thức cộng đồng.",
+        "category": "Sự kiện",
+        "date": "02 Th05, 2024"
+      },
+      "5": {
+        "title": "Cáp treo Hòn Thơm đạt kỷ lục mới về lượng khách tham quan",
+        "excerpt": "Hệ thống cáp treo vượt biển dài nhất thế giới tiếp tục khẳng định vị thế là trải nghiệm buộc phải thử khi đến Việt Nam.",
+        "category": "Cẩm nang",
+        "date": "28 Th04, 2024"
+      },
+      "6": {
+        "title": "Hội An lọt danh sách điểm đến văn hóa hàng đầu châu Á",
+        "excerpt": "Phố cổ Hội An tiếp tục được vinh danh nhờ sự giao thoa độc đáo giữa kiến trúc truyền thống và lối sống hiện đại.",
+        "category": "Văn hóa",
+        "date": "25 Th04, 2024"
+      },
+      "7": {
+        "title": "Mùa hoa dã quỳ Đà Lạt — Thiên đường vàng trên cao nguyên",
+        "excerpt": "Tháng 11 về, những triền đồi quanh Đà Lạt ngập tràn sắc vàng của hoa dã quỳ — trải nghiệm không thể bỏ lỡ.",
+        "category": "Cẩm nang",
+        "date": "22 Th04, 2024"
+      },
+      "8": {
+        "title": "Ẩm thực đường phố Hà Nội lọt top 10 thế giới",
+        "excerpt": "CNN Travel gọi tên Hà Nội trong danh sách những thiên đường ẩm thực đường phố tốt nhất toàn cầu năm 2024.",
+        "category": "Ẩm thực",
+        "date": "18 Th04, 2024"
+      },
+      "9": {
+        "title": "Ra mắt ứng dụng AI du lịch cá nhân hóa đầu tiên tại Việt Nam",
+        "excerpt": "Visit Vietnam chính thức ra mắt trợ lý du lịch AI — giúp lên lịch trình, gợi ý điểm đến và đặt chỗ liền mạch.",
+        "category": "Thông cáo báo chí",
+        "date": "15 Th04, 2024"
+      },
+      "10": {
+        "title": "Sapa mùa nước đổ — Kỳ quan ruộng bậc thang chín vàng",
+        "excerpt": "Tháng 9 và 10 là thời điểm lý tưởng để chiêm ngưỡng những thửa ruộng bậc thang óng ánh vàng tại Sapa và Mù Cang Chải.",
+        "category": "Cẩm nang",
+        "date": "10 Th04, 2024"
+      },
+      "11": {
+        "title": "Festival Huế 2024 — Lễ hội văn hóa lớn nhất miền Trung",
+        "excerpt": "Festival Huế năm nay quy tụ hàng trăm đoàn nghệ thuật trong và ngoài nước, tái hiện vẻ huy hoàng của cố đô.",
+        "category": "Sự kiện",
+        "date": "05 Th04, 2024"
+      }
     }
   },
   "TaiAppPage": {
@@ -328,10 +516,10 @@
       "description": "Trợ lý du lịch AI cá nhân của bạn. Lên lịch trình hoàn hảo, đặt chỗ liền mạch và nhận hỗ trợ theo thời gian thực khi bạn khám phá vẻ đẹp của Việt Nam."
     },
     "Hero": {
-      "callout": "Nền tảng du lịch số quốc gia",
+      "callout": "Trợ lý du lịch AI cá nhân hóa",
       "titleMain": "Visit Vietnam",
-      "titleHighlight": "Mở vạn hành trình chỉ trong một ứng dụng",
-      "subtitle": "Cá nhân hóa lịch trình, đặt dịch vụ liền mạch, nhận hỗ trợ 24/7 cho từng chuyến đi",
+      "titleHighlight": "Du lịch thông minh, đậm tính bản địa",
+      "subtitle": "Đi sành, ăn chất, trải nghiệm chuẩn local theo cách của riêng bạn",
       "downloadOnAppStore": "Tải trên",
       "downloadOnGooglePlay": "TẢI TRÊN",
       "scanToDownload": "Tải bằng QR",
@@ -341,19 +529,31 @@
       "aiMessage": "Tôi đã lên lịch trình 3 ngày cho Đà Nẵng. Bạn có muốn xem không?"
     },
     "PainPoints": {
-      "eyebrow": "Trở ngại",
-      "title": "Chọn đúng không đơn giản",
-      "subtitle": "Quá nhiều thông tin và gợi ý, nhưng không có gì thực sự giúp bạn quyết định và bắt đầu",
+      "eyebrow": "Trở ngại du lịch",
+      "title": "Càng tìm kiếm, càng thêm rối bời?",
+      "subtitle": "Bạn đang lãng phí hàng giờ quý báu chỉ để sàng lọc những thông tin mập mờ. Khi việc chọn lựa trở thành gánh nặng, cảm hứng dịch chuyển cũng dần tan biến",
       "items": [
-        { "title": "Thông tin tràn lan", "desc": "Hàng ngàn review đa chiều khiến bạn tốn thời gian nhưng vẫn khó biết nên tin vào đâu" },
-        { "title": "Độ xác thực thấp", "desc": "Hình ảnh thực tế khác xa quảng cáo, giá cả giữa các nguồn cũng thiếu minh bạch" },
-        { "title": "Lộ trình rập khuôn", "desc": "Gợi ý chung chung, khó tạo hứng thú, bạn mất nhiều thời gian nếu muốn tự thiết kế kì nghỉ" },
-        { "title": "Trải nghiệm đứt gãy", "desc": "Chốt kế hoạch, đặt chỗ và hoàn tất thanh toán, mỗi bước đều cần một ứng dụng riêng" }
+        {
+          "title": "Thông tin tràn lan",
+          "desc": "Hàng ngàn review đa chiều khiến bạn tốn thời gian nhưng vẫn khó biết nên tin vào đâu"
+        },
+        {
+          "title": "Độ xác thực thấp",
+          "desc": "Hình ảnh thực tế khác xa quảng cáo, giá cả giữa các nguồn cũng thiếu minh bạch"
+        },
+        {
+          "title": "Lộ trình rập khuôn",
+          "desc": "Gợi ý chung chung, khó tạo hứng thú, bạn mất nhiều thời gian nếu muốn tự thiết kế kì nghỉ"
+        },
+        {
+          "title": "Trải nghiệm đứt gãy",
+          "desc": "Chốt kế hoạch, đặt chỗ và hoàn tất thanh toán, mỗi bước đều cần một ứng dụng riêng"
+        }
       ]
     },
     "Features": {
-      "callout": "Giải pháp",
-      "title": "Chọn một lần, đi trọn Việt Nam",
+      "callout": "Giải pháp du lịch thông minh",
+      "title": "Một chạm trên app, mở trọn Việt Nam",
       "subtitle": "Giảm công sức chuẩn bị, để bạn có thêm thời gian tận hưởng chuyến đi",
       "cta": "Tải app ngay",
       "items": {
@@ -361,38 +561,69 @@
           "title": "Lên kế hoạch cùng AI",
           "description": "Nhận lịch trình phù hợp chỉ trong vài giây dựa trên sở thích và ngân sách",
           "imageAlt": "Lên kế hoạch lịch trình du lịch",
-          "bullets": { "0": "Cá nhân hóa theo nhu cầu", "1": "Gợi ý điểm đến local", "2": "Linh hoạt thay đổi hành trình" }
+          "bullets": {
+            "0": "Cá nhân hóa theo nhu cầu",
+            "1": "Gợi ý điểm đến local",
+            "2": "Linh hoạt thay đổi hành trình"
+          }
         },
         "1": {
           "title": "Đặt mọi thứ chỉ 1 chạm",
           "description": "Hoàn tất việc đặt khách sạn, nhà hàng và dịch vụ ngay trong ứng dụng",
           "imageAlt": "Đặt dịch vụ du lịch Việt Nam",
-          "bullets": { "0": "Thanh toán an toàn", "1": "Xác nhận tức thì", "2": "Ưu đãi tại điểm đến" }
+          "bullets": {
+            "0": "Thanh toán an toàn",
+            "1": "Xác nhận tức thì",
+            "2": "Ưu đãi tại điểm đến"
+          }
         },
         "2": {
           "title": "Hỗ trợ suốt chuyến đi",
           "description": "Tiếp cận các công cụ hỗ trợ cần thiết trong mọi tình huống",
           "imageAlt": "Điều hướng phố phường Việt Nam",
-          "bullets": { "0": "Dịch ngôn ngữ thời gian thực", "1": "Chỉ dẫn lộ trình", "2": "Kết nối hỗ trợ khẩn cấp" }
+          "bullets": {
+            "0": "Dịch ngôn ngữ thời gian thực",
+            "1": "Chỉ dẫn lộ trình",
+            "2": "Kết nối hỗ trợ khẩn cấp"
+          }
         },
         "3": {
           "title": "Lưu và chia sẻ gợi ý",
           "description": "Lưu lại và chia sẻ trải nghiệm du lịch một cách thuận tiện",
           "imageAlt": "Chia sẻ kỷ niệm du lịch",
-          "bullets": { "0": "Xuất PDF nội dung", "1": "Chia sẻ nhanh qua mạng xã hội", "2": "" }
+          "bullets": {
+            "0": "Xuất PDF nội dung",
+            "1": "Chia sẻ nhanh qua mạng xã hội",
+            "2": ""
+          }
         }
       }
     },
     "Testimonials": {
       "eyebrow": "Đánh giá từ người dùng",
       "title": "Người thật, trải nghiệm thật",
-      "subtitle": "Hàng ngàn tín đồ du lịch đã và đang thay đổi cách họ bắt đầu khám phá Việt Nam",
+      "subtitle": "Khám phá lý do tại sao hàng ngàn tín đồ du lịch đã lựa chọn Visit Vietnam để bắt đầu những chuyến đi thảnh thơi",
       "items": [
-        { "content": "Tiện hơn mong đợi rất nhiều. Mình chỉ cần gõ yêu cầu là có ngay lịch trình chi tiết chỉ trong vài phút." },
-        { "content": "Có những chỗ gợi ý local mà mình không thể tự tìm thấy. Không hề bị rập khuôn theo mấy điểm du lịch đại trà." },
-        { "content": "Cảm giác như có một người bạn sành sỏi review về Việt Nam cho mình vậy. Chuyến đi rất tuyệt vì mọi điểm đến, từ quán ăn, cafe tới điểm tham quan đều đúng gu mình." },
-        { "content": "Mọi thứ gói gọn trong một ứng dụng, không phải thoát ra vào lại để chuyển app. Đi chơi mà thấy nhẹ nhàng hơn hẳn." },
-        { "content": "Ban đầu mình không định săn deal, nhưng đi theo gợi ý app cũng giúp mình tiết kiệm được kha khá so với việc mua lẻ từng dịch vụ." }
+        {
+          "content": "Tiện hơn mong đợi rất nhiều. Mình chỉ cần gõ yêu cầu là có ngay lịch trình chi tiết chỉ trong vài phút.",
+          "name": "Anh Hoàng Nam (Hà Nội)"
+        },
+        {
+          "content": "Có những chỗ gợi ý local mà chắc chắn mình không thể tự tìm thấy. Không hề bị rập khuôn theo mấy điểm du lịch đại trà.",
+          "name": "Chị Thu Trang (HCM)"
+        },
+        {
+          "content": "Cảm giác như có một người bạn sành sỏi review về Việt Nam cho mình vậy. Chuyến đi rất tuyệt vì mọi điểm đến, từ quán ăn, cafe tới điểm tham quan đều đúng gu mình.",
+          "name": "Bạn Quốc Bảo (Đà Nẵng)"
+        },
+        {
+          "content": "Mọi thứ gói gọn trong một ứng dụng, không phải thoát ra vào lại để chuyển app. Đi chơi mà thấy nhẹ nhàng hơn hẳn.",
+          "name": "Bạn Đức Anh (Hải Phòng)"
+        },
+        {
+          "content": "Ban đầu mình không định săn deal, nhưng trùng hợp thay đi theo gợi ý app cũng giúp mình tiết kiệm được kha khá so với việc mua lẻ từng dịch vụ.",
+          "name": "Chị Thùy Trinh (Vũng Tàu)"
+        }
       ]
     },
     "FAQ": {
@@ -400,17 +631,32 @@
       "title": "Câu hỏi thường gặp",
       "subtitle": "Những thông tin hữu ích trước khi bạn bắt đầu hành trình du lịch Việt Nam",
       "items": {
-        "0": { "q": "Visit Vietnam là gì?", "a": "Visit Vietnam là ứng dụng du lịch quốc gia sử dụng AI để hỗ trợ bạn trong toàn bộ quá trình du lịch, từ lúc lên kế hoạch đến khi trải nghiệm thực tế." },
-        "1": { "q": "Điểm khác biệt của Visit Vietnam là gì?", "a": "Điểm khác biệt của Visit Vietnam là khả năng cá nhân hoá bằng AI, đồng thời ưu tiên những hoạt động chuẩn local thay vì các lựa chọn phổ biến." },
-        "2": { "q": "Ưu đãi trên app có đáng tin không?", "a": "Có. Mọi ưu đãi và đặc quyền trên Visit Vietnam đều đến từ mạng lưới đối tác uy tín với thông tin rõ ràng dễ kiểm chứng." },
-        "3": { "q": "Ứng dụng có mất phí không?", "a": "Không. Bạn có thể tải và sử dụng mọi tính năng trên ứng dụng hoàn toàn miễn phí." },
-        "4": { "q": "Lịch trình của AI có sửa được không?", "a": "Có. Bạn có thể thoải mái thêm, bớt hoặc đổi địa điểm theo ý thích bất cứ lúc nào." }
+        "0": {
+          "q": "Visit Vietnam là gì?",
+          "a": "Visit Vietnam là ứng dụng du lịch quốc gia sử dụng AI để hỗ trợ bạn trong toàn bộ quá trình du lịch, từ lúc lên kế hoạch đến khi trải nghiệm thực tế."
+        },
+        "1": {
+          "q": "Điểm khác biệt của Visit Vietnam là gì?",
+          "a": "Điểm khác biệt của Visit Vietnam là khả năng cá nhân hoá bằng AI, đồng thời ưu tiên những hoạt động chuẩn local thay vì các lựa chọn phổ biến."
+        },
+        "2": {
+          "q": "Ưu đãi trên app có đáng tin không?",
+          "a": "Có. Mọi ưu đãi và đặc quyền trên Visit Vietnam đều đến từ mạng lưới đối tác uy tín với thông tin rõ ràng dễ kiểm chứng."
+        },
+        "3": {
+          "q": "Ứng dụng có mất phí không?",
+          "a": "Không. Bạn có thể tải và sử dụng mọi tính năng trên ứng dụng hoàn toàn miễn phí."
+        },
+        "4": {
+          "q": "Lịch trình của AI có sửa được không?",
+          "a": "Có. Bạn có thể thoải mái thêm, bớt hoặc đổi địa điểm theo ý thích bất cứ lúc nào."
+        }
       }
     },
     "CTA": {
       "callout": "Tải app ngay",
       "title": "Việt Nam, gói gọn trong tay",
-      "subtitle": "Khơi ý tưởng, dựng lịch trình và sẵn sàng lên đường - tất cả sẵn sàng trong một ứng dụng",
+      "subtitle": "Thiết kế lịch trình cá nhân hóa với những \"tọa độ\" chuẩn địa phương. Mọi thứ bạn cần để bắt đầu hành trình độc bản đều đã sẵn sàng trong một ứng dụng",
       "downloadOnAppStore": "Tải trên",
       "downloadOnGooglePlay": "TẢI TRÊN",
       "scanToDownload": "Quét để tải ngay"
@@ -434,12 +680,39 @@
       "title": "Trải nghiệm đặc sắc tại Phú Quốc",
       "subtitle": "Những hoạt động và dịch vụ được yêu thích nhất bởi du khách",
       "items": {
-        "0": { "title": "Vé VinWonders Phú Quốc + Cáp treo", "description": "Trải nghiệm công viên chủ đề lớn nhất VN và cáp treo vượt biển dài nhất thế giới.", "badge": "Bán chạy", "category": "Vui chơi" },
-        "1": { "title": "Tour Lặn Ngắm San Hô Nam Đảo", "description": "Khám phá thế giới đại dương kỳ thú với trang thiết bị hiện đại và HDV chuyên nghiệp.", "category": "Thể thao" },
-        "2": { "title": "Tour Câu Mực Đêm + BBQ Hải Sản", "description": "Trải nghiệm câu mực trên biển về đêm và thưởng thức hải sản tươi sống ngay tại chỗ.", "category": "Ẩm thực" },
-        "3": { "title": "Spa Thiền Định Chuẩn 5 Sao", "description": "Thư giãn với liệu trình spa cao cấp kết hợp tinh dầu thiên nhiên và kỹ thuật massage chuyên sâu.", "badge": "Premium", "category": "Spa & Wellness" },
-        "4": { "title": "Tour Cáp Treo Hòn Thơm + Công viên nước", "description": "Ngắm nhìn toàn cảnh đảo Phú Quốc từ cáp treo và vui chơi tại công viên nước hiện đại.", "category": "Tham quan" },
-        "5": { "title": "Sunset Cruise + Đàn Guitar Trên Biển", "description": "Ngắm hoàng hôn trên du thuyền sang trọng với âm nhạc acoustic và champagne.", "badge": "Romantic", "category": "Romantic" }
+        "0": {
+          "title": "Vé VinWonders Phú Quốc + Cáp treo",
+          "description": "Trải nghiệm công viên chủ đề lớn nhất VN và cáp treo vượt biển dài nhất thế giới.",
+          "badge": "Bán chạy",
+          "category": "Vui chơi"
+        },
+        "1": {
+          "title": "Tour Lặn Ngắm San Hô Nam Đảo",
+          "description": "Khám phá thế giới đại dương kỳ thú với trang thiết bị hiện đại và HDV chuyên nghiệp.",
+          "category": "Thể thao"
+        },
+        "2": {
+          "title": "Tour Câu Mực Đêm + BBQ Hải Sản",
+          "description": "Trải nghiệm câu mực trên biển về đêm và thưởng thức hải sản tươi sống ngay tại chỗ.",
+          "category": "Ẩm thực"
+        },
+        "3": {
+          "title": "Spa Thiền Định Chuẩn 5 Sao",
+          "description": "Thư giãn với liệu trình spa cao cấp kết hợp tinh dầu thiên nhiên và kỹ thuật massage chuyên sâu.",
+          "badge": "Premium",
+          "category": "Spa & Wellness"
+        },
+        "4": {
+          "title": "Tour Cáp Treo Hòn Thơm + Công viên nước",
+          "description": "Ngắm nhìn toàn cảnh đảo Phú Quốc từ cáp treo và vui chơi tại công viên nước hiện đại.",
+          "category": "Tham quan"
+        },
+        "5": {
+          "title": "Sunset Cruise + Đàn Guitar Trên Biển",
+          "description": "Ngắm hoàng hôn trên du thuyền sang trọng với âm nhạc acoustic và champagne.",
+          "badge": "Romantic",
+          "category": "Romantic"
+        }
       }
     }
   },
@@ -461,12 +734,39 @@
       "title": "Trải nghiệm đặc sắc tại Bà Nà Hills",
       "subtitle": "Những hoạt động và dịch vụ được yêu thích nhất bởi du khách",
       "items": {
-        "0": { "title": "Vé Cáp Treo Bà Nà Hills", "description": "Chinh phục tuyến cáp treo đạt 8 kỷ lục thế giới, ngắm mây mù bao phủ đỉnh núi hùng vĩ.", "badge": "Bán chạy", "category": "Tham quan" },
-        "1": { "title": "Fantasy Park + Khu Vui Chơi", "description": "Thiên đường giải trí trong nhà với hàng trăm trò chơi, rạp chiếu phim 4D và tàu lượn siêu tốc.", "category": "Vui chơi" },
-        "2": { "title": "Tour Cầu Vàng + Vườn Hoa", "description": "Đặt chân lên cây cầu được nâng đỡ bởi đôi bàn tay khổng lồ, checkin điểm hot nhất Đông Nam Á.", "category": "Tham quan" },
-        "3": { "title": "Khám Phá Làng Pháp", "description": "Dạo bước trong kiến trúc Pháp cổ điển tái hiện đầu thế kỷ 20 giữa mây ngàn Tây Nguyên.", "category": "Văn hóa" },
-        "4": { "title": "Hầm Rượu Debay", "description": "Thưởng thức các loại rượu vang thượng hạng được ủ trong hầm đá 100 tuổi độc đáo nhất Đông Nam Á.", "badge": "Premium", "category": "Ẩm thực" },
-        "5": { "title": "Lễ Hội Carnival Bà Nà", "description": "Hòa mình vào không khí lễ hội đường phố rực rỡ với vũ đoàn, diễu hành và màn pháo hoa đêm.", "badge": "Romantic", "category": "Romantic" }
+        "0": {
+          "title": "Vé Cáp Treo Bà Nà Hills",
+          "description": "Chinh phục tuyến cáp treo đạt 8 kỷ lục thế giới, ngắm mây mù bao phủ đỉnh núi hùng vĩ.",
+          "badge": "Bán chạy",
+          "category": "Tham quan"
+        },
+        "1": {
+          "title": "Fantasy Park + Khu Vui Chơi",
+          "description": "Thiên đường giải trí trong nhà với hàng trăm trò chơi, rạp chiếu phim 4D và tàu lượn siêu tốc.",
+          "category": "Vui chơi"
+        },
+        "2": {
+          "title": "Tour Cầu Vàng + Vườn Hoa",
+          "description": "Đặt chân lên cây cầu được nâng đỡ bởi đôi bàn tay khổng lồ, checkin điểm hot nhất Đông Nam Á.",
+          "category": "Tham quan"
+        },
+        "3": {
+          "title": "Khám Phá Làng Pháp",
+          "description": "Dạo bước trong kiến trúc Pháp cổ điển tái hiện đầu thế kỷ 20 giữa mây ngàn Tây Nguyên.",
+          "category": "Văn hóa"
+        },
+        "4": {
+          "title": "Hầm Rượu Debay",
+          "description": "Thưởng thức các loại rượu vang thượng hạng được ủ trong hầm đá 100 tuổi độc đáo nhất Đông Nam Á.",
+          "badge": "Premium",
+          "category": "Ẩm thực"
+        },
+        "5": {
+          "title": "Lễ Hội Carnival Bà Nà",
+          "description": "Hòa mình vào không khí lễ hội đường phố rực rỡ với vũ đoàn, diễu hành và màn pháo hoa đêm.",
+          "badge": "Romantic",
+          "category": "Romantic"
+        }
       }
     }
   },
@@ -486,30 +786,61 @@
     "subtitle": "Tạm biệt hàng chục tab tìm kiếm, hãy để AI thiết lập lịch trình độc bản theo ý bạn chỉ trong vài giây.",
     "cta": "Chat cùng AI",
     "steps": {
-      "0": { "title": "Chọn đúng \"gu\" riêng", "desc": "Chia sẻ phong cách du lịch Việt Nam, thiên về khám phá hay nghỉ dưỡng để AI thấu hiểu." },
-      "1": { "title": "Nhận ngay hành trình", "desc": "Mở khóa lộ trình riêng biệt được sắp xếp theo nhu cầu và mong muốn của bạn." },
-      "2": { "title": "Điều chỉnh linh hoạt", "desc": "Dễ dàng thay đổi điểm đến kể cả khi chuyến xê dịch đã bắt đầu." }
+      "0": {
+        "title": "Chọn đúng \"gu\" riêng",
+        "desc": "Chia sẻ phong cách du lịch Việt Nam, thiên về khám phá hay nghỉ dưỡng để AI thấu hiểu."
+      },
+      "1": {
+        "title": "Nhận ngay hành trình",
+        "desc": "Mở khóa lộ trình riêng biệt được sắp xếp theo nhu cầu và mong muốn của bạn."
+      },
+      "2": {
+        "title": "Điều chỉnh linh hoạt",
+        "desc": "Dễ dàng thay đổi điểm đến kể cả khi chuyến xê dịch đã bắt đầu."
+      }
     }
   },
   "OffersSection": {
-    "eyebrow": "Đặc quyền từ đối tác",
+    "eyebrow": "Đặc quyền dành riêng bạn",
     "title": "Tiết kiệm hơn, tận hưởng nhiều hơn",
-    "subtitle": "Top ưu đãi và combo thịnh hành được cộng đồng xê dịch yêu thích nhất.",
+    "subtitle": "Top ưu đãi và combo thịnh hành được cộng đồng xê dịch yêu thích nhất",
+    "emptyState": "Đang cập nhật ưu đãi, thử lại sau",
     "viewAll": "Xem tất cả ưu đãi",
     "exploreCta": "Khám phá ưu đãi",
     "items": {
-      "0": { "title": "Bay chuẩn phong cách – Ưu đãi xứng tầm", "description": "Chủ thẻ Visa nhận ưu đãi độc quyền khi đặt vé Sun PhuQuoc Airways. Tiết kiệm hơn mỗi chuyến bay." },
-      "1": { "title": "Trekking Sapa & Bản làng", "description": "Trải nghiệm văn hóa Tây Bắc đích thực cùng hướng dẫn viên bản địa. Từ 1.200.000đ/khách." },
-      "2": { "title": "Du thuyền Hạ Long 5 sao", "description": "Trải nghiệm nghỉ dưỡng sang trọng trên di sản thế giới UNESCO. Chỉ từ 2.450.000đ/khách." },
-      "3": { "title": "Kỳ nghỉ gia đình Nha Trang", "description": "Combo nghỉ dưỡng & vui chơi trọn gói 4N3Đ. Tặng vé VinWonders cho cả gia đình." }
+      "0": {
+        "title": "Bay chuẩn phong cách – Ưu đãi xứng tầm",
+        "description": "Chủ thẻ Visa nhận ưu đãi độc quyền khi đặt vé Sun PhuQuoc Airways. Tiết kiệm hơn mỗi chuyến bay."
+      },
+      "1": {
+        "title": "Trekking Sapa & Bản làng",
+        "description": "Trải nghiệm văn hóa Tây Bắc đích thực cùng hướng dẫn viên bản địa. Từ 1.200.000đ/khách."
+      },
+      "2": {
+        "title": "Du thuyền Hạ Long 5 sao",
+        "description": "Trải nghiệm nghỉ dưỡng sang trọng trên di sản thế giới UNESCO. Chỉ từ 2.450.000đ/khách."
+      },
+      "3": {
+        "title": "Kỳ nghỉ gia đình Nha Trang",
+        "description": "Combo nghỉ dưỡng & vui chơi trọn gói 4N3Đ. Tặng vé VinWonders cho cả gia đình."
+      }
     }
   },
   "HeroCardStack": {
     "ariaLabel": "Gợi ý từ Visit Vietnam",
     "items": {
-      "0": { "title": "Tạo lịch trình food tour Đà Nẵng", "cta": "Nhận lịch trình" },
-      "1": { "title": "Khám phá top 5 địa điểm vui chơi tại Bà Nà", "cta": "Xem điểm đến" },
-      "2": { "title": "Bí kíp trải nghiệm DIFF trọn vẹn nhất", "cta": "Bỏ túi bí kíp" }
+      "0": {
+        "title": "Tạo lịch trình food tour Đà Nẵng",
+        "cta": "Nhận lịch trình"
+      },
+      "1": {
+        "title": "Khám phá top 5 địa điểm vui chơi tại Bà Nà",
+        "cta": "Xem điểm đến"
+      },
+      "2": {
+        "title": "Bí kíp trải nghiệm DIFF trọn vẹn nhất",
+        "cta": "Bỏ túi bí kíp"
+      }
     }
   },
   "PartnershipTiers": {
@@ -527,7 +858,10 @@
         "price": "Miễn phí",
         "priceSub": "/duy trì",
         "badge": "MIỄN PHÍ",
-        "benefits": ["Niêm yết hồ sơ trong hệ thống chính thức", "Chứng nhận & bộ nhận diện thương hiệu cơ bản"],
+        "benefits": [
+          "Niêm yết hồ sơ trong hệ thống chính thức",
+          "Chứng nhận & bộ nhận diện thương hiệu cơ bản"
+        ],
         "cta": "Đăng ký ngay",
         "ctaVariant": "secondary",
         "highlight": false,
@@ -541,7 +875,12 @@
         "price": "499.000đ",
         "priceSub": "/tháng",
         "badge": "PHỔ BIẾN NHẤT",
-        "benefits": ["Niêm yết hồ sơ trong hệ thống chính thức", "Chứng nhận & bộ nhận diện thương hiệu tiêu chuẩn", "Toàn quyền kiểm soát hồ sơ trên nền tảng", "Quyền truy cập công cụ quản lý"],
+        "benefits": [
+          "Niêm yết hồ sơ trong hệ thống chính thức",
+          "Chứng nhận & bộ nhận diện thương hiệu tiêu chuẩn",
+          "Toàn quyền kiểm soát hồ sơ trên nền tảng",
+          "Quyền truy cập công cụ quản lý"
+        ],
         "cta": "Đăng ký ngay",
         "ctaVariant": "secondary",
         "highlight": true,
@@ -554,7 +893,18 @@
         "tagline": "Tiên phong, dẫn đầu trong hợp tác dữ liệu toàn diện – trở thành đối tác chiến lược của hệ sinh thái",
         "price": "Cao cấp",
         "badge": "CAO CẤP",
-        "benefits": ["Niêm yết hồ sơ trong hệ thống chính thức", "Chứng nhận & bộ nhận diện thương hiệu cao cấp", "Toàn quyền kiểm soát hồ sơ trên nền tảng", "Quyền truy cập đầy đủ bộ công cụ quản lý", "Khách hàng tiềm năng chất lượng", "Ưu đãi tài chính dựa trên hiệu suất", "Vị trí ưu tiên tuyệt đối trong chiến dịch truyền thông quốc gia", "Tích hợp sản phẩm sâu rộng trên hệ sinh thái Visit Vietnam", "Dữ liệu độc quyền giúp khai thác xu hướng và phân tích du lịch toàn cầu", "Tham dự Hội nghị Thượng đỉnh Cao cấp thường niên"],
+        "benefits": [
+          "Niêm yết hồ sơ trong hệ thống chính thức",
+          "Chứng nhận & bộ nhận diện thương hiệu cao cấp",
+          "Toàn quyền kiểm soát hồ sơ trên nền tảng",
+          "Quyền truy cập đầy đủ bộ công cụ quản lý",
+          "Khách hàng tiềm năng chất lượng",
+          "Ưu đãi tài chính dựa trên hiệu suất",
+          "Vị trí ưu tiên tuyệt đối trong chiến dịch truyền thông quốc gia",
+          "Tích hợp sản phẩm sâu rộng trên hệ sinh thái Visit Vietnam",
+          "Dữ liệu độc quyền giúp khai thác xu hướng và phân tích du lịch toàn cầu",
+          "Tham dự Hội nghị Thượng đỉnh Cao cấp thường niên"
+        ],
         "cta": "Đăng ký ngay",
         "ctaVariant": "secondary",
         "highlight": false,
@@ -586,28 +936,129 @@
     "title": "Tham gia Visit Vietnam chỉ với 4 bước",
     "subtitle": "Quy trình onboarding nhanh chóng giúp bạn bắt đầu kinh doanh ngay lập tức.",
     "steps": {
-      "0": { "title": "Đăng ký thông tin", "desc": "Điền thông tin doanh nghiệp cơ bản qua form đăng ký đối tác trực tuyến." },
-      "1": { "title": "Phê duyệt nhanh chóng", "desc": "Hồ sơ được thẩm định và phản hồi chỉ trong 2 ngày làm việc." },
-      "2": { "title": "Sẵn sàng vận hành", "desc": "Nhận bộ Welcome Kit đi kèm hướng dẫn toàn diện, hỗ trợ doanh nghiệp đưa dịch vụ lên nền tảng một cách dễ dàng." },
-      "3": { "title": "Đồng hành tăng trưởng", "desc": "Bắt đầu kinh doanh và làm chủ dữ liệu với hệ thống Dashboard thông minh." }
+      "0": {
+        "title": "Đăng ký thông tin",
+        "desc": "Điền thông tin doanh nghiệp cơ bản qua form đăng ký đối tác trực tuyến."
+      },
+      "1": {
+        "title": "Phê duyệt nhanh chóng",
+        "desc": "Hồ sơ được thẩm định và phản hồi chỉ trong 2 ngày làm việc."
+      },
+      "2": {
+        "title": "Sẵn sàng vận hành",
+        "desc": "Nhận bộ Welcome Kit đi kèm hướng dẫn toàn diện, hỗ trợ doanh nghiệp đưa dịch vụ lên nền tảng một cách dễ dàng."
+      },
+      "3": {
+        "title": "Đồng hành tăng trưởng",
+        "desc": "Bắt đầu kinh doanh và làm chủ dữ liệu với hệ thống Dashboard thông minh."
+      }
     }
   },
   "IndustryCarousel": {
     "title": "Giải pháp tăng trưởng cho mọi lĩnh vực du lịch",
     "subtitle": "Thiết kế giải pháp chuyên biệt theo từng mô hình kinh doanh nhằm tối đa hóa khả năng tiếp cận du khách và hiệu suất hoạt động",
     "contactCta": "Liên hệ ngay",
+    "sectorSelectedHint": "Cuộn xuống để hoàn tất đăng ký",
     "items": {
-      "0": { "label": "Lưu trú", "desc": "Tăng công suất phòng, tiếp cận khách du lịch toàn cầu", "benefits": ["Hiển thị trong hành trình tìm kiếm & đặt phòng", "Tăng booking từ khách nội địa & quốc tế", "Tham gia campaign kích cầu du lịch"] },
-      "1": { "label": "Ẩm thực", "desc": "Thu hút khách tại điểm đến, tăng lượng khách ghé thăm", "benefits": ["Xuất hiện trong gợi ý ăn uống theo điểm đến", "Kết nối với du khách đang ở gần", "Tham gia review, KOL/KOC, food guide"] },
-      "2": { "label": "Tour & Hoạt động trải nghiệm", "desc": "Tăng booking và tiếp cận khách có nhu cầu cao", "benefits": ["Hiển thị trong hành trình khám phá & lên kế hoạch", "Gợi ý bởi AI Trip Planner", "Tăng chuyển đổi từ khách đang lên kế hoạch"] },
-      "3": { "label": "Điểm tham quan / Điểm du lịch", "desc": "Tăng lượng khách tham quan và độ nhận diện", "benefits": ["Xuất hiện trong bản đồ & hành trình du lịch", "Tích hợp vào các campaign điểm đến", "Tham gia activation tại sự kiện & địa phương"] },
-      "4": { "label": "Mua sắm & Bán lẻ", "desc": "Thu hút khách đến cửa hàng từ luồng du lịch", "benefits": ["Hiển thị trong hành trình trải nghiệm địa phương", "Kết nối với khách du lịch tại điểm", "Tham gia chương trình ưu đãi & combo"] },
-      "5": { "label": "Vận tải", "desc": "Tăng nhu cầu di chuyển theo hành trình du lịch", "benefits": ["Tích hợp vào planning của du khách", "Xuất hiện trong hành trình di chuyển liên tỉnh", "Kết nối với các dịch vụ du lịch khác"] },
-      "6": { "label": "Đưa đón", "desc": "Tiếp cận khách di chuyển tại điểm đến", "benefits": ["Gợi ý trong hành trình di chuyển ngắn", "Kết nối với khách tại thời điểm cần", "Tăng tần suất sử dụng dịch vụ"] },
-      "7": { "label": "Thuê phương tiện", "desc": "Tiếp cận khách có nhu cầu khám phá tự do", "benefits": ["Hiển thị trong hành trình khám phá địa phương", "Gợi ý theo nhu cầu trải nghiệm cá nhân", "Tăng booking trực tiếp từ nền tảng"] },
-      "8": { "label": "Spa & Chăm sóc sức khỏe", "desc": "Thu hút khách trải nghiệm và nâng cao giá trị dịch vụ", "benefits": ["Gợi ý trong hành trình nghỉ dưỡng", "Tiếp cận khách có nhu cầu wellness", "Tham gia các gói combo du lịch"] },
-      "9": { "label": "Sự kiện", "desc": "Tăng lượng khách tham gia và độ phủ truyền thông", "benefits": ["Hiển thị trong lịch sự kiện & điểm đến", "Kết nối với du khách đang ở khu vực", "Lan tỏa qua campaign & hệ sinh thái"] },
-      "10": { "label": "Khác", "desc": "Giải pháp linh hoạt cho mọi loại hình kinh doanh du lịch", "benefits": ["Tư vấn mô hình phù hợp", "Kết nối vào hệ sinh thái", "Tối ưu theo nhu cầu thực tế"] }
+      "0": {
+        "label": "Lưu trú",
+        "desc": "Tăng công suất phòng, tiếp cận khách du lịch toàn cầu",
+        "benefits": [
+          "Hiển thị trong hành trình tìm kiếm & đặt phòng",
+          "Tăng booking từ khách nội địa & quốc tế",
+          "Tham gia campaign kích cầu du lịch"
+        ]
+      },
+      "1": {
+        "label": "Ẩm thực",
+        "desc": "Thu hút khách tại điểm đến, tăng lượng khách ghé thăm",
+        "benefits": [
+          "Xuất hiện trong gợi ý ăn uống theo điểm đến",
+          "Kết nối với du khách đang ở gần",
+          "Tham gia review, KOL/KOC, food guide"
+        ]
+      },
+      "2": {
+        "label": "Tour & Hoạt động trải nghiệm",
+        "desc": "Tăng booking và tiếp cận khách có nhu cầu cao",
+        "benefits": [
+          "Hiển thị trong hành trình khám phá & lên kế hoạch",
+          "Gợi ý bởi AI Trip Planner",
+          "Tăng chuyển đổi từ khách đang lên kế hoạch"
+        ]
+      },
+      "3": {
+        "label": "Điểm tham quan / Điểm du lịch",
+        "desc": "Tăng lượng khách tham quan và độ nhận diện",
+        "benefits": [
+          "Xuất hiện trong bản đồ & hành trình du lịch",
+          "Tích hợp vào các campaign điểm đến",
+          "Tham gia activation tại sự kiện & địa phương"
+        ]
+      },
+      "4": {
+        "label": "Mua sắm & Bán lẻ",
+        "desc": "Thu hút khách đến cửa hàng từ luồng du lịch",
+        "benefits": [
+          "Hiển thị trong hành trình trải nghiệm địa phương",
+          "Kết nối với khách du lịch tại điểm",
+          "Tham gia chương trình ưu đãi & combo"
+        ]
+      },
+      "5": {
+        "label": "Vận tải",
+        "desc": "Tăng nhu cầu di chuyển theo hành trình du lịch",
+        "benefits": [
+          "Tích hợp vào planning của du khách",
+          "Xuất hiện trong hành trình di chuyển liên tỉnh",
+          "Kết nối với các dịch vụ du lịch khác"
+        ]
+      },
+      "6": {
+        "label": "Đưa đón",
+        "desc": "Tiếp cận khách di chuyển tại điểm đến",
+        "benefits": [
+          "Gợi ý trong hành trình di chuyển ngắn",
+          "Kết nối với khách tại thời điểm cần",
+          "Tăng tần suất sử dụng dịch vụ"
+        ]
+      },
+      "7": {
+        "label": "Thuê phương tiện",
+        "desc": "Tiếp cận khách có nhu cầu khám phá tự do",
+        "benefits": [
+          "Hiển thị trong hành trình khám phá địa phương",
+          "Gợi ý theo nhu cầu trải nghiệm cá nhân",
+          "Tăng booking trực tiếp từ nền tảng"
+        ]
+      },
+      "8": {
+        "label": "Spa & Chăm sóc sức khỏe",
+        "desc": "Thu hút khách trải nghiệm và nâng cao giá trị dịch vụ",
+        "benefits": [
+          "Gợi ý trong hành trình nghỉ dưỡng",
+          "Tiếp cận khách có nhu cầu wellness",
+          "Tham gia các gói combo du lịch"
+        ]
+      },
+      "9": {
+        "label": "Sự kiện",
+        "desc": "Tăng lượng khách tham gia và độ phủ truyền thông",
+        "benefits": [
+          "Hiển thị trong lịch sự kiện & điểm đến",
+          "Kết nối với du khách đang ở khu vực",
+          "Lan tỏa qua campaign & hệ sinh thái"
+        ]
+      },
+      "10": {
+        "label": "Khác",
+        "desc": "Giải pháp linh hoạt cho mọi loại hình kinh doanh du lịch",
+        "benefits": [
+          "Tư vấn mô hình phù hợp",
+          "Kết nối vào hệ sinh thái",
+          "Tối ưu theo nhu cầu thực tế"
+        ]
+      }
     }
   },
   "RegistrationForm": {
@@ -649,11 +1100,14 @@
     "success": {
       "title": "Cảm ơn bạn đã đăng ký trở thành Đối tác của Visit Vietnam.",
       "body": "Chúng tôi sẽ sớm liên hệ với bạn qua email hoặc số điện thoại đã cung cấp."
+    },
+    "errors": {
+      "required": "Trường này là bắt buộc"
     }
   },
   "TestimonialsSection": {
     "eyebrow": "Đối tác chiến lược",
-    "heading": "Với sự đồng hành của các thương hiệu du lịch hàng đầu"
+    "heading": "Cùng các đối tác nâng tầm du lịch số"
   },
   "ForGovernancePage": {
     "Meta": {
@@ -664,7 +1118,7 @@
       "title": "Mối quan hệ mật thiết"
     },
     "Hero": {
-      "badge": "Ứng dụng du lịch AI chuẩn quốc gia",
+      "badge": "Nền tảng du lịch số quốc gia",
       "title": "Làm chủ dữ liệu, kiến tạo tương lai du lịch Việt Nam",
       "subtitle": "Đồng nhất hệ sinh thái dữ liệu số, tạo điểm tựa vững chắc cho mọi quyết sách tầm vóc",
       "ctaPrimary": "Trải nghiệm thử",
@@ -674,16 +1128,31 @@
     "NationalSponsorship": {
       "title": "Bảo trợ cấp quốc gia",
       "cards": {
-        "0": { "label": "Cục Du lịch Quốc gia Việt Nam" },
-        "1": { "label": "Hiệp hội Dữ liệu Quốc gia" },
-        "2": { "label": "Trung tâm Dữ liệu Quốc gia" }
+        "0": {
+          "label": "Cục Du lịch Quốc gia Việt Nam"
+        },
+        "1": {
+          "label": "Hiệp hội Dữ liệu Quốc gia"
+        }
       }
     },
     "Stats": {
-      "0": { "label": "Tổng lượt khách", "trend": "+12,3%" },
-      "1": { "label": "Chi tiêu TB / chuyến", "trend": "+8,1%" },
-      "2": { "label": "Thời gian lưu trú TB", "trend": null },
-      "3": { "label": "Điểm hài lòng", "trend": null }
+      "0": {
+        "label": "Tổng lượt khách",
+        "trend": "+12,3%"
+      },
+      "1": {
+        "label": "Chi tiêu TB / chuyến",
+        "trend": "+8,1%"
+      },
+      "2": {
+        "label": "Thời gian lưu trú TB",
+        "trend": null
+      },
+      "3": {
+        "label": "Điểm hài lòng",
+        "trend": null
+      }
     },
     "PainPoints": {
       "eyebrow": "Thách thức",
@@ -692,7 +1161,7 @@
       "items": {
         "0": {
           "title": "Phân tán giữa nhiều hệ thống",
-          "desc": "Thông tin được quản lý rải rác giữa 34 tỉnh thành và các doanh nghiệp, chưa có nền tảng kết nối đồng bộ"
+          "desc": "Thông tin phân mảnh giữa nhiều đơn vị, thiếu một nền tảng tích hợp để kết nối đồng bộ"
         },
         "1": {
           "title": "Chậm so với biến động thực tế",
@@ -707,7 +1176,7 @@
     "DashboardFeatures": {
       "eyebrow": "Visit Vietnam",
       "title": "Giải pháp quản trị du lịch toàn diện",
-      "subtitle": "Theo dõi toàn cảnh, hiểu từng địa phương, chuẩn hóa từng ngành với hệ thống dashboard của Visit Vietnam",
+      "subtitle": "Theo dõi toàn cảnh, hiểu từng địa phương, chuẩn hóa từng ngành với báo cáo của Visit Vietnam",
       "cta": "Trải nghiệm dashboard",
       "items": {
         "0": {
@@ -715,14 +1184,10 @@
           "desc": "Tích hợp các chỉ số về lượt khách, doanh thu, thị trường nguồn và xu hướng theo mùa trên một nền tảng thống nhất"
         },
         "1": {
-          "title": "Bản đồ nhiệt",
-          "desc": "Trực quan hóa mật độ du khách, hành vi di chuyển và các điểm đến mới nổi trên phạm vi toàn quốc theo thời gian thực"
+          "title": "Thiết lập tiêu chuẩn chất lượng",
+          "desc": "Chuẩn hóa thông tin qua định danh và minh bạch dữ liệu, tạo nền tảng cho hệ thống chứng nhận chính thống"
         },
         "2": {
-          "title": "Phân tích chi tiêu",
-          "desc": "Tổng hợp và phân tích dữ liệu chi tiêu theo danh mục, các nhóm dịch vụ và quốc tịch của du khách"
-        },
-        "3": {
           "title": "Dự báo & cảnh báo",
           "desc": "Ứng dụng AI để phân tích và dự báo nhu cầu, công suất và các biến động của thị trường du lịch Việt Nam"
         }
@@ -731,7 +1196,7 @@
     "ValueProps": {
       "eyebrow": "Giá trị",
       "title": "Số hóa quản trị, nâng tầm du lịch Việt Nam",
-      "subtitle": "Kiến tạo tương lai du lịch quốc gia bằng sức mạnh dữ liệu thực chứng và kết nối xuyên suốt toàn ngành",
+      "subtitle": "Thúc đẩy du lịch quốc gia nhờ dữ liệu tin cậy và sự vận hành đồng bộ",
       "items": {
         "0": {
           "title": "Ra quyết định chính xác",
@@ -749,12 +1214,12 @@
     },
     "Contact": {
       "eyebrow": "Liên hệ",
-      "title": "Đăng ký ngay để trải nghiệm nền tảng",
-      "subtitle": "Kết nối với Visit Vietnam để được tư vấn và hướng dẫn triển khai hệ thống phù hợp với phạm vi quản lý",
+      "title": "Thúc đẩy triển khai nền tảng",
+      "subtitle": "Phối hợp cùng Visit Vietnam để xây dựng và áp dụng hệ thống phù hợp với từng cấp quản lý",
       "infoTitle": "Phòng quan hệ chính phủ",
       "email": "gov@visitvietnam.asia",
       "phone": "+84 (28) 1234 5678",
-      "address": "Phường Bạch Đằng, Quận Hai Bà Trưng, Hà Nội",
+      "address": "Phường Hai Bà Trưng, Hà Nội",
       "hours": "T2–T6 8:00–17:00 · T7 8:00–12:00",
       "fields": {
         "organization": "Tên tổ chức / cơ quan",

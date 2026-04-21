@@ -9,7 +9,12 @@
     "downloadAppDark": "Get the app",
     "langVN": "Tiếng Việt (VN)",
     "langEN": "English (EN)",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "platform": "About",
+    "aboutPlatform": "About the platform",
+    "forBusiness": "For Business",
+    "forGovernance": "For Government",
+    "tagline": "National digital tourism platform"
   },
   "Footer": {
     "tagline": "Connecting journeys, spreading the soul of Vietnam",
@@ -38,18 +43,30 @@
   },
   "HomePage": {
     "Hero": {
-      "badge": "National digital tourism platform",
-      "title": "Travel Vietnam, tailored to your taste",
-      "subtitle": "Get personalized recommendations in seconds - where to go, what suits your pace, how to optimize every day of your journey"
+      "badge": "Personalized AI travel assistant",
+      "title": "Vietnam made simple, just for you",
+      "subtitle": "Planning your Vietnam trip shouldn't take too long. From hidden local gems to 24/7 on-the-ground support, we've got your back every step of the way"
     },
     "Destinations": {
       "title": "Featured Destinations",
       "subtitle": "Explore Vietnam's most breathtaking landscapes through an intelligent lens.",
       "items": {
-        "0": { "name": "Da Nang", "desc": "Vietnam's most livable city" },
-        "1": { "name": "Hoi An", "desc": "Timeless charm and ancient beauty" },
-        "2": { "name": "Hue", "desc": "The cultural heritage of an imperial capital" },
-        "3": { "name": "Ba Na Hills", "desc": "Heavenly escape with four seasons in one day" }
+        "0": {
+          "name": "Da Nang",
+          "desc": "Vietnam's most livable city"
+        },
+        "1": {
+          "name": "Hoi An",
+          "desc": "Timeless charm and ancient beauty"
+        },
+        "2": {
+          "name": "Hue",
+          "desc": "The cultural heritage of an imperial capital"
+        },
+        "3": {
+          "name": "Ba Na Hills",
+          "desc": "Heavenly escape with four seasons in one day"
+        }
       }
     },
     "Features": {
@@ -133,8 +150,8 @@
     },
     "Hero": {
       "badge": "About Visit Vietnam",
-      "title": "The leading platform for a seamless Vietnam travel journey",
-      "subtitle": "One connection for information, services, and experiences - making Vietnam travel seamless",
+      "title": "Explore Vietnam beyond limits",
+      "subtitle": "Integrating information, services, and experiences for seamless Vietnam travel",
       "cta": "Explore now"
     },
     "Ecosystem": {
@@ -148,7 +165,7 @@
     "Pillars": {
       "eyebrow": "Leading the digital future",
       "title": "Three pillars that set Visit Vietnam apart",
-      "subtitle": "Break operational barriers with advanced technology to build a smart travel ecosystem",
+      "subtitle": "We use AI and real local data so every traveler finds what they're actually looking for",
       "cards": {
         "0": {
           "title": "AI-powered personalization",
@@ -156,7 +173,7 @@
         },
         "1": {
           "title": "Authentic local intelligence",
-          "desc": "Across 34 provinces and cities, delivering deep local insights and exclusive destinations."
+          "desc": "Nationwide data coverage unlocking deep local insights and exclusive destinations on an official platform"
         },
         "2": {
           "title": "All-in-one ecosystem",
@@ -174,19 +191,40 @@
       "title": "Connecting travel, enhancing experiences.",
       "desc": "Creating seamless Vietnam travel journeys, powered by data to optimize operations, enhance experiences, and drive sustainable growth.",
       "items": {
-        "0": { "strong": "Connect Travelers:", "text": "Deliver authentic, unique, and seamless local experiences." },
-        "1": { "strong": "Empower Businesses:", "text": "Provide powerful digital tools that help partners optimize operations and grow revenue." },
-        "2": { "strong": "Celebrate Culture:", "text": "Contribute to heritage preservation, environmental protection, and indigenous community development." }
+        "0": {
+          "strong": "Connect Travelers:",
+          "text": "Deliver authentic, unique, and seamless local experiences."
+        },
+        "1": {
+          "strong": "Empower Businesses:",
+          "text": "Provide powerful digital tools that help partners optimize operations and grow revenue."
+        },
+        "2": {
+          "strong": "Celebrate Culture:",
+          "text": "Contribute to heritage preservation, environmental protection, and indigenous community development."
+        }
       },
       "quote": "\"Bringing Vietnam to the World, Bringing the World to Vietnam.\""
     },
     "Commitments": {
       "title": "Visit Vietnam is committed",
       "items": {
-        "0": { "title": "Trust", "desc": "Verified data with clear, reliable sources" },
-        "1": { "title": "Authenticity", "desc": "In-depth market insights and authentic local experiences" },
-        "2": { "title": "Transparency", "desc": "Clear and consistent pricing and policies" },
-        "3": { "title": "Optimization", "desc": "Optimized operations and enhanced user experience" }
+        "0": {
+          "title": "Trust",
+          "desc": "Verified data with clear, reliable sources"
+        },
+        "1": {
+          "title": "Authenticity",
+          "desc": "In-depth market insights and authentic local experiences"
+        },
+        "2": {
+          "title": "Transparency",
+          "desc": "Clear and consistent pricing and policies"
+        },
+        "3": {
+          "title": "Optimization",
+          "desc": "Optimized operations and enhanced user experience"
+        }
       }
     },
     "Problems": {
@@ -195,31 +233,73 @@
       "subtitle": "Addressing the fragmented Vietnam travel industry, we create a comprehensive platform that connects and optimizes through digital innovation.",
       "traditionalTitle": "Traditional Travel",
       "items": {
-        "0": { "title": "Unreliable information", "desc": "Fragmented data and unverified reviews" },
-        "1": { "title": "Limited local experiences", "desc": "Focus on popular spots, lacking authenticity" },
-        "2": { "title": "Language barriers", "desc": "Limited communication and support" },
-        "3": { "title": "Fragmented journey", "desc": "Multiple platforms, disconnected experience" }
+        "0": {
+          "title": "Unreliable information",
+          "desc": "Fragmented data and unverified reviews"
+        },
+        "1": {
+          "title": "Limited local experiences",
+          "desc": "Focus on popular spots, lacking authenticity"
+        },
+        "2": {
+          "title": "Language barriers",
+          "desc": "Limited communication and support"
+        },
+        "3": {
+          "title": "Fragmented journey",
+          "desc": "Multiple platforms, disconnected experience"
+        }
       }
     },
     "Solutions": {
       "title": "Visit Vietnam Solution",
       "items": {
-        "0": { "title": "Trusted data", "desc": "Verified information with real images and transparent reviews" },
-        "1": { "title": "AI-optimized itineraries", "desc": "Personalized plans based on preferences, time, and travel routes" },
-        "2": { "title": "24/7 multilingual AI assistant", "desc": "Continuous support throughout the journey" },
-        "3": { "title": "Seamless experience", "desc": "All-in-one platform connecting a complete travel ecosystem" }
+        "0": {
+          "title": "Trusted data",
+          "desc": "Verified information with real images and transparent reviews"
+        },
+        "1": {
+          "title": "AI-optimized itineraries",
+          "desc": "Personalized plans based on preferences, time, and travel routes"
+        },
+        "2": {
+          "title": "24/7 multilingual AI assistant",
+          "desc": "Continuous support throughout the journey"
+        },
+        "3": {
+          "title": "Seamless experience",
+          "desc": "All-in-one platform connecting a complete travel ecosystem"
+        }
       }
     },
     "Stats": {
       "title": "Strong nationwide presence",
-      "subtitle": "We are proud to have a large-scale partner alliance with nationwide coverage.",
+      "subtitle": "Trusted by travelers across 21 countries, and growing",
       "items": {
-        "0": { "label": "Provinces & Cities", "sublabel": "Nationwide coverage" },
-        "1": { "label": "Destinations", "sublabel": "Verified and up-to-date data" },
-        "2": { "label": "Experiences", "sublabel": "Diverse local tours and activities" },
-        "3": { "label": "B2B Partners", "sublabel": "Connected within the ecosystem" },
-        "4": { "label": "Countries", "sublabel": "Global user reach" },
-        "5": { "label": "Users", "sublabel": "Active and growing" }
+        "0": {
+          "label": "Provinces & Cities",
+          "sublabel": "Nationwide coverage"
+        },
+        "1": {
+          "label": "Destinations",
+          "sublabel": "Verified and up-to-date data"
+        },
+        "2": {
+          "label": "Experiences",
+          "sublabel": "Diverse local tours and activities"
+        },
+        "3": {
+          "label": "B2B Partners",
+          "sublabel": "Connected within the ecosystem"
+        },
+        "4": {
+          "label": "Countries",
+          "sublabel": "Global user reach"
+        },
+        "5": {
+          "label": "Users",
+          "sublabel": "Active and growing"
+        }
       }
     },
     "Contact": {
@@ -228,9 +308,21 @@
       "ctaPrimary": "Explore Now",
       "ctaSecondary": "Become a Partner",
       "items": {
-        "0": { "title": "General Support", "desc": "For questions about the platform and services for users.", "email": "support01@visitvietnam.asia" },
-        "1": { "title": "Business Partnerships", "desc": "For B2B partners, travel agencies, hotels, and service providers.", "email": "partner@visitvietnam.asia" },
-        "2": { "title": "Media & Press", "desc": "For interview requests and brand communication materials.", "email": "info@visitvietnam.asia" }
+        "0": {
+          "title": "General Support",
+          "desc": "For questions about the platform and services for users.",
+          "email": "support01@visitvietnam.asia"
+        },
+        "1": {
+          "title": "Business Partnerships",
+          "desc": "For B2B partners, travel agencies, hotels, and service providers.",
+          "email": "partner@visitvietnam.asia"
+        },
+        "2": {
+          "title": "Media & Press",
+          "desc": "For interview requests and brand communication materials.",
+          "email": "info@visitvietnam.asia"
+        }
       }
     }
   },
@@ -243,26 +335,44 @@
       "badge": "National digital tourism platform",
       "title": "Where global travelers meet local businesses",
       "subtitle": "Leading platform that brings travel businesses and travelers together",
-      "ctaPrimary": "Register as partner",
+      "ctaPrimary": "Register as a partner",
       "ctaSecondary": "See How It Works",
       "navCta": "Become Partner",
       "floatingBooking": "New Booking",
       "floatingJustNow": "Just now"
     },
     "Stats": {
-      "0": { "label": "Businesses" },
-      "1": { "label": "Destinations" },
-      "2": { "label": "Travelers" }
+      "0": {
+        "label": "Businesses"
+      },
+      "1": {
+        "label": "Destinations"
+      },
+      "2": {
+        "label": "Travelers"
+      }
     },
     "Features": {
       "eyebrow": "Partner benefits",
       "title": "Unlock growth with Visit Vietnam",
       "subtitle": "Leading digital travel platform: Smarter operations - Deeper insights - Revenue growth",
       "items": {
-        "0": { "title": "Connect with global travelers", "desc": "Reach the right audience through high-quality, organic travel demand." },
-        "1": { "title": "Optimize Vietnam travel with data", "desc": "Understand customer behavior and make faster, data-driven decisions." },
-        "2": { "title": "A trusted Vietnam travel platform", "desc": "Strengthen your brand and boost conversion with trusted partners." },
-        "3": { "title": "Join the ecosystem", "desc": "Connect, collaborate, and unlock cross-selling opportunities." }
+        "0": {
+          "title": "Connect with global travelers",
+          "desc": "Reach the right audience through high-quality, organic travel demand."
+        },
+        "1": {
+          "title": "Optimize Vietnam travel with data",
+          "desc": "Understand customer behavior and make faster, data-driven decisions."
+        },
+        "2": {
+          "title": "A trusted Vietnam travel platform",
+          "desc": "Strengthen your brand and boost conversion with trusted partners."
+        },
+        "3": {
+          "title": "Join the ecosystem",
+          "desc": "Connect, collaborate, and unlock cross-selling opportunities."
+        }
       }
     },
     "FAQ": {
@@ -271,12 +381,30 @@
       "contactLabel": "Contact us",
       "hotline": "Hotline",
       "items": {
-        "0": { "q": "What is Visit Vietnam?", "a": "Visit Vietnam is a national digital travel platform that empowers Vietnam travel businesses to thrive in the digital era, connect directly with global travelers, and optimize operations through intelligent data." },
-        "1": { "q": "How are participation costs structured?", "a": "Visit Vietnam operates on a performance-based model. Partners only pay service fees (commission) upon successful transactions." },
-        "2": { "q": "How long does the approval process take?", "a": "The process typically takes 2–3 working days. Once all required information is submitted, the system will verify and activate your profile promptly." },
-        "3": { "q": "What are the core benefits of becoming a partner?", "a": "Join the national ecosystem to elevate your Vietnam travel brand, access high-quality customers, and drive business growth through the platform." },
-        "4": { "q": "How can my brand gain more visibility?", "a": "Partners can upgrade their tier to receive priority placement in premium positions and participate in large-scale national marketing campaigns." },
-        "5": { "q": "How can I measure partnership performance?", "a": "Performance can be managed through an advanced dashboard, with periodic reports on reach, conversion rates, and detailed business performance by partnership tier." }
+        "0": {
+          "q": "What is Visit Vietnam?",
+          "a": "Visit Vietnam is a national digital travel platform that empowers Vietnam travel businesses to thrive in the digital era, connect directly with global travelers, and optimize operations through intelligent data."
+        },
+        "1": {
+          "q": "How are participation costs structured?",
+          "a": "Visit Vietnam operates on a performance-based model. Partners only pay service fees (commission) upon successful transactions."
+        },
+        "2": {
+          "q": "How long does the approval process take?",
+          "a": "The process typically takes 2–3 working days. Once all required information is submitted, the system will verify and activate your profile promptly."
+        },
+        "3": {
+          "q": "What are the core benefits of becoming a partner?",
+          "a": "Join the national ecosystem to elevate your Vietnam travel brand, access high-quality customers, and drive business growth through the platform."
+        },
+        "4": {
+          "q": "How can my brand gain more visibility?",
+          "a": "Partners can upgrade their tier to receive priority placement in premium positions and participate in large-scale national marketing campaigns."
+        },
+        "5": {
+          "q": "How can I measure partnership performance?",
+          "a": "Performance can be managed through an advanced dashboard, with periodic reports on reach, conversion rates, and detailed business performance by partnership tier."
+        }
       }
     }
   },
@@ -308,18 +436,78 @@
       "loadMore": "Load More"
     },
     "Articles": {
-      "0": { "title": "Exploring the Seafood Paradise at Phu Quoc Night Market", "excerpt": "From herring salad to grilled sea urchin — join us as we highlight the must-try dishes when you visit Pearl Island.", "category": "Food & Drink", "date": "May 12, 2024" },
-      "1": { "title": "The Perfect 4-Day, 3-Night Itinerary for First-Time Phu Quoc Visitors", "excerpt": "Detailed planning from transportation and accommodation to activities across both the north and south of the island.", "category": "Travel Guide", "date": "May 10, 2024" },
-      "2": { "title": "The Summer's Biggest Beach Music Festival Is About to Land", "excerpt": "Thousands of travelers are expected to gather at Bai Truong for a thrilling series of music and water sports events.", "category": "Events", "date": "May 8, 2024" },
-      "3": { "title": "The Mediterranean Spirit of Vietnam's \"Sunset Town\"", "excerpt": "Marvel at the vibrant colorful streets and the iconic Kiss Bridge — Vietnam's newest tourism landmark.", "category": "Travel Guide", "date": "May 5, 2024" },
-      "4": { "title": "The \"Green Pearl Island\" Campaign: Protecting Coral Reefs Together", "excerpt": "A sustainability initiative to conserve Phu Quoc's marine biodiversity and raise community awareness.", "category": "Events", "date": "May 2, 2024" },
-      "5": { "title": "Hon Thom Cable Car Sets New Visitor Record", "excerpt": "The world's longest sea-crossing cable car continues to cement its status as a must-try experience in Vietnam.", "category": "Travel Guide", "date": "Apr 28, 2024" },
-      "6": { "title": "Hoi An Named a Top Cultural Destination in Asia", "excerpt": "The ancient town of Hoi An continues to be recognized for its unique blend of traditional architecture and modern living.", "category": "Culture", "date": "Apr 25, 2024" },
-      "7": { "title": "Da Lat's Wild Sunflower Season — A Golden Highland Paradise", "excerpt": "In November, the hillsides around Da Lat are blanketed in golden wild sunflowers — a bucket-list experience.", "category": "Travel Guide", "date": "Apr 22, 2024" },
-      "8": { "title": "Hanoi Street Food Ranked Among the World's Top 10", "excerpt": "CNN Travel names Hanoi among the world's best street food destinations for 2024.", "category": "Food & Drink", "date": "Apr 18, 2024" },
-      "9": { "title": "Vietnam's First Personalized AI Travel App Launches", "excerpt": "Visit Vietnam officially launches its AI travel assistant — helping plan itineraries, suggest destinations, and book seamlessly.", "category": "Press Release", "date": "Apr 15, 2024" },
-      "10": { "title": "Sapa's Water Season — The Golden Terraced Fields Spectacle", "excerpt": "September and October are the ideal months to witness the glittering golden terraced fields of Sapa and Mu Cang Chai.", "category": "Travel Guide", "date": "Apr 10, 2024" },
-      "11": { "title": "Hue Festival 2024 — The Biggest Cultural Celebration in Central Vietnam", "excerpt": "This year's Hue Festival brings together hundreds of art troupes from across Vietnam and abroad, recreating the splendor of the ancient capital.", "category": "Events", "date": "Apr 5, 2024" }
+      "0": {
+        "title": "Exploring the Seafood Paradise at Phu Quoc Night Market",
+        "excerpt": "From herring salad to grilled sea urchin — join us as we highlight the must-try dishes when you visit Pearl Island.",
+        "category": "Food & Drink",
+        "date": "May 12, 2024"
+      },
+      "1": {
+        "title": "The Perfect 4-Day, 3-Night Itinerary for First-Time Phu Quoc Visitors",
+        "excerpt": "Detailed planning from transportation and accommodation to activities across both the north and south of the island.",
+        "category": "Travel Guide",
+        "date": "May 10, 2024"
+      },
+      "2": {
+        "title": "The Summer's Biggest Beach Music Festival Is About to Land",
+        "excerpt": "Thousands of travelers are expected to gather at Bai Truong for a thrilling series of music and water sports events.",
+        "category": "Events",
+        "date": "May 8, 2024"
+      },
+      "3": {
+        "title": "The Mediterranean Spirit of Vietnam's \"Sunset Town\"",
+        "excerpt": "Marvel at the vibrant colorful streets and the iconic Kiss Bridge — Vietnam's newest tourism landmark.",
+        "category": "Travel Guide",
+        "date": "May 5, 2024"
+      },
+      "4": {
+        "title": "The \"Green Pearl Island\" Campaign: Protecting Coral Reefs Together",
+        "excerpt": "A sustainability initiative to conserve Phu Quoc's marine biodiversity and raise community awareness.",
+        "category": "Events",
+        "date": "May 2, 2024"
+      },
+      "5": {
+        "title": "Hon Thom Cable Car Sets New Visitor Record",
+        "excerpt": "The world's longest sea-crossing cable car continues to cement its status as a must-try experience in Vietnam.",
+        "category": "Travel Guide",
+        "date": "Apr 28, 2024"
+      },
+      "6": {
+        "title": "Hoi An Named a Top Cultural Destination in Asia",
+        "excerpt": "The ancient town of Hoi An continues to be recognized for its unique blend of traditional architecture and modern living.",
+        "category": "Culture",
+        "date": "Apr 25, 2024"
+      },
+      "7": {
+        "title": "Da Lat's Wild Sunflower Season — A Golden Highland Paradise",
+        "excerpt": "In November, the hillsides around Da Lat are blanketed in golden wild sunflowers — a bucket-list experience.",
+        "category": "Travel Guide",
+        "date": "Apr 22, 2024"
+      },
+      "8": {
+        "title": "Hanoi Street Food Ranked Among the World's Top 10",
+        "excerpt": "CNN Travel names Hanoi among the world's best street food destinations for 2024.",
+        "category": "Food & Drink",
+        "date": "Apr 18, 2024"
+      },
+      "9": {
+        "title": "Vietnam's First Personalized AI Travel App Launches",
+        "excerpt": "Visit Vietnam officially launches its AI travel assistant — helping plan itineraries, suggest destinations, and book seamlessly.",
+        "category": "Press Release",
+        "date": "Apr 15, 2024"
+      },
+      "10": {
+        "title": "Sapa's Water Season — The Golden Terraced Fields Spectacle",
+        "excerpt": "September and October are the ideal months to witness the glittering golden terraced fields of Sapa and Mu Cang Chai.",
+        "category": "Travel Guide",
+        "date": "Apr 10, 2024"
+      },
+      "11": {
+        "title": "Hue Festival 2024 — The Biggest Cultural Celebration in Central Vietnam",
+        "excerpt": "This year's Hue Festival brings together hundreds of art troupes from across Vietnam and abroad, recreating the splendor of the ancient capital.",
+        "category": "Events",
+        "date": "Apr 5, 2024"
+      }
     }
   },
   "TaiAppPage": {
@@ -328,10 +516,10 @@
       "description": "Your personal AI travel companion. Build the perfect itinerary, book seamlessly, and get real-time support as you explore the beauty of Vietnam."
     },
     "Hero": {
-      "callout": "National digital tourism platform",
+      "callout": "Personalized AI travel assistant",
       "titleMain": "Visit Vietnam",
-      "titleHighlight": "Pack every journey into a single app",
-      "subtitle": "Personalize your itinerary, book services seamlessly, and enjoy 24/7 support for every trip",
+      "titleHighlight": "Vietnam made simple, just for you",
+      "subtitle": "Planning your Vietnam trip shouldn't take too long. From hidden local gems to 24/7 on-the-ground support, we've got your back every step of the way",
       "downloadOnAppStore": "Download on the",
       "downloadOnGooglePlay": "GET IT ON",
       "scanToDownload": "Scan to download",
@@ -343,56 +531,99 @@
     "PainPoints": {
       "eyebrow": "Travel hurdles",
       "title": "Why is planning a trip so stressful?",
-      "subtitle": "Amidst a sea of information, finding a starting point can be overwhelming",
+      "subtitle": "Before you even arrive, you're already overwhelmed. Too many options, too little context, and no clear way to decide what's actually worth your time",
       "items": [
-        { "title": "Information overload", "desc": "Thousands of conflicting reviews take up your time and make it hard to know what to trust for your Vietnam travel" },
-        { "title": "Authenticity gaps", "desc": "The reality often falls short of the advertisements, and pricing across sources is not always transparent" },
-        { "title": "Rigid itineraries", "desc": "Generic suggestions no longer inspire, yet you don't have the time to personally design a custom plan" },
-        { "title": "Fragmented experience", "desc": "Each step - from planning to booking and payment - happens on a separate app, forcing you to switch back and forth" }
+        {
+          "title": "Information overload",
+          "desc": "Thousands of conflicting reviews take up your time and make it hard to know what to trust"
+        },
+        {
+          "title": "Authenticity gaps",
+          "desc": "The reality often falls short of the advertisements, and pricing across sources is not always transparent"
+        },
+        {
+          "title": "Rigid itineraries",
+          "desc": "Generic suggestions no longer inspire, yet you don't have the time to personally design a custom plan"
+        },
+        {
+          "title": "Fragmented experience",
+          "desc": "Each step - from planning to booking and payment - happens on a separate app, forcing you to switch back and forth"
+        }
       ]
     },
     "Features": {
       "callout": "The ultimate travel solution",
-      "title": "Your entire trip, start to finish, in one app",
-      "subtitle": "Less prep time, more \"me\" time. Let Vietnam travel be your most effortless escape yet",
+      "title": "Everything you need for Vietnam, in one app",
+      "subtitle": "Skip the endless research. Get clear recommendations, build your itinerary, and book seamlessly",
       "cta": "Download now",
       "items": {
         "0": {
           "title": "AI-powered planning",
           "description": "Get a custom itinerary in seconds, tailored perfectly to your preferences and budget",
           "imageAlt": "Planning a travel itinerary",
-          "bullets": { "0": "Personalized experience", "1": "Local gems", "2": "Flexible editing" }
+          "bullets": {
+            "0": "Personalized experience",
+            "1": "Local gems",
+            "2": "Flexible editing"
+          }
         },
         "1": {
           "title": "One-tap booking",
           "description": "Seamlessly book hotels, restaurants, and essential services directly within the app",
           "imageAlt": "Booking travel services in Vietnam",
-          "bullets": { "0": "Secure payments", "1": "Instant confirmation", "2": "Exclusive local perks" }
+          "bullets": {
+            "0": "Secure payments",
+            "1": "Instant confirmation",
+            "2": "Exclusive local perks"
+          }
         },
         "2": {
           "title": "Real-time trip support",
           "description": "Access essential tools and assistance whenever and wherever you need them",
           "imageAlt": "Navigating Vietnam's streets",
-          "bullets": { "0": "Live translation", "1": "Smart navigation", "2": "Emergency connectivity" }
+          "bullets": {
+            "0": "Live translation",
+            "1": "Smart navigation",
+            "2": "Emergency connectivity"
+          }
         },
         "3": {
           "title": "Save & share memories",
           "description": "Keep your favorite moments organized and share your Vietnam travel inspiration with the world",
           "imageAlt": "Sharing travel memories",
-          "bullets": { "0": "Export to PDF", "1": "Social sharing", "2": "" }
+          "bullets": {
+            "0": "Export to PDF",
+            "1": "Social sharing",
+            "2": ""
+          }
         }
       }
     },
     "Testimonials": {
       "eyebrow": "Customer reviews",
-      "title": "Real use, real reviews",
-      "subtitle": "A growing number of travelers are choosing Visit Vietnam as they shape their way to travel Vietnam",
+      "title": "Real trip, real reviews",
+      "subtitle": "See how travelers like you cut through the noise, made better decisions, and arrived in Vietnam knowing exactly what to expect",
       "items": [
-        { "content": "Way more convenient than expected. I just typed what I wanted and got a full plan in minutes." },
-        { "content": "Some suggestions felt really local, I probably wouldn't have found those places on my own." },
-        { "content": "It kind of feels like someone who knows Vietnam is helping you out. The suggestions were actually spot on for what I like." },
-        { "content": "I didn't have to switch between apps at all. That alone made things easier." },
-        { "content": "I wasn't even looking for deals, but still ended up saving quite a bit just by following the suggestions." }
+        {
+          "content": "Way more convenient than expected. I just typed what I wanted and got a full plan in minutes.",
+          "name": "Daniel Kim (South Korea)"
+        },
+        {
+          "content": "Some suggestions felt really local, I probably wouldn't have found those places on my own. It didn't just show the usual tourist spots.",
+          "name": "Emily Carter (United Kingdom)"
+        },
+        {
+          "content": "It kind of feels like someone who knows Vietnam is helping you out. The suggestions were actually spot on for what I like.",
+          "name": "Jason Lim (China)"
+        },
+        {
+          "content": "I didn't have to switch between apps at all. That alone made things easier.",
+          "name": "Michael Chen (Australia)"
+        },
+        {
+          "content": "I wasn't even looking for deals, but still ended up saving quite a bit just by following the suggestions.",
+          "name": "Anna Müller (Germany)"
+        }
       ]
     },
     "FAQ": {
@@ -400,17 +631,32 @@
       "title": "Everything you need to know",
       "subtitle": "Helpful information to guide you before starting your Vietnam journey",
       "items": {
-        "0": { "q": "What is Visit Vietnam?", "a": "Visit Vietnam is the national travel app powered by AI to support your entire journey, from the initial planning stages to your on-ground experiences." },
-        "1": { "q": "What makes Visit Vietnam unique?", "a": "Our edge lies in AI-driven personalization and a commitment to prioritizing authentic local activities over generic tourist options." },
-        "2": { "q": "Are the offers on the app reliable?", "a": "Yes. Every deal and exclusive perk on Visit Vietnam comes from a network of verified, reputable partners with transparent and verifiable information." },
-        "3": { "q": "Is the app free to use?", "a": "Absolutely. You can download and access all features of the application completely free of charge." },
-        "4": { "q": "Can I edit the AI-generated itinerary?", "a": "Yes. You have full flexibility to add, remove, or swap locations whenever you like to suit your preferences." }
+        "0": {
+          "q": "What is Visit Vietnam?",
+          "a": "Visit Vietnam is the national travel app powered by AI to support your entire journey, from the initial planning stages to your on-ground experiences."
+        },
+        "1": {
+          "q": "What makes Visit Vietnam unique?",
+          "a": "What makes us different is AI that actually gets your travel style, plus real local recommendations most apps miss"
+        },
+        "2": {
+          "q": "Are the offers on the app reliable?",
+          "a": "Yes. Every deal and exclusive perk on Visit Vietnam comes from a network of verified, reputable partners with transparent and verifiable information."
+        },
+        "3": {
+          "q": "Is the app free to use?",
+          "a": "Absolutely. The app is completely free to download and use"
+        },
+        "4": {
+          "q": "Can I edit the AI-generated itinerary?",
+          "a": "Yes. You have full flexibility to add, remove, or swap locations whenever you like to suit your preferences."
+        }
       }
     },
     "CTA": {
       "callout": "Get the app with a tap",
       "title": "All of Vietnam, in your pocket",
-      "subtitle": "From idea to itinerary to real travel, everything ready for you in one app",
+      "subtitle": "Plan a trip shaped around your preferences, with handpicked local highlights - ready whenever you are.",
       "downloadOnAppStore": "Download on the",
       "downloadOnGooglePlay": "GET IT ON",
       "scanToDownload": "Scan to download"
@@ -434,12 +680,39 @@
       "title": "Signature Experiences in Phu Quoc",
       "subtitle": "The most loved activities and services among our travelers",
       "items": {
-        "0": { "title": "VinWonders Phu Quoc + Cable Car Ticket", "description": "Experience Vietnam's largest theme park and the world's longest sea-crossing cable car.", "badge": "Best Seller", "category": "Entertainment" },
-        "1": { "title": "South Island Coral Snorkeling Tour", "description": "Explore the wonders of the ocean with modern equipment and professional guides.", "category": "Sports" },
-        "2": { "title": "Night Squid Fishing + Seafood BBQ Tour", "description": "Experience squid fishing at sea after dark and enjoy the freshest seafood right on the spot.", "category": "Food & Drink" },
-        "3": { "title": "5-Star Meditation Spa Experience", "description": "Relax with a premium spa treatment combining natural essential oils and advanced massage techniques.", "badge": "Premium", "category": "Spa & Wellness" },
-        "4": { "title": "Hon Thom Cable Car + Water Park Tour", "description": "Take in panoramic views of Phu Quoc Island from the cable car, then splash around at the modern water park.", "category": "Sightseeing" },
-        "5": { "title": "Sunset Cruise + Live Guitar on the Sea", "description": "Watch the sunset aboard a luxury yacht with acoustic music and champagne.", "badge": "Romantic", "category": "Romantic" }
+        "0": {
+          "title": "VinWonders Phu Quoc + Cable Car Ticket",
+          "description": "Experience Vietnam's largest theme park and the world's longest sea-crossing cable car.",
+          "badge": "Best Seller",
+          "category": "Entertainment"
+        },
+        "1": {
+          "title": "South Island Coral Snorkeling Tour",
+          "description": "Explore the wonders of the ocean with modern equipment and professional guides.",
+          "category": "Sports"
+        },
+        "2": {
+          "title": "Night Squid Fishing + Seafood BBQ Tour",
+          "description": "Experience squid fishing at sea after dark and enjoy the freshest seafood right on the spot.",
+          "category": "Food & Drink"
+        },
+        "3": {
+          "title": "5-Star Meditation Spa Experience",
+          "description": "Relax with a premium spa treatment combining natural essential oils and advanced massage techniques.",
+          "badge": "Premium",
+          "category": "Spa & Wellness"
+        },
+        "4": {
+          "title": "Hon Thom Cable Car + Water Park Tour",
+          "description": "Take in panoramic views of Phu Quoc Island from the cable car, then splash around at the modern water park.",
+          "category": "Sightseeing"
+        },
+        "5": {
+          "title": "Sunset Cruise + Live Guitar on the Sea",
+          "description": "Watch the sunset aboard a luxury yacht with acoustic music and champagne.",
+          "badge": "Romantic",
+          "category": "Romantic"
+        }
       }
     }
   },
@@ -461,12 +734,39 @@
       "title": "Signature Experiences at Ba Na Hills",
       "subtitle": "The most loved activities and services among our travelers",
       "items": {
-        "0": { "title": "Ba Na Hills Cable Car Ticket", "description": "Conquer the cable car system that holds 8 world records and gaze at the misty mountain peaks.", "badge": "Best Seller", "category": "Sightseeing" },
-        "1": { "title": "Fantasy Park + Amusement Zone", "description": "An indoor entertainment paradise with hundreds of games, 4D cinema, and roller coasters.", "category": "Entertainment" },
-        "2": { "title": "Golden Bridge + Flower Garden Tour", "description": "Stand on the bridge held aloft by giant stone hands — the most iconic photo spot in Southeast Asia.", "category": "Sightseeing" },
-        "3": { "title": "Explore the French Village", "description": "Stroll through classic French colonial architecture recreating early 20th-century Europe amid the highland clouds.", "category": "Culture" },
-        "4": { "title": "Debay Wine Cellar", "description": "Savor premium wines aged in the most unique 100-year-old stone cellar in Southeast Asia.", "badge": "Premium", "category": "Food & Drink" },
-        "5": { "title": "Ba Na Carnival Festival", "description": "Immerse yourself in a vibrant street festival atmosphere with dance troupes, parades, and evening fireworks.", "badge": "Romantic", "category": "Romantic" }
+        "0": {
+          "title": "Ba Na Hills Cable Car Ticket",
+          "description": "Conquer the cable car system that holds 8 world records and gaze at the misty mountain peaks.",
+          "badge": "Best Seller",
+          "category": "Sightseeing"
+        },
+        "1": {
+          "title": "Fantasy Park + Amusement Zone",
+          "description": "An indoor entertainment paradise with hundreds of games, 4D cinema, and roller coasters.",
+          "category": "Entertainment"
+        },
+        "2": {
+          "title": "Golden Bridge + Flower Garden Tour",
+          "description": "Stand on the bridge held aloft by giant stone hands — the most iconic photo spot in Southeast Asia.",
+          "category": "Sightseeing"
+        },
+        "3": {
+          "title": "Explore the French Village",
+          "description": "Stroll through classic French colonial architecture recreating early 20th-century Europe amid the highland clouds.",
+          "category": "Culture"
+        },
+        "4": {
+          "title": "Debay Wine Cellar",
+          "description": "Savor premium wines aged in the most unique 100-year-old stone cellar in Southeast Asia.",
+          "badge": "Premium",
+          "category": "Food & Drink"
+        },
+        "5": {
+          "title": "Ba Na Carnival Festival",
+          "description": "Immerse yourself in a vibrant street festival atmosphere with dance troupes, parades, and evening fireworks.",
+          "badge": "Romantic",
+          "category": "Romantic"
+        }
       }
     }
   },
@@ -486,30 +786,61 @@
     "subtitle": "No tabs. No spreadsheets. Just tell us what you want",
     "cta": "Plan in app",
     "steps": {
-      "0": { "title": "Type what you're into", "desc": "Street food, beaches, culture, or hidden spots - anything you have in mind" },
-      "1": { "title": "Get a complete plan instantly", "desc": "All your stops, timing, and routes - all figured out for you" },
-      "2": { "title": "Adjust as you go", "desc": "Swap places, change plans, or explore more along the way" }
+      "0": {
+        "title": "Type what you're into",
+        "desc": "Street food, beaches, culture, or hidden spots - anything you have in mind"
+      },
+      "1": {
+        "title": "Get a complete plan instantly",
+        "desc": "All your stops, timing, and routes - all figured out for you"
+      },
+      "2": {
+        "title": "Adjust as you go",
+        "desc": "Swap places, change plans, or explore more along the way"
+      }
     }
   },
   "OffersSection": {
-    "eyebrow": "Exclusive Partner Deals",
-    "title": "Save more on the journeys you want",
+    "eyebrow": "Your exclusive benefits",
+    "title": "Travel more, spend smarter",
     "subtitle": "Top deals and trending combos travelers keep coming back for",
     "viewAll": "View all offers",
     "exploreCta": "Explore offer",
+    "emptyState": "Stay tuned for exclusive deals",
     "items": {
-      "0": { "title": "Fly in Style — Deals Worth the Upgrade", "description": "Visa cardholders get exclusive offers on Sun PhuQuoc Airways tickets. Save more on every flight." },
-      "1": { "title": "Sapa Trekking & Village Discovery", "description": "Authentic Northwest culture with local guides. From 1,200,000 VND per person." },
-      "2": { "title": "5-Star Ha Long Bay Cruise", "description": "Luxurious resort experience on a UNESCO World Heritage site. From 2,450,000 VND per person." },
-      "3": { "title": "Nha Trang Family Holiday", "description": "All-inclusive 4-night resort & entertainment combo. Free VinWonders tickets for the whole family." }
+      "0": {
+        "title": "Fly in Style — Deals Worth the Upgrade",
+        "description": "Visa cardholders get exclusive offers on Sun PhuQuoc Airways tickets. Save more on every flight."
+      },
+      "1": {
+        "title": "Sapa Trekking & Village Discovery",
+        "description": "Authentic Northwest culture with local guides. From 1,200,000 VND per person."
+      },
+      "2": {
+        "title": "5-Star Ha Long Bay Cruise",
+        "description": "Luxurious resort experience on a UNESCO World Heritage site. From 2,450,000 VND per person."
+      },
+      "3": {
+        "title": "Nha Trang Family Holiday",
+        "description": "All-inclusive 4-night resort & entertainment combo. Free VinWonders tickets for the whole family."
+      }
     }
   },
   "HeroCardStack": {
     "ariaLabel": "Visit Vietnam Suggestions",
     "items": {
-      "0": { "title": "Eat your way through Da Nang", "cta": "Start exploring" },
-      "1": { "title": "What not to miss at Ba Na Hills", "cta": "See highlights" },
-      "2": { "title": "Experience DIFF like a local", "cta": "Find out how" }
+      "0": {
+        "title": "Eat your way through Da Nang",
+        "cta": "Start exploring"
+      },
+      "1": {
+        "title": "What not to miss at Ba Na Hills",
+        "cta": "See highlights"
+      },
+      "2": {
+        "title": "Experience DIFF like a local",
+        "cta": "Find out how"
+      }
     }
   },
   "PartnershipTiers": {
@@ -522,12 +853,15 @@
     "items": [
       {
         "id": "companion",
-        "name": "Register partner",
+        "name": "Registered partner",
         "tagline": "To affirm credibility and national distinction.",
         "price": "Free",
         "priceSub": "/to maintain",
         "badge": "FREE",
-        "benefits": ["Officially listed in the Visit Vietnam platform.", "Granted a basic certification and exclusive brand identity package."],
+        "benefits": [
+          "Officially listed in the Visit Vietnam platform.",
+          "Granted a basic certification and exclusive brand identity package."
+        ],
         "cta": "Sign up now",
         "ctaVariant": "secondary",
         "highlight": false,
@@ -541,7 +875,12 @@
         "price": "499,000₫",
         "priceSub": "/month",
         "badge": "MOST POPULAR",
-        "benefits": ["Officially listed in the Visit Vietnam platform.", "Granted a standard certification and exclusive brand identity package.", "Full ownership and management rights over your business profile.", "Access to all management and data tools."],
+        "benefits": [
+          "Officially listed in the Visit Vietnam platform.",
+          "Granted a standard certification and exclusive brand identity package.",
+          "Full ownership and management rights over your business profile.",
+          "Access to all management and data tools."
+        ],
         "cta": "Sign up now",
         "ctaVariant": "secondary",
         "highlight": true,
@@ -554,7 +893,18 @@
         "tagline": "To pioneer comprehensive data collaboration.",
         "price": "Premium",
         "badge": "PREMIUM",
-        "benefits": ["Official listing on the platform", "Premium certification & brand assets", "Full control of your business profile", "Access to the complete management tool suite", "High-quality customer leads", "Performance-based financial incentives", "Top priority placement in national marketing campaigns", "Deep product integration across the Visit Vietnam ecosystem", "Exclusive data insights for trend analysis and global travel intelligence", "Invitation to the annual executive summit"],
+        "benefits": [
+          "Official listing on the platform",
+          "Premium certification & brand assets",
+          "Full control of your business profile",
+          "Access to the complete management tool suite",
+          "High-quality customer leads",
+          "Performance-based financial incentives",
+          "Top priority placement in national marketing campaigns",
+          "Deep product integration across the Visit Vietnam ecosystem",
+          "Exclusive data insights for trend analysis and global travel intelligence",
+          "Invitation to the annual executive summit"
+        ],
         "cta": "Sign up now",
         "ctaVariant": "secondary",
         "highlight": false,
@@ -586,28 +936,129 @@
     "title": "Easy onboarding in just 4 steps",
     "subtitle": "A fast onboarding process that gets your business up and running immediately.",
     "steps": {
-      "0": { "title": "Register your information", "desc": "Complete the partner registration form with your basic business details." },
-      "1": { "title": "Quick approval", "desc": "Your application is reviewed within 2 working days." },
-      "2": { "title": "Go live", "desc": "Receive a Welcome Kit and launch your services with ease." },
-      "3": { "title": "Grow with us", "desc": "Start operating and manage performance with a smart dashboard." }
+      "0": {
+        "title": "Register your information",
+        "desc": "Complete the partner registration form with your basic business details."
+      },
+      "1": {
+        "title": "Quick approval",
+        "desc": "Your application is reviewed within 2 working days."
+      },
+      "2": {
+        "title": "Go live",
+        "desc": "Receive a Welcome Kit and launch your services with ease."
+      },
+      "3": {
+        "title": "Grow with us",
+        "desc": "Start operating and manage performance with a smart dashboard."
+      }
     }
   },
   "IndustryCarousel": {
     "title": "Growth solutions across all travel categories",
     "subtitle": "Customized solutions to maximize traveler reach and operational efficiency",
     "contactCta": "Contact us",
+    "sectorSelectedHint": "Scroll down to complete your registration",
     "items": {
-      "0": { "label": "Accommodation", "desc": "Increase occupancy and reach global travelers", "benefits": ["Featured in search and booking journeys", "Drive bookings from domestic and international travelers", "Join tourism promotion campaigns"] },
-      "1": { "label": "Food & Beverage", "desc": "Attract on-site travelers and increase foot traffic", "benefits": ["Featured in destination-based dining recommendations", "Connect with nearby travelers", "Join reviews, KOL/KOC campaigns, and food guides"] },
-      "2": { "label": "Tours & Activities", "desc": "Increase bookings and reach high-intent travelers", "benefits": ["Featured in discovery and planning journeys", "Recommended by the AI Trip Planner", "Boost conversion from travelers in the planning stage"] },
-      "3": { "label": "Attractions / Destinations", "desc": "Increase visitor traffic and brand visibility", "benefits": ["Featured on maps and travel itineraries", "Integrated into destination campaigns", "Participate in local activations and events"] },
-      "4": { "label": "Shopping & Retail", "desc": "Drive store traffic from travel demand", "benefits": ["Featured in local experience journeys", "Connect with on-site travelers", "Join promotions and bundled offers"] },
-      "5": { "label": "Scheduled Transportation", "desc": "Capture travel-driven mobility demand", "benefits": ["Integrated into travel planning journeys", "Featured in intercity travel routes", "Connected with other travel services"] },
-      "6": { "label": "On-demand Transportation", "desc": "Reach travelers at key moments of movement", "benefits": ["Suggested for short-distance journeys", "Connect with travelers in real time", "Increase service usage frequency"] },
-      "7": { "label": "Vehicle Rental", "desc": "Reach travelers seeking independent exploration", "benefits": ["Featured in local discovery journeys", "Recommended based on personal travel needs", "Drive direct bookings on the platform"] },
-      "8": { "label": "Spa & Wellness", "desc": "Attract experience-driven travelers and enhance service value", "benefits": ["Featured in leisure and wellness journeys", "Reach wellness-focused travelers", "Join travel bundles and package offers"] },
-      "9": { "label": "Events", "desc": "Increase attendance and media exposure", "benefits": ["Featured in event listings and destinations", "Connect with travelers in the area", "Amplified through campaigns and ecosystem channels"] },
-      "10": { "label": "Others", "desc": "Flexible solutions for all travel business models", "benefits": ["Tailored business consultation", "Integrated into the ecosystem", "Optimized based on real needs"] }
+      "0": {
+        "label": "Accommodation",
+        "desc": "Increase occupancy and reach global travelers",
+        "benefits": [
+          "Featured in search and booking journeys",
+          "Drive bookings from domestic and international travelers",
+          "Join tourism promotion campaigns"
+        ]
+      },
+      "1": {
+        "label": "Food & Beverage",
+        "desc": "Attract on-site travelers and increase foot traffic",
+        "benefits": [
+          "Featured in destination-based dining recommendations",
+          "Connect with nearby travelers",
+          "Join reviews, KOL/KOC campaigns, and food guides"
+        ]
+      },
+      "2": {
+        "label": "Tours & Activities",
+        "desc": "Increase bookings and reach high-intent travelers",
+        "benefits": [
+          "Featured in discovery and planning journeys",
+          "Recommended by the AI Trip Planner",
+          "Boost conversion from travelers in the planning stage"
+        ]
+      },
+      "3": {
+        "label": "Attractions / Destinations",
+        "desc": "Increase visitor traffic and brand visibility",
+        "benefits": [
+          "Featured on maps and travel itineraries",
+          "Integrated into destination campaigns",
+          "Participate in local activations and events"
+        ]
+      },
+      "4": {
+        "label": "Shopping & Retail",
+        "desc": "Drive store traffic from travel demand",
+        "benefits": [
+          "Featured in local experience journeys",
+          "Connect with on-site travelers",
+          "Join promotions and bundled offers"
+        ]
+      },
+      "5": {
+        "label": "Scheduled Transportation",
+        "desc": "Capture travel-driven mobility demand",
+        "benefits": [
+          "Integrated into travel planning journeys",
+          "Featured in intercity travel routes",
+          "Connected with other travel services"
+        ]
+      },
+      "6": {
+        "label": "On-demand Transportation",
+        "desc": "Reach travelers at key moments of movement",
+        "benefits": [
+          "Suggested for short-distance journeys",
+          "Connect with travelers in real time",
+          "Increase service usage frequency"
+        ]
+      },
+      "7": {
+        "label": "Vehicle Rental",
+        "desc": "Reach travelers seeking independent exploration",
+        "benefits": [
+          "Featured in local discovery journeys",
+          "Recommended based on personal travel needs",
+          "Drive direct bookings on the platform"
+        ]
+      },
+      "8": {
+        "label": "Spa & Wellness",
+        "desc": "Attract experience-driven travelers and enhance service value",
+        "benefits": [
+          "Featured in leisure and wellness journeys",
+          "Reach wellness-focused travelers",
+          "Join travel bundles and package offers"
+        ]
+      },
+      "9": {
+        "label": "Events",
+        "desc": "Increase attendance and media exposure",
+        "benefits": [
+          "Featured in event listings and destinations",
+          "Connect with travelers in the area",
+          "Amplified through campaigns and ecosystem channels"
+        ]
+      },
+      "10": {
+        "label": "Others",
+        "desc": "Flexible solutions for all travel business models",
+        "benefits": [
+          "Tailored business consultation",
+          "Integrated into the ecosystem",
+          "Optimized based on real needs"
+        ]
+      }
     }
   },
   "RegistrationForm": {
@@ -649,11 +1100,14 @@
     "success": {
       "title": "Thank you for registering to become a Visit Vietnam Partner.",
       "body": "We will contact you soon via the email or phone number you provided."
+    },
+    "errors": {
+      "required": "This field is required"
     }
   },
   "TestimonialsSection": {
     "eyebrow": "Strategic Partnership",
-    "heading": "In partnership with Vietnam's top travel brands"
+    "heading": "Advancing Vietnam digital travel"
   },
   "ForGovernancePage": {
     "Meta": {
@@ -674,16 +1128,31 @@
     "NationalSponsorship": {
       "title": "Endorsed at the national level",
       "cards": {
-        "0": { "label": "Vietnam National Authority of Tourism (VNAT)" },
-        "1": { "label": "National Data Association (NDA)" },
-        "2": { "label": "National Data Center (NDC)" }
+        "0": {
+          "label": "Vietnam National Authority of Tourism (VNAT)"
+        },
+        "1": {
+          "label": "National Data Association (NDA)"
+        }
       }
     },
     "Stats": {
-      "0": { "label": "Total Arrivals", "trend": "+12.3%" },
-      "1": { "label": "Avg. Spending / Trip", "trend": "+8.1%" },
-      "2": { "label": "Avg. Length of Stay", "trend": null },
-      "3": { "label": "Satisfaction Score", "trend": null }
+      "0": {
+        "label": "Total Arrivals",
+        "trend": "+12.3%"
+      },
+      "1": {
+        "label": "Avg. Spending / Trip",
+        "trend": "+8.1%"
+      },
+      "2": {
+        "label": "Avg. Length of Stay",
+        "trend": null
+      },
+      "3": {
+        "label": "Satisfaction Score",
+        "trend": null
+      }
     },
     "PainPoints": {
       "eyebrow": "Challenges",
@@ -692,7 +1161,7 @@
       "items": {
         "0": {
           "title": "Data silos & systemic fragmentation",
-          "desc": "Information is scattered across 34 provinces, lacking a unified connection for the Vietnam travel ecosystem"
+          "desc": "Data is spread across multiple entities, lacking a cohesive system to bring everything together"
         },
         "1": {
           "title": "The data-reality anachronism",
@@ -707,7 +1176,7 @@
     "DashboardFeatures": {
       "eyebrow": "Visit Vietnam",
       "title": "Vietnam's integrated framework for tourism excellence",
-      "subtitle": "Gain a national overview, understand local insights, and standardize every sector with Visit Vietnam's dashboard system",
+      "subtitle": "Gain a national overview, understand local insights, and standardize every sector with Visit Vietnam's dashboard",
       "cta": "Explore the dashboard",
       "items": {
         "0": {
@@ -715,14 +1184,10 @@
           "desc": "Integrating visitor volume, revenue, source markets, and seasonal trends into a unified platform"
         },
         "1": {
-          "title": "Heatmap analytics",
-          "desc": "Real-time visualization of visitor density, movement patterns, and emerging Vietnam travel destinations nationwide"
+          "title": "Establish quality standards",
+          "desc": "Ensuring verified identities and transparent data to support a trusted certification system"
         },
         "2": {
-          "title": "Spending analysis",
-          "desc": "Aggregating and analyzing tourist spending patterns by category, service segments, and nationality"
-        },
-        "3": {
           "title": "Forecasting & alerts",
           "desc": "Leveraging AI to analyze and forecast market demand, capacity, and fluctuations in the Vietnam travel market"
         }
@@ -731,7 +1196,7 @@
     "ValueProps": {
       "eyebrow": "Benefits",
       "title": "Digitalizing excellence, redefining Vietnam travel",
-      "subtitle": "Shaping the national future through data-driven insights and seamless industry-wide connectivity",
+      "subtitle": "Strengthen national tourism using reliable data and synchronized operations",
       "items": {
         "0": {
           "title": "Data-driven strategic agility",
@@ -749,12 +1214,12 @@
     },
     "Contact": {
       "eyebrow": "Contact",
-      "title": "Register now to experience the platform",
-      "subtitle": "Connect with Visit Vietnam for professional consultation and a tailored implementation roadmap designed for your governance scope",
+      "title": "Register to accelerate nationwide deployment",
+      "subtitle": "Collaborate with Visit Vietnam to develop and apply systems suited to different administrative levels",
       "infoTitle": "Government Relations Office",
       "email": "gov@visitvietnam.asia",
       "phone": "+84 (28) 1234 5678",
-      "address": "Bach Dang Ward, Hai Ba Trung District, Hanoi",
+      "address": "Hai Ba Trung District, Hanoi, Vietnam",
       "hours": "Mon–Fri 8am–5pm · Sat 8am–12pm",
       "fields": {
         "organization": "Organization Name",

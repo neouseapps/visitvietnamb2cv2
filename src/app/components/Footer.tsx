@@ -15,7 +15,6 @@ export const Footer = () => {
         { label: t('columns.about.government'), href: '/for-governance' },
         { label: t('columns.about.newsroom'), href: '/newsroom' },
         { label: t('columns.about.about'), href: '/about' },
-        { label: t('columns.about.downloadApp'), href: '/tai-app' },
       ],
     },
     {

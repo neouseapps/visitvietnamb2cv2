@@ -73,8 +73,9 @@ function smoothScrollTo(id: string) {
 
 function HeroSection() {
   const t = useTranslations('ForBusinessPage.Hero')
+  const tPage = useTranslations('ForBusinessPage')
   return (
-    <section className="relative h-[90vh] min-h-[700px] flex items-center overflow-hidden bg-[var(--color-bg-inverse)]">
+    <section className="relative h-[90vh] min-h-[700px] flex flex-col overflow-hidden bg-[var(--color-bg-inverse)]">
       {/* Background image */}
       <Image
         src="/images/hero-for-business.png"
@@ -84,8 +85,9 @@ function HeroSection() {
         priority
       />
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 mt-16">
-        <div className="max-w-[832px] mx-auto text-center">
+      {/* Main content */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 mt-16 flex-1 flex items-center">
+        <div className="max-w-[832px] mx-auto text-center w-full">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md">
             {t('badge')}
           </div>
@@ -95,49 +97,43 @@ function HeroSection() {
           <p className="text-lg text-white/80 mb-8 leading-relaxed max-w-xl mx-auto">
             {t('subtitle')}
           </p>
-          <div className="flex flex-col gap-4 items-center w-64 mx-auto">
-            <Button variant="ghost" size="lg" className="w-full text-white border-white/30 hover:bg-white/10" onClick={() => smoothScrollTo('how-it-works')}>
+          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
+            <Button variant="ghost" size="lg" className="w-64 sm:w-auto text-white border-white/30 hover:bg-white/10" onClick={() => smoothScrollTo('how-it-works')}>
               {t('ctaSecondary')}
             </Button>
-            <Button variant="brand" size="lg" className="w-full" onClick={() => smoothScrollTo('register')}>
+            <Button variant="brand" size="lg" className="w-64 sm:w-auto" onClick={() => smoothScrollTo('register')}>
               {t('ctaPrimary')}
             </Button>
           </div>
         </div>
       </div>
-    </section>
-  )
-}
 
-// ---------------------------------------------------------------------------
-// Stats Section
-// ---------------------------------------------------------------------------
-function StatCounter({ target, suffix, label }: { target: number; suffix: string; label: string }) {
-  const { count, ref } = useCounterOnVisible(target)
-  const formatted = target >= 1000 ? count.toLocaleString('en-US') : count.toString()
-  return (
-    <div className="p-4 text-center">
-      <div className="text-4xl md:text-5xl font-bold mb-2 flex justify-center items-baseline">
-        <span ref={ref}>{formatted}</span>
-        <span className="text-white/70 ml-1">{suffix}</span>
-      </div>
-      <p className="text-white/70 font-medium text-sm md:text-base">{label}</p>
-    </div>
-  )
-}
-
-function StatsSection() {
-  const t = useTranslations('ForBusinessPage')
-  return (
-    <section className="py-16 text-white relative" style={{ background: 'linear-gradient(180deg, var(--color-alpha-black-20) 0%, var(--color-alpha-black-80) 100%), var(--color-bg-brand-primary-dim)' }}>
-      <div className="max-w-[1440px] mx-auto px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <StatCounter target={100} suffix="+" label={t('Stats.0.label')} />
-          <StatCounter target={120} suffix="+" label={t('Stats.1.label')} />
-          <StatCounter target={50000} suffix="+" label={t('Stats.2.label')} />
+      {/* Stats bar — social proof anchored at the bottom of the hero */}
+      <div className="relative z-10 w-full border-t border-white/10 bg-black/40 backdrop-blur-md">
+        <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-3 divide-x divide-white/10">
+          <HeroStatItem target={100} suffix="+" label={tPage('Stats.0.label')} />
+          <HeroStatItem target={120} suffix="+" label={tPage('Stats.1.label')} />
+          <HeroStatItem target={50000} suffix="+" label={tPage('Stats.2.label')} />
         </div>
       </div>
     </section>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Hero stat item — rendered inside the hero's bottom stats bar
+// ---------------------------------------------------------------------------
+function HeroStatItem({ target, suffix, label }: { target: number; suffix: string; label: string }) {
+  const { count, ref } = useCounterOnVisible(target)
+  const formatted = target >= 1000 ? count.toLocaleString('en-US') : count.toString()
+  return (
+    <div className="py-4 px-6 text-center">
+      <div className="text-2xl md:text-3xl font-bold text-white flex items-baseline justify-center">
+        <span ref={ref}>{formatted}</span>
+        <span className="text-white/60 text-lg ml-0.5">{suffix}</span>
+      </div>
+      <p className="text-xs md:text-sm text-white/60 mt-1 font-medium leading-snug">{label}</p>
+    </div>
   )
 }
 
@@ -159,14 +155,11 @@ function FeaturesSection() {
   return (
     <section id="features" className="py-16 bg-[var(--color-bg-dim)]">
       <div className="max-w-[1440px] mx-auto px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
-            {t('eyebrow')}
-          </h2>
+        <div className="mb-16">
           <h2 className="text-3xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
             {t('title')}
           </h2>
-          <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
+          <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-2xl">
             {t('subtitle')}
           </p>
         </div>
@@ -211,24 +204,11 @@ function FaqSection() {
     <section className="py-16 bg-[var(--color-bg-default)]">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] text-center mb-4">
             {t('title')}
           </h2>
 
-          {/* Contact info block */}
-          <div className="bg-[var(--color-bg-dim)] rounded-2xl p-6 mb-10 text-center">
-            <p className="text-lg font-bold text-[var(--color-text-default)] mb-4">{t('contactLabel')}</p>
-            <div className="flex flex-col gap-2 items-center">
-              <a href="mailto:partner@visitvietnam.asia" className="text-sm text-[var(--color-text-dim)] hover:text-[var(--color-text-default)] transition-colors">
-                partner@visitvietnam.asia
-              </a>
-              <div className="text-sm text-[var(--color-text-dim)]">
-                {t('hotline')}
-              </div>
-            </div>
-          </div>
-
-          <p className="text-xl font-bold text-[var(--color-text-dim)] text-center mb-6">
+          <p className="text-lg text-[var(--color-text-dim)] text-center mb-10">
             {t('subtitle')}
           </p>
 
@@ -259,6 +239,19 @@ function FaqSection() {
               </div>
             ))}
           </div>
+
+          {/* Contact block — placed after FAQ items so reading order is logical */}
+          <div className="mt-12 bg-[var(--color-bg-dim)] rounded-2xl p-6 text-center">
+            <p className="text-base font-semibold text-[var(--color-text-default)] mb-3">{t('contactLabel')}</p>
+            <div className="flex flex-col gap-2 items-center">
+              <a href="mailto:partner@visitvietnam.asia" className="text-sm text-[var(--color-brand-primary)] hover:underline transition-colors">
+                partner@visitvietnam.asia
+              </a>
+              <div className="text-sm text-[var(--color-text-dim)]">
+                {t('hotline')}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -276,7 +269,6 @@ export default function ForBusinessPageClient() {
       <Navbar variant="light" cta={{ label: tHero('navCta'), onClick: () => smoothScrollTo('register') }} />
       <main>
         <HeroSection />
-        <StatsSection />
         <PartnerLogosSection />
         <FeaturesSection />
         <IndustryCarouselV2 onSectorSelect={setPresetSector} />

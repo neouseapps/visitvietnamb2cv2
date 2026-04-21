@@ -25,8 +25,8 @@ function StarIcon() {
 
 export function TestimonialCarousel() {
   const t = useTranslations('TaiAppPage.Testimonials')
-  const TESTIMONIALS = (t.raw('items') as Array<{ content: string }>).map(
-    (item, i) => ({ id: i + 1, rating: 5, content: item.content })
+  const TESTIMONIALS = (t.raw('items') as Array<{ content: string; name?: string }>).map(
+    (item, i) => ({ id: i + 1, rating: 5, content: item.content, name: item.name })
   )
   const EXTENDED = [...TESTIMONIALS, ...TESTIMONIALS]
 
@@ -117,6 +117,11 @@ export function TestimonialCarousel() {
             >
               &ldquo;{item.content}&rdquo;
             </p>
+            {item.name && (
+              <p className="text-sm font-medium" style={{ color: 'var(--color-text-dim)' }}>
+                — {item.name}
+              </p>
+            )}
           </article>
         ))}
       </motion.div>

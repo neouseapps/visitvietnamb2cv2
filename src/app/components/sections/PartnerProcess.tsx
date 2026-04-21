@@ -41,15 +41,15 @@ export function PartnerProcess() {
     <section id="how-it-works" className="py-16 bg-[var(--color-bg-dim)] scroll-mt-24">
       <div className="max-w-[1440px] mx-auto px-8">
 
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8">
+        {/* Header — left-aligned to break centered-header monotony */}
+        <div className="mb-8">
           <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
             {t('eyebrow')}
           </p>
           <h2 className="text-3xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
             {t('title')}
           </h2>
-          <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
+          <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-xl">
             {t('subtitle')}
           </p>
         </div>

@@ -15,8 +15,8 @@
      FONT FAMILIES
      Source: Global / typography collection
   ----------------------------------------------------------- */
-  --font-display: 'SVN-Ryhmes Display', Georgia, serif;
-  --font-default: 'SVN-Selecta', 'Google Sans Flex', 'Helvetica Neue', sans-serif;
+  --font-display: var(--font-source-serif), Georgia, 'Times New Roman', serif; /* editorial serif — pairs with Google Sans */
+  --font-default: var(--font-google-sans), 'Google Sans', 'Helvetica Neue', sans-serif;
   --font-app: 'Google Sans Flex', 'Helvetica Neue', sans-serif;
   --font-mono: 'Geist Mono', 'Courier New', monospace;
 
@@ -96,6 +96,9 @@
   --color-text-success-default: #26c870;
   --color-text-success-bright: #dcfce7;
   --color-text-success-hover: #148048;
+
+  /* Eyebrow / label text (amber) */
+  --color-text-eyebrow: #e07b00;
 
   /* Warning */
   --color-bg-warning-default: #e07b00;
@@ -345,6 +348,33 @@
   ----------------------------------------------------------- */
   --color-bg-neutral-bright:        #f7f6f4;   /* warm off-white card background */
   --color-border-brand-primary-dim: #501116;   /* wine-red card border */
+
+  /* -----------------------------------------------------------
+     INDUSTRY SECTOR COLORS — IndustryCarousel component
+     Paired text (icon) + bg (card background) for each sector
+  ----------------------------------------------------------- */
+  --color-industry-accommodation:    #2563EB;
+  --color-industry-accommodation-bg: #EFF6FF;
+  --color-industry-food:             #16A34A;
+  --color-industry-food-bg:          #F0FDF4;
+  --color-industry-tours:            #EA580C;
+  --color-industry-tours-bg:         #FFF7ED;
+  --color-industry-attractions:      #7C3AED;
+  --color-industry-attractions-bg:   #F5F3FF;
+  --color-industry-shopping:         #DB2777;
+  --color-industry-shopping-bg:      #FDF2F8;
+  --color-industry-transport-scheduled: #0D9488;
+  --color-industry-transport-scheduled-bg: #F0FDFA;
+  --color-industry-transport-demand: #EA580C;
+  --color-industry-transport-demand-bg: #FFF7ED;
+  --color-industry-rental:           #16A34A;
+  --color-industry-rental-bg:        #F0FDF4;
+  --color-industry-spa:              #7C3AED;
+  --color-industry-spa-bg:           #F5F3FF;
+  --color-industry-events:           #DB2777;
+  --color-industry-events-bg:        #FDF2F8;
+  --color-industry-other:            #0D9488;
+  --color-industry-other-bg:         #F0FDFA;
 }
 
 /* =============================================================

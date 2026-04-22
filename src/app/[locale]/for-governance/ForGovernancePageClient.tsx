@@ -179,7 +179,6 @@ function DashboardFeaturesSection() {
     { icon: BarChart3 },
     { icon: Map },
     { icon: PieChart },
-    { icon: BrainCircuit },
   ].map((item, i) => ({
     ...item,
     title: t(`items.${i}.title`),
@@ -189,44 +188,39 @@ function DashboardFeaturesSection() {
   return (
     <section id="features" className="py-16 bg-[var(--color-bg-default)]">
       <div className="max-w-[1440px] mx-auto px-8">
-        {/* Row 1: headline left, subtitle + CTA right */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* Col 1: eyebrow + title + description */}
           <div>
             <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-4">
               {t('eyebrow')}
             </h2>
-            <h3 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.3]">
+            <h3 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-5">
               {t('title')}
             </h3>
-          </div>
-          <div>
             <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
               {t('subtitle')}
             </p>
           </div>
-        </div>
 
-        {/* Row 2: 4 cards horizontal */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {features.map(({ icon: Icon, title, desc }) => (
-            <div
-              key={title}
-              className="bg-[var(--color-bg-dim)] p-5 rounded-[16px]"
-            >
-              <div className="w-10 h-10 flex items-center justify-center text-[var(--color-brand-primary)] mb-4 bg-white rounded-full">
-                <Icon className="w-5 h-5" />
+          {/* Col 2: 3 cards stacked vertically */}
+          <div className="flex flex-col gap-4">
+            {features.map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="bg-[var(--color-bg-dim)] p-5 rounded-[16px] flex items-start gap-4"
+              >
+                <div className="w-10 h-10 flex items-center justify-center text-[var(--color-brand-primary)] shrink-0 bg-white rounded-full">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-base font-default font-bold text-[var(--color-text-default)] mb-1">{title}</h4>
+                  <p className="text-[var(--color-text-dim)] leading-relaxed text-sm">{desc}</p>
+                </div>
               </div>
-              <h4 className="text-base font-default font-bold text-[var(--color-text-default)] mb-2">{title}</h4>
-              <p className="text-[var(--color-text-dim)] leading-relaxed text-sm">{desc}</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* CTA centered below cards */}
-        <div className="flex justify-center">
-          <Button variant="ghost" size="lg" className="w-fit" onClick={() => smoothScrollTo('contact')}>
-            {t('cta')}
-          </Button>
         </div>
       </div>
     </section>

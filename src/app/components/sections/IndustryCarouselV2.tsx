@@ -40,92 +40,98 @@ function FeatureCard({
   desc,
   benefits,
   color,
-  selected,
   onSelect,
+  imageSrc,
 }: {
   icon: React.ElementType
   label: string
   desc: string
   benefits: string[]
   color: { text: string; bg: string }
-  selected: boolean
   onSelect: () => void
+  imageSrc?: string
 }) {
   const [hovered, setHovered] = useState(false)
   const t = useTranslations('IndustryCarousel')
 
   return (
     <div
-      className="w-full bg-white rounded-[1.5rem] p-5 flex flex-col cursor-pointer relative"
+      className="w-full rounded-[1.5rem] p-5 flex flex-col cursor-pointer relative overflow-hidden"
       style={{
-        boxShadow: selected
-          ? `0 0 0 2px ${color.text}, 0 8px 24px -8px rgba(0,0,0,0.12)`
-          : hovered
-            ? '0 8px 24px -8px rgba(0,0,0,0.10)'
-            : '0 1px 3px 0 rgba(0,0,0,0.06)',
-        transition: 'box-shadow 0.25s ease',
+        backgroundColor: hovered && imageSrc ? 'rgba(253, 231, 219, 0.35)' : '#ffffff',
+        boxShadow: hovered
+          ? '0 8px 24px -8px rgba(0,0,0,0.12)'
+          : '0 1px 3px 0 rgba(0,0,0,0.06)',
+        transition: 'box-shadow 0.25s ease, background-color 0.25s ease',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={onSelect}
     >
-      {/* Selected checkmark */}
-      {selected && (
-        <div
-          className="absolute top-4 right-4 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold z-10"
-          style={{ backgroundColor: color.text }}
-        >
-          ✓
-        </div>
+      {/* Background decoration — photo or icon */}
+      {imageSrc ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={imageSrc}
+          alt=""
+          aria-hidden="true"
+          className="absolute -bottom-16 -right-16 w-52 h-52 object-cover object-center pointer-events-none"
+          style={{
+            transform: hovered ? 'scale(1.18)' : 'scale(1)',
+            transformOrigin: 'bottom right',
+            transition: 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
+          }}
+        />
+      ) : (
+        <Icon
+          className="absolute -bottom-3 -right-3 w-28 h-28 pointer-events-none transition-opacity duration-300"
+          style={{ color: color.text, opacity: hovered ? 0.1 : 0.06 }}
+          aria-hidden="true"
+        />
       )}
 
-      {/* Floating icon */}
-      <div className="flex justify-center py-5">
-        <div className="relative flex flex-col items-center">
-          <motion.div
-            animate={{ y: hovered ? -8 : [0, -6, 0] }}
-            transition={
-              hovered
-                ? { duration: 0.25, ease: 'easeOut' }
-                : { duration: 3, repeat: Infinity, ease: 'easeInOut' }
-            }
-            className="w-16 h-16 rounded-2xl flex items-center justify-center"
-            style={{ backgroundColor: color.bg }}
-          >
-            <Icon className="w-8 h-8" style={{ color: color.text }} aria-hidden="true" />
-          </motion.div>
-          <motion.div
-            animate={{ opacity: hovered ? 0.04 : 0.08, scaleX: hovered ? 0.5 : 1 }}
-            transition={{ duration: 0.25 }}
-            className="w-10 h-2 rounded-full mt-2"
-            style={{ background: color.text, filter: 'blur(5px)' }}
-          />
-        </div>
-      </div>
-
       {/* Label */}
-      <p className="text-base font-semibold text-[var(--color-text-default)] mb-1.5">
+      <p className="text-lg font-semibold text-[var(--color-text-default)] mb-1.5">
         {label}
       </p>
 
-      {/* Description — always visible, no hover needed */}
-      <p className="text-sm text-[var(--color-text-dim)] leading-5 mb-3 line-clamp-2">
-        {desc}
-      </p>
+      {/* Fixed-height content area — crossfade desc ↔ benefits, zero layout shift */}
+      <div className="relative flex-1" style={{ minHeight: '5rem' }}>
 
-      {/* First benefit — quick proof point */}
-      <p className="text-xs text-[var(--color-text-dim)] flex items-start gap-1.5 flex-1">
-        <span style={{ color: color.text }} className="mt-0.5 shrink-0">•</span>
-        <span className="line-clamp-1">{benefits[0]}</span>
-      </p>
+        {/* Description layer */}
+        <div
+          className="absolute inset-0 transition-opacity duration-200"
+          style={{ opacity: hovered ? 0 : 1, pointerEvents: hovered ? 'none' : 'auto' }}
+        >
+          <p className="text-sm text-[var(--color-text-dim)] leading-5 line-clamp-3">
+            {desc}
+          </p>
+        </div>
 
-      {/* CTA */}
+        {/* Benefits layer */}
+        <div
+          className="absolute inset-0 transition-opacity duration-200 flex flex-col gap-2"
+          style={{ opacity: hovered ? 1 : 0, pointerEvents: hovered ? 'auto' : 'none' }}
+        >
+          {benefits.map((b, i) => (
+            <p key={i} className="text-xs text-[var(--color-text-dim)] flex items-start gap-1.5">
+              <span style={{ color: color.text }} className="mt-0.5 shrink-0">•</span>
+              <span className="line-clamp-1">{b}</span>
+            </p>
+          ))}
+        </div>
+
+      </div>
+
+      {/* CTA — chỉ hiện khi hover */}
       <div
-        className="mt-4 pt-3 border-t border-[var(--color-border-default)] flex items-center gap-1 text-xs font-semibold"
-        style={{ color: color.text }}
+        className="mt-4 flex items-center gap-1 text-xs font-semibold transition-[opacity,color] duration-200"
+        style={{
+          color: 'var(--color-brand-primary)',
+          opacity: hovered ? 1 : 0,
+        }}
       >
         {t('contactCta')}
-        <ChevronRight className="w-3.5 h-3.5" />
       </div>
     </div>
   )
@@ -139,7 +145,6 @@ function MobileCard({
   desc,
   benefits,
   color,
-  selected,
   onSelect,
 }: {
   icon: React.ElementType
@@ -147,7 +152,6 @@ function MobileCard({
   desc: string
   benefits: string[]
   color: { text: string; bg: string }
-  selected: boolean
   onSelect: () => void
 }) {
   const t = useTranslations('IndustryCarousel')
@@ -157,22 +161,11 @@ function MobileCard({
       className="w-full min-h-[340px] rounded-[2rem] p-6 flex flex-col items-center gap-4 text-center relative cursor-pointer"
       style={{
         backgroundColor: color.bg,
-        boxShadow: selected
-          ? `0 0 0 2.5px ${color.text}, 0 4px 12px -4px rgba(0,0,0,0.10)`
-          : '0 1px 3px 0 rgba(0,0,0,0.06)',
+        boxShadow: '0 1px 3px 0 rgba(0,0,0,0.06)',
         transition: 'box-shadow 0.25s ease',
       }}
       onClick={onSelect}
     >
-      {/* Selected badge */}
-      {selected && (
-        <div
-          className="absolute top-4 right-4 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
-          style={{ backgroundColor: color.text }}
-        >
-          ✓
-        </div>
-      )}
 
       <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.6)' }}>
         <Icon className="w-8 h-8" style={{ color: color.text }} aria-hidden="true" />
@@ -198,7 +191,6 @@ function MobileCard({
 
 export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: string) => void }) {
   const t = useTranslations('IndustryCarousel')
-  const [selectedSector, setSelectedSector] = useState<string | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
   const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => ({
@@ -208,12 +200,10 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
     benefits: [0, 1, 2].map(j => t(`items.${i}.benefits.${j}`)),
     sectorKey: SECTOR_KEYS[i],
     color: CARD_COLORS[i],
+    imageSrc: i === 0 ? '/images/industry/accommodation.png' : undefined,
   }))
 
-  const selectedCard = cards.find(c => c.sectorKey === selectedSector)
-
   function handleSelect(sectorKey: string) {
-    setSelectedSector(sectorKey)
     onSectorSelect?.(sectorKey)
     scrollToRegister()
   }
@@ -257,7 +247,6 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
                 desc={card.desc}
                 benefits={card.benefits}
                 color={card.color}
-                selected={selectedSector === card.sectorKey}
                 onSelect={() => handleSelect(card.sectorKey)}
               />
             </div>
@@ -285,7 +274,7 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
 
       {/* Desktop: 4-column grid — all 11 sectors visible, no pagination */}
       <div className="hidden md:block max-w-[1440px] mx-auto px-8">
-        <div className="grid grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-3 gap-5">
           {cards.map((card, i) => (
             <FeatureCard
               key={i}
@@ -294,22 +283,11 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
               desc={card.desc}
               benefits={card.benefits}
               color={card.color}
-              selected={selectedSector === card.sectorKey}
               onSelect={() => handleSelect(card.sectorKey)}
+              imageSrc={card.imageSrc}
             />
           ))}
         </div>
-
-        {/* Sector selection confirmation */}
-        <motion.div
-          initial={false}
-          animate={{ opacity: selectedCard ? 1 : 0, y: selectedCard ? 0 : 8 }}
-          transition={{ duration: 0.2 }}
-          className="mt-6 text-center text-sm font-medium text-[var(--color-brand-primary)]"
-          aria-live="polite"
-        >
-          {selectedCard && `✓ ${selectedCard.label} — ${t('sectorSelectedHint')}`}
-        </motion.div>
       </div>
     </section>
   )

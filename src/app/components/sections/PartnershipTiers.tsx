@@ -28,7 +28,7 @@ interface Tier {
 
 // ─── TierCardV2 ───────────────────────────────────────────────────────────────
 
-function TierCardV2({ tier }: { tier: Tier }) {
+function TierCardV2({ tier, onTierSelect }: { tier: Tier; onTierSelect?: (id: string, name: string) => void }) {
   const t = useTranslations('PartnershipTiers')
   const isFeature = !!tier.exclusive
 
@@ -95,12 +95,12 @@ function TierCardV2({ tier }: { tier: Tier }) {
 
         {/* CTA */}
         <Button
-          asChild
           variant={isFeature ? 'brand' : tier.ctaVariant}
           size="md"
           className="w-full mt-auto"
+          onClick={() => onTierSelect?.(tier.id, tier.name)}
         >
-          <a href={tier.ctaHref ?? '#register'}>{tier.cta}</a>
+          {tier.cta}
         </Button>
       </div>
     </div>
@@ -109,7 +109,7 @@ function TierCardV2({ tier }: { tier: Tier }) {
 
 // ─── PartnershipTiers ─────────────────────────────────────────────────────────
 
-export function PartnershipTiers() {
+export function PartnershipTiers({ onTierSelect }: { onTierSelect?: (id: string, name: string) => void }) {
   const t = useTranslations('PartnershipTiers')
   const TIERS = t.raw('items') as Tier[]
 
@@ -163,7 +163,7 @@ export function PartnershipTiers() {
           <div className="rounded-3xl overflow-hidden bg-white shadow-[0_4px_32px_rgba(0,0,0,0.08)] border border-[var(--color-border-default)]/30">
             <div className="grid grid-cols-4 divide-x divide-[var(--color-border-default)]">
               {TIERS.map((tier) => (
-                <TierCardV2 key={tier.id} tier={tier} />
+                <TierCardV2 key={tier.id} tier={tier} onTierSelect={onTierSelect} />
               ))}
             </div>
           </div>
@@ -186,7 +186,7 @@ export function PartnershipTiers() {
             >
               {TIERS.map((tier) => (
                 <div key={tier.id} className="flex-shrink-0 w-full">
-                  <TierCardV2 tier={tier} />
+                  <TierCardV2 tier={tier} onTierSelect={onTierSelect} />
                 </div>
               ))}
             </motion.div>

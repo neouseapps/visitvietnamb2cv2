@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useCallback, useEffect } from 'react'
-import { ChevronDown, Upload } from 'lucide-react'
+import { ChevronDown, ShieldCheck, Clock, Users } from 'lucide-react'
 import { Button } from '@/app/components/ui/button'
 import { useTranslations } from 'next-intl'
 
@@ -48,7 +48,7 @@ function Divider() {
 
 // ─── RegistrationForm ─────────────────────────────────────────────────────────
 
-export function RegistrationForm({ presetSector }: { presetSector?: string }) {
+export function RegistrationForm({ presetSector, presetTier }: { presetSector?: string; presetTier?: { id: string; name: string } | null }) {
   const t = useTranslations('RegistrationForm')
 
   const LINH_VUC_OPTIONS = [
@@ -115,7 +115,35 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
   return (
     <section id="register" className="py-16 bg-[var(--color-bg-dim)] scroll-mt-20">
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
-        <div className="max-w-3xl mx-auto rounded-3xl overflow-hidden bg-[var(--color-bg-default)] shadow-sm border border-[var(--color-border-default)]">
+        <div className="max-w-3xl mx-auto">
+
+          {/* Trust signals preamble */}
+          <div className="mb-6 text-center">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[var(--color-text-dim)]">
+              <span className="flex items-center gap-1.5">
+                <Users className="w-4 h-4 text-[var(--color-brand-primary)]" aria-hidden="true" />
+                100+ businesses already listed
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-[var(--color-brand-primary)]" aria-hidden="true" />
+                Takes ~2 minutes
+              </span>
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[var(--color-brand-primary)]" aria-hidden="true" />
+                Secure &amp; free to register
+              </span>
+            </div>
+
+            {/* Selected tier badge */}
+            {presetTier && (
+              <div className="mt-4 inline-flex items-center gap-2 bg-[var(--color-brand-primary-bright)] text-[var(--color-brand-primary)] text-sm font-semibold px-4 py-2 rounded-full">
+                <ShieldCheck className="w-4 h-4" aria-hidden="true" />
+                {presetTier.name}
+              </div>
+            )}
+          </div>
+
+        <div className="rounded-3xl overflow-hidden bg-[var(--color-bg-default)] shadow-sm border border-[var(--color-border-default)]">
           <div className="relative">
             {/* Success overlay — absolutely positioned over the form so it matches the form's height exactly */}
             {submitted && (
@@ -317,6 +345,7 @@ export function RegistrationForm({ presetSector }: { presetSector?: string }) {
             </form>
           </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

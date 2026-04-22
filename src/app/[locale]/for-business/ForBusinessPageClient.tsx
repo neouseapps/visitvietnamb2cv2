@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Navbar } from '../../components/Navbar'
 import { Footer } from '../../components/Footer'
@@ -17,6 +18,7 @@ import {
   TrendingUp,
   CreditCard,
   ChevronDown,
+  Mail,
 } from 'lucide-react'
 
 // ---------------------------------------------------------------------------
@@ -81,36 +83,46 @@ function HeroSection() {
         src="/images/hero-for-business.png"
         alt="Visit Vietnam for Business"
         fill
-        className="object-cover object-center"
+        className="object-cover object-right"
         priority
+      />
+
+      {/* Directional gradient — dark left for text legibility, clear right for subject */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.08) 100%)' }}
       />
 
       {/* Main content */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 mt-16 flex-1 flex items-center">
-        <div className="max-w-[832px] mx-auto text-center w-full">
+        <div className="max-w-[560px] text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md">
             {t('badge')}
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-white leading-[1.2] mb-6">
             {t('title')}
           </h1>
-          <p className="text-lg text-white/80 mb-8 leading-relaxed max-w-xl mx-auto">
+          <p className="text-lg text-white/80 mb-8 leading-relaxed max-w-xl">
             {t('subtitle')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
-            <Button variant="ghost" size="lg" className="w-64 sm:w-auto text-white border-white/30 hover:bg-white/10" onClick={() => smoothScrollTo('how-it-works')}>
-              {t('ctaSecondary')}
-            </Button>
-            <Button variant="brand" size="lg" className="w-64 sm:w-auto" onClick={() => smoothScrollTo('register')}>
+          {/* Primary CTA dominates; secondary is a lightweight text link */}
+          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-start">
+            <Button variant="brand" size="lg" onClick={() => smoothScrollTo('register')}>
               {t('ctaPrimary')}
             </Button>
+            <button
+              className="text-white/70 text-sm font-medium hover:text-white transition-colors underline underline-offset-4 decoration-white/30 hover:decoration-white/70"
+              onClick={() => smoothScrollTo('how-it-works')}
+            >
+              {t('ctaSecondary')}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Stats bar — social proof anchored at the bottom of the hero */}
-      <div className="relative z-10 w-full border-t border-white/10 bg-black/40 backdrop-blur-md">
-        <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-3 divide-x divide-white/10">
+      {/* Stats bar — stacks on mobile, 3-col on sm+ */}
+      <div className="relative z-10 w-full border-t border-white/10 bg-black/50 backdrop-blur-sm">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-8 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
           <HeroStatItem target={100} suffix="+" label={tPage('Stats.0.label')} />
           <HeroStatItem target={120} suffix="+" label={tPage('Stats.1.label')} />
           <HeroStatItem target={50000} suffix="+" label={tPage('Stats.2.label')} />
@@ -121,16 +133,16 @@ function HeroSection() {
 }
 
 // ---------------------------------------------------------------------------
-// Hero stat item — rendered inside the hero's bottom stats bar
+// Hero stat item
 // ---------------------------------------------------------------------------
 function HeroStatItem({ target, suffix, label }: { target: number; suffix: string; label: string }) {
   const { count, ref } = useCounterOnVisible(target)
   const formatted = target >= 1000 ? count.toLocaleString('en-US') : count.toString()
   return (
-    <div className="py-4 px-6 text-center">
-      <div className="text-2xl md:text-3xl font-bold text-white flex items-baseline justify-center">
-        <span ref={ref}>{formatted}</span>
-        <span className="text-white/60 text-lg ml-0.5">{suffix}</span>
+    <div className="py-4 px-6 text-center" aria-live="polite">
+      <div className="text-2xl md:text-3xl font-bold flex items-baseline justify-center">
+        <span ref={ref} className="text-[var(--color-brand-secondary)]">{formatted}</span>
+        <span className="text-[var(--color-brand-secondary)]/70 text-lg ml-0.5">{suffix}</span>
       </div>
       <p className="text-xs md:text-sm text-white/60 mt-1 font-medium leading-snug">{label}</p>
     </div>
@@ -138,47 +150,92 @@ function HeroStatItem({ target, suffix, label }: { target: number; suffix: strin
 }
 
 // ---------------------------------------------------------------------------
-// Features Section
+// Features Section — 4-column equal grid with scroll-entrance animations
 // ---------------------------------------------------------------------------
+
+// Variants defined outside component — static, no re-creation on render
+const featureContainerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+}
+const featureItemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
+}
+const featureItemVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.3 } },
+}
+
 function FeaturesSection() {
   const t = useTranslations('ForBusinessPage.Features')
+  const prefersReduced = useReducedMotion()
+
   const features = [
-    { icon: Globe, iconColor: 'text-[var(--color-text-dim)]' },
-    { icon: LayoutDashboard, iconColor: 'text-[var(--color-text-dim)]' },
-    { icon: TrendingUp, iconColor: 'text-[var(--color-text-dim)]' },
-    { icon: CreditCard, iconColor: 'text-[var(--color-text-dim)]' },
+    { icon: Globe,           iconColor: 'var(--color-text-info-default)' },
+    { icon: LayoutDashboard, iconColor: 'var(--color-text-warning-bright)' },
+    { icon: TrendingUp,      iconColor: 'var(--color-text-success-hover)' },
+    { icon: CreditCard,      iconColor: 'var(--color-brand-primary)' },
   ].map((item, i) => ({
     ...item,
     title: t(`items.${i}.title`),
     desc: t(`items.${i}.desc`),
   }))
-  return (
-    <section id="features" className="py-16 bg-[var(--color-bg-dim)]">
-      <div className="max-w-[1440px] mx-auto px-8">
-        <div className="mb-16">
-          <h2 className="text-3xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
-            {t('title')}
-          </h2>
-          <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-2xl">
-            {t('subtitle')}
-          </p>
-        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map(({ icon: Icon, iconColor, title, desc }) => (
-            <div
-              key={title}
-              className="bg-white p-4 rounded-[16px] shadow-sm border border-[var(--color-border-default)]"
-            >
-              <div
-                className={`w-10 h-10 flex items-center justify-center ${iconColor} mb-3`}
+  const itemVariant = prefersReduced ? featureItemVariantsReduced : featureItemVariants
+
+  return (
+    <section id="features" className="py-20 md:py-28 bg-[var(--color-bg-dim)]">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8">
+        {/* 2-column editorial layout: sticky header left, item list right */}
+        <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start">
+
+          {/* Left — 1/2: eyebrow + title + subtitle, sticky on desktop */}
+          <div className="md:sticky md:top-24">
+            <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-3">
+              {t('eyebrow')}
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.25] mb-6">
+              {t('title')}
+            </h2>
+            <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
+              {t('subtitle')}
+            </p>
+          </div>
+
+          {/* Right — 1/2: staggered item list with dividers */}
+          <motion.div
+            className="flex flex-col gap-2"
+            variants={featureContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            {features.map(({ icon: Icon, iconColor, title, desc }) => (
+              <motion.div
+                key={title}
+                variants={itemVariant}
+                className="flex items-start gap-7 px-5 py-6 -mx-5"
               >
-                <Icon className="w-10 h-10" />
-              </div>
-              <h4 className="text-xl font-default font-bold text-[var(--color-text-default)] mb-3">{title}</h4>
-              <p className="text-[var(--color-text-dim)] leading-relaxed text-sm">{desc}</p>
-            </div>
-          ))}
+                {/* Icon — replaces bold number, larger for visual weight */}
+                <Icon
+                  className="w-12 h-12 shrink-0 mt-0.5"
+                  style={{ color: iconColor }}
+                  aria-hidden="true"
+                />
+                {/* Text */}
+                <div>
+                  <h4 className="text-xl font-display font-medium text-[var(--color-text-default)] mb-2 leading-snug">
+                    {title}
+                  </h4>
+                  <p className="text-[var(--color-text-dim)] text-sm leading-relaxed">
+                    {desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
         </div>
       </div>
     </section>
@@ -202,7 +259,7 @@ function FaqSection() {
   )
   return (
     <section className="py-16 bg-[var(--color-bg-default)]">
-      <div className="max-w-[1440px] mx-auto px-8">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] text-center mb-4">
             {t('title')}
@@ -221,17 +278,19 @@ function FaqSection() {
                 <button
                   className="w-full py-4 flex justify-between items-center text-left gap-4"
                   onClick={() => toggleFaq(idx)}
+                  aria-expanded={openFaq === idx}
                 >
                   <span className="font-medium text-base text-[var(--color-text-default)]">{faq.q}</span>
                   <ChevronDown
                     className={`w-5 h-5 text-[var(--color-text-dim-variant)] shrink-0 transition-transform duration-200 ${
                       openFaq === idx ? 'rotate-180' : ''
                     }`}
+                    aria-hidden="true"
                   />
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    openFaq === idx ? 'max-h-40 opacity-100 pb-4' : 'max-h-0 opacity-0'
+                    openFaq === idx ? 'max-h-[500px] opacity-100 pb-4' : 'max-h-0 opacity-0'
                   }`}
                 >
                   <p className="text-[var(--color-text-dim)] text-sm leading-relaxed">{faq.a}</p>
@@ -240,11 +299,14 @@ function FaqSection() {
             ))}
           </div>
 
-          {/* Contact block — placed after FAQ items so reading order is logical */}
-          <div className="mt-12 bg-[var(--color-bg-dim)] rounded-2xl p-6 text-center">
-            <p className="text-base font-semibold text-[var(--color-text-default)] mb-3">{t('contactLabel')}</p>
-            <div className="flex flex-col gap-2 items-center">
-              <a href="mailto:partner@visitvietnam.asia" className="text-sm text-[var(--color-brand-primary)] hover:underline transition-colors">
+          {/* Contact block */}
+          <div className="mt-12 rounded-2xl p-8 text-center bg-gradient-to-br from-[var(--color-brand-primary-bright)] to-white border border-[var(--color-brand-primary-bright)]">
+            <div className="w-10 h-10 rounded-full bg-[var(--color-brand-primary)]/10 flex items-center justify-center mx-auto mb-3">
+              <Mail className="w-5 h-5 text-[var(--color-brand-primary)]" />
+            </div>
+            <p className="text-base font-semibold text-[var(--color-text-default)] mb-1">{t('contactLabel')}</p>
+            <div className="flex flex-col gap-2 items-center mt-3">
+              <a href="mailto:partner@visitvietnam.asia" className="text-sm font-medium text-[var(--color-brand-primary)] hover:underline transition-colors">
                 partner@visitvietnam.asia
               </a>
               <div className="text-sm text-[var(--color-text-dim)]">
@@ -263,7 +325,14 @@ function FaqSection() {
 // ---------------------------------------------------------------------------
 export default function ForBusinessPageClient() {
   const [presetSector, setPresetSector] = useState('')
+  const [presetTier, setPresetTier] = useState<{ id: string; name: string } | null>(null)
   const tHero = useTranslations('ForBusinessPage.Hero')
+
+  const handleTierSelect = useCallback((id: string, name: string) => {
+    setPresetTier({ id, name })
+    smoothScrollTo('register')
+  }, [])
+
   return (
     <div className="font-default text-[var(--color-text-default)] antialiased bg-white scroll-smooth">
       <Navbar variant="light" cta={{ label: tHero('navCta'), onClick: () => smoothScrollTo('register') }} />
@@ -272,9 +341,9 @@ export default function ForBusinessPageClient() {
         <PartnerLogosSection />
         <FeaturesSection />
         <IndustryCarouselV2 onSectorSelect={setPresetSector} />
-        <PartnershipTiers />
+        <PartnershipTiers onTierSelect={handleTierSelect} />
         <PartnerProcess />
-        <RegistrationForm presetSector={presetSector} />
+        <RegistrationForm presetSector={presetSector} presetTier={presetTier} />
         <FaqSection />
       </main>
       <Footer />

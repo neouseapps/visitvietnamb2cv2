@@ -166,7 +166,8 @@ export const OffersSection = () => {
   }))
 
   return (
-    <section className="w-full py-16 px-8 max-w-[1440px] mx-auto bg-bg-dim relative">
+    <section className="w-full bg-bg-dim relative">
+      <div className="py-16 px-8 max-w-[1440px] mx-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
         <div>
@@ -212,6 +213,7 @@ export const OffersSection = () => {
         >
           {t('viewAll')}
         </Link>
+      </div>
       </div>
     </section>
   )

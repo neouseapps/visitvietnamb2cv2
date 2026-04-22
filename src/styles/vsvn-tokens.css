@@ -353,28 +353,28 @@
      INDUSTRY SECTOR COLORS — IndustryCarousel component
      Paired text (icon) + bg (card background) for each sector
   ----------------------------------------------------------- */
-  --color-industry-accommodation:    #2563EB;
-  --color-industry-accommodation-bg: #EFF6FF;
-  --color-industry-food:             #16A34A;
-  --color-industry-food-bg:          #F0FDF4;
-  --color-industry-tours:            #EA580C;
-  --color-industry-tours-bg:         #FFF7ED;
-  --color-industry-attractions:      #7C3AED;
-  --color-industry-attractions-bg:   #F5F3FF;
-  --color-industry-shopping:         #DB2777;
-  --color-industry-shopping-bg:      #FDF2F8;
-  --color-industry-transport-scheduled: #0D9488;
-  --color-industry-transport-scheduled-bg: #F0FDFA;
-  --color-industry-transport-demand: #EA580C;
-  --color-industry-transport-demand-bg: #FFF7ED;
-  --color-industry-rental:           #16A34A;
-  --color-industry-rental-bg:        #F0FDF4;
-  --color-industry-spa:              #7C3AED;
-  --color-industry-spa-bg:           #F5F3FF;
-  --color-industry-events:           #DB2777;
-  --color-industry-events-bg:        #FDF2F8;
-  --color-industry-other:            #0D9488;
-  --color-industry-other-bg:         #F0FDFA;
+  --color-industry-accommodation:    #B45309;   /* amber-700  — matches warm golden cage image */
+  --color-industry-accommodation-bg: #FFFBEB;   /* amber-50   */
+  --color-industry-food:             #BE185D;   /* rose-700   — matches coral/shrimp image */
+  --color-industry-food-bg:          #FFF1F2;   /* rose-50    */
+  --color-industry-tours:            #DC2626;   /* red-600    — matches red rickshaw image */
+  --color-industry-tours-bg:         #FEF2F2;   /* red-50     */
+  --color-industry-attractions:      #4338CA;   /* indigo-700 */
+  --color-industry-attractions-bg:   #EEF2FF;   /* indigo-50  */
+  --color-industry-shopping:         #DB2777;   /* pink-600   */
+  --color-industry-shopping-bg:      #FDF2F8;   /* pink-50    */
+  --color-industry-transport-scheduled: #0D9488; /* teal-600  */
+  --color-industry-transport-scheduled-bg: #F0FDFA; /* teal-50 */
+  --color-industry-transport-demand: #C2410C;   /* orange-700 */
+  --color-industry-transport-demand-bg: #FFF7ED; /* orange-50 */
+  --color-industry-rental:           #16A34A;   /* green-600  */
+  --color-industry-rental-bg:        #F0FDF4;   /* green-50   */
+  --color-industry-spa:              #9333EA;   /* purple-600 */
+  --color-industry-spa-bg:           #FAF5FF;   /* purple-50  */
+  --color-industry-events:           #A21CAF;   /* fuchsia-700*/
+  --color-industry-events-bg:        #FDF4FF;   /* fuchsia-50 */
+  --color-industry-other:            #059669;   /* emerald-600*/
+  --color-industry-other-bg:         #ECFDF5;   /* emerald-50 */
 }
 
 /* =============================================================

@@ -56,9 +56,9 @@ function FeatureCard({
 
   return (
     <div
-      className="w-full rounded-[1.5rem] p-5 flex flex-col cursor-pointer relative overflow-hidden"
+      className="w-full min-h-[240px] rounded-[1.5rem] p-6 flex flex-col cursor-pointer relative overflow-hidden"
       style={{
-        backgroundColor: hovered && imageSrc ? 'rgba(253, 231, 219, 0.35)' : '#ffffff',
+        backgroundColor: hovered ? '#ffffff' : color.bg,
         boxShadow: hovered
           ? '0 8px 24px -8px rgba(0,0,0,0.12)'
           : '0 1px 3px 0 rgba(0,0,0,0.06)',
@@ -90,42 +90,47 @@ function FeatureCard({
         />
       )}
 
-      {/* Label */}
-      <p className="text-lg font-semibold text-[var(--color-text-default)] mb-1.5">
+      {/* Label — full card width */}
+      <p className="text-xl font-medium text-[var(--color-text-default)] mb-1.5">
         {label}
       </p>
 
-      {/* Fixed-height content area — crossfade desc ↔ benefits, zero layout shift */}
-      <div className="relative flex-1" style={{ minHeight: '5rem' }}>
+      {/* Body content — capped at 2/3 so image has room */}
+      <div className="w-2/3 flex-1 flex flex-col">
 
-        {/* Description layer */}
-        <div
-          className="absolute inset-0 transition-opacity duration-200"
-          style={{ opacity: hovered ? 0 : 1, pointerEvents: hovered ? 'none' : 'auto' }}
-        >
-          <p className="text-sm text-[var(--color-text-dim)] leading-5 line-clamp-3">
-            {desc}
-          </p>
-        </div>
+        {/* Fixed-height content area — crossfade desc ↔ benefits, zero layout shift */}
+        <div className="relative flex-1" style={{ minHeight: '5rem' }}>
 
-        {/* Benefits layer */}
-        <div
-          className="absolute inset-0 transition-opacity duration-200 flex flex-col gap-2"
-          style={{ opacity: hovered ? 1 : 0, pointerEvents: hovered ? 'auto' : 'none' }}
-        >
-          {benefits.map((b, i) => (
-            <p key={i} className="text-xs text-[var(--color-text-dim)] flex items-start gap-1.5">
-              <span style={{ color: color.text }} className="mt-0.5 shrink-0">•</span>
-              <span className="line-clamp-1">{b}</span>
+          {/* Description layer */}
+          <div
+            className="absolute inset-0 transition-opacity duration-200"
+            style={{ opacity: hovered ? 0 : 1, pointerEvents: hovered ? 'none' : 'auto' }}
+          >
+            <p className="text-base text-[var(--color-text-dim)] leading-6 line-clamp-3">
+              {desc}
             </p>
-          ))}
+          </div>
+
+          {/* Benefits layer */}
+          <div
+            className="absolute inset-0 transition-opacity duration-200 flex flex-col gap-2"
+            style={{ opacity: hovered ? 1 : 0, pointerEvents: hovered ? 'auto' : 'none' }}
+          >
+            {benefits.map((b, i) => (
+              <p key={i} className="text-sm text-[var(--color-text-dim)] flex items-start gap-1.5">
+                <span style={{ color: color.text }} className="mt-0.5 shrink-0">•</span>
+                <span>{b}</span>
+              </p>
+            ))}
+          </div>
+
         </div>
 
       </div>
 
-      {/* CTA — chỉ hiện khi hover */}
+      {/* CTA — luôn ở bottom left, chỉ hiện khi hover */}
       <div
-        className="mt-4 flex items-center gap-1 text-xs font-semibold transition-[opacity,color] duration-200"
+        className="mt-auto pt-4 flex items-center gap-1 text-xs font-semibold transition-[opacity,color] duration-200"
         style={{
           color: 'var(--color-brand-primary)',
           opacity: hovered ? 1 : 0,
@@ -200,7 +205,10 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
     benefits: [0, 1, 2].map(j => t(`items.${i}.benefits.${j}`)),
     sectorKey: SECTOR_KEYS[i],
     color: CARD_COLORS[i],
-    imageSrc: i === 0 ? '/images/industry/accommodation.png' : undefined,
+    imageSrc: i === 0 ? '/images/industry/accommodation.png'
+            : i === 1 ? '/images/industry/food-beverages.png'
+            : i === 2 ? '/images/industry/tour.png'
+            : undefined,
   }))
 
   function handleSelect(sectorKey: string) {

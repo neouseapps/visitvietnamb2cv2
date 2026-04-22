@@ -17,7 +17,7 @@ export function AppPainPoints() {
   }))
 
   return (
-    <section className="py-16 bg-[var(--color-bg-dim)]">
+    <section className="py-16 bg-bg-dim">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">

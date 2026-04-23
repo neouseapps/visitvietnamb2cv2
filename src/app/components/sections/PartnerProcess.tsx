@@ -39,17 +39,17 @@ export function PartnerProcess() {
 
   return (
     <section id="how-it-works" className="py-16 bg-[var(--color-bg-dim)] scroll-mt-24">
-      <div className="max-w-[1440px] mx-auto px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header — left-aligned to break centered-header monotony */}
-        <div className="mb-8">
-          <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
+        {/* Header — centered to match centered timeline */}
+        <div className="mb-12 text-center">
+          <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-3">
             {t('eyebrow')}
           </p>
           <h2 className="text-3xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
             {t('title')}
           </h2>
-          <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-xl">
+          <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-xl mx-auto">
             {t('subtitle')}
           </p>
         </div>
@@ -64,13 +64,13 @@ export function PartnerProcess() {
               {STEPS.map((step) => (
                 <div key={step.id} className="text-center">
                   {/* Number circle */}
-                  <div className="w-16 h-16 rounded-full bg-white text-[var(--color-text-default)] border border-[var(--color-border-default)] flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                    {step.id}
+                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-6 shadow-sm" style={{}}>
+                    <span className="text-2xl font-bold" style={{ color: 'var(--color-brand-primary)' }}>{step.id}</span>
                   </div>
-                  <h4 className="font-default font-medium text-[var(--color-text-default)] mb-2 text-xl">
+                  <h4 className="font-default font-medium text-[var(--color-text-default)] mb-2 text-lg">
                     {step.title}
                   </h4>
-                  <p className="text-sm text-[var(--color-text-dim-variant)] px-2">
+                  <p className="text-sm text-[var(--color-text-dim)] px-2 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -97,13 +97,13 @@ export function PartnerProcess() {
               {STEPS.map((step) => (
                 <div key={step.id} className="flex-shrink-0 w-full px-4">
                   <div className="text-center py-8">
-                    <div className="w-16 h-16 rounded-full bg-white text-[var(--color-text-default)] border border-[var(--color-border-default)] flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                      {step.id}
+                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-6 shadow-sm" style={{}}>
+                      <span className="text-2xl font-bold" style={{ color: 'var(--color-brand-primary)' }}>{step.id}</span>
                     </div>
-                    <h4 className="font-default font-medium text-[var(--color-text-default)] mb-2 text-xl">
+                    <h4 className="font-default font-medium text-[var(--color-text-default)] mb-2 text-lg">
                       {step.title}
                     </h4>
-                    <p className="text-sm text-[var(--color-text-dim-variant)] max-w-xs mx-auto">
+                    <p className="text-sm text-[var(--color-text-dim)] max-w-xs mx-auto leading-relaxed">
                       {step.desc}
                     </p>
                   </div>

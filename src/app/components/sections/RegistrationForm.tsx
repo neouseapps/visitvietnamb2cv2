@@ -117,22 +117,8 @@ export function RegistrationForm({ presetSector, presetTier }: { presetSector?: 
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto">
 
-          {/* Trust signals preamble */}
+          {/* Trust signals preamble — removed */}
           <div className="mb-6 text-center">
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[var(--color-text-dim)]">
-              <span className="flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-[var(--color-brand-primary)]" aria-hidden="true" />
-                100+ businesses already listed
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-[var(--color-brand-primary)]" aria-hidden="true" />
-                Takes ~2 minutes
-              </span>
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[var(--color-brand-primary)]" aria-hidden="true" />
-                Secure &amp; free to register
-              </span>
-            </div>
 
             {/* Selected tier badge */}
             {presetTier && (

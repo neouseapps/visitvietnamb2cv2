@@ -156,6 +156,8 @@
     },
     "Ecosystem": {
       "title": "Mối quan hệ mật thiết",
+      "titleLine1": "Mối quan hệ",
+      "titleLine2": "mật thiết",
       "centerTitle": "Visit Vietnam",
       "centerSubtitle": "Nền tảng Du lịch Quốc gia",
       "government": "Cơ quan Chính phủ",
@@ -208,6 +210,8 @@
     },
     "Commitments": {
       "title": "Visit Vietnam cam kết",
+      "titleLine1": "Visit Vietnam",
+      "titleLine2": "cam kết",
       "items": {
         "0": {
           "title": "Tin cậy",
@@ -230,6 +234,8 @@
     "Problems": {
       "eyebrow": "Hành trình chuyển mình",
       "title": "Một giải pháp tối ưu cho thị trường du lịch Việt Nam",
+      "titleLine1": "Một giải pháp tối ưu",
+      "titleLine2": "cho thị trường du lịch Việt Nam",
       "subtitle": "Từ thực trạng phân mảnh của ngành du lịch Việt Nam, chúng tôi kiến tạo một nền tảng toàn diện, kết nối và tối ưu bằng công nghệ số.",
       "traditionalTitle": "Du lịch truyền thống",
       "items": {
@@ -359,19 +365,19 @@
       "items": {
         "0": {
           "title": "Kết nối với du khách toàn cầu",
-          "desc": "Tiếp cận đúng tệp khách hàng tiềm năng thông qua nguồn traffic chất lượng cao hoàn toàn miễn phí."
+          "desc": "Tiếp cận đúng tệp khách hàng tiềm năng thông qua nguồn traffic chất lượng cao hoàn toàn miễn phí"
         },
         "1": {
           "title": "Tối ưu vận hành du lịch Việt Nam bằng dữ liệu số",
-          "desc": "Thấu hiểu hành vi khách hàng qua dữ liệu tập trung, giúp doanh nghiệp ra quyết định nhanh chóng và chính xác."
+          "desc": "Thấu hiểu hành vi khách hàng qua dữ liệu tập trung, giúp doanh nghiệp ra quyết định nhanh chóng và chính xác"
         },
         "2": {
           "title": "Nền tảng du lịch Việt Nam đáng tin cậy",
-          "desc": "Khẳng định vị thế thương hiệu và tăng tỷ lệ chuyển đổi nhờ sự đồng hành của Chính phủ và các tập đoàn lớn."
+          "desc": "Khẳng định vị thế thương hiệu và tăng tỷ lệ chuyển đổi nhờ sự đồng hành của Chính phủ và các tập đoàn lớn"
         },
         "3": {
           "title": "Gia nhập cộng đồng du lịch số",
-          "desc": "Kết nối trực tiếp với các đối tác trong hệ sinh thái để học hỏi, mở rộng hợp tác và khai thác cơ hội bán chéo."
+          "desc": "Kết nối trực tiếp với các đối tác trong hệ sinh thái để học hỏi, mở rộng hợp tác và khai thác cơ hội bán chéo"
         }
       }
     },
@@ -938,19 +944,19 @@
     "steps": {
       "0": {
         "title": "Đăng ký thông tin",
-        "desc": "Điền thông tin doanh nghiệp cơ bản qua form đăng ký đối tác trực tuyến."
+        "desc": "Điền thông tin doanh nghiệp cơ bản qua form đăng ký đối tác trực tuyến"
       },
       "1": {
         "title": "Phê duyệt nhanh chóng",
-        "desc": "Hồ sơ được thẩm định và phản hồi chỉ trong 2 ngày làm việc."
+        "desc": "Hồ sơ được thẩm định và phản hồi chỉ trong 2 ngày làm việc"
       },
       "2": {
         "title": "Sẵn sàng vận hành",
-        "desc": "Nhận bộ Welcome Kit đi kèm hướng dẫn toàn diện, hỗ trợ doanh nghiệp đưa dịch vụ lên nền tảng một cách dễ dàng."
+        "desc": "Nhận bộ Welcome Kit đi kèm hướng dẫn toàn diện, hỗ trợ doanh nghiệp đưa dịch vụ lên nền tảng một cách dễ dàng"
       },
       "3": {
         "title": "Đồng hành tăng trưởng",
-        "desc": "Bắt đầu kinh doanh và làm chủ dữ liệu với hệ thống Dashboard thông minh."
+        "desc": "Bắt đầu kinh doanh và làm chủ dữ liệu với hệ thống Dashboard thông minh"
       }
     }
   },
@@ -1266,5 +1272,11 @@
         }
       }
     }
+  },
+  "FloatingBubble": {
+    "callout": "Tải app ngay",
+    "title": "Việt Nam, gói gọn trong tay",
+    "date": "31.5",
+    "dismiss": "Đóng"
   }
 }

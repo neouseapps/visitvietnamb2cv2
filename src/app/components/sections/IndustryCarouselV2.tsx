@@ -11,18 +11,20 @@ import { useTranslations } from 'next-intl'
 const ICONS = [Hotel, Utensils, Map, Ticket, ShoppingBag, Plane, Car, Bike, Sparkles, Calendar, MoreHorizontal]
 const SECTOR_KEYS = ['accommodation', 'food', 'tours', 'attractions', 'shopping', 'scheduledTransport', 'onDemandTransport', 'vehicleRental', 'spa', 'events', 'other']
 
+// Color assignment optimised for 3-col grid — no two adjacent cards (horizontal OR vertical) share a similar hue.
+// Grid layout: [amber indigo red / teal pink emerald / purple green rose / orange fuchsia]
 const CARD_COLORS = [
-  { text: 'var(--color-industry-accommodation)',         bg: 'var(--color-industry-accommodation-bg)' },
-  { text: 'var(--color-industry-food)',                  bg: 'var(--color-industry-food-bg)' },
-  { text: 'var(--color-industry-tours)',                 bg: 'var(--color-industry-tours-bg)' },
-  { text: 'var(--color-industry-attractions)',           bg: 'var(--color-industry-attractions-bg)' },
-  { text: 'var(--color-industry-shopping)',              bg: 'var(--color-industry-shopping-bg)' },
-  { text: 'var(--color-industry-transport-scheduled)',   bg: 'var(--color-industry-transport-scheduled-bg)' },
-  { text: 'var(--color-industry-transport-demand)',      bg: 'var(--color-industry-transport-demand-bg)' },
-  { text: 'var(--color-industry-rental)',                bg: 'var(--color-industry-rental-bg)' },
-  { text: 'var(--color-industry-spa)',                   bg: 'var(--color-industry-spa-bg)' },
-  { text: 'var(--color-industry-events)',                bg: 'var(--color-industry-events-bg)' },
-  { text: 'var(--color-industry-other)',                 bg: 'var(--color-industry-other-bg)' },
+  { text: 'var(--color-industry-accommodation)',          bg: 'var(--color-industry-accommodation-bg)' },  // 0  amber
+  { text: 'var(--color-industry-attractions)',            bg: 'var(--color-industry-attractions-bg)' },    // 1  indigo
+  { text: 'var(--color-industry-tours)',                  bg: 'var(--color-industry-tours-bg)' },          // 2  red
+  { text: 'var(--color-industry-transport-scheduled)',    bg: 'var(--color-industry-transport-scheduled-bg)' }, // 3 teal
+  { text: 'var(--color-industry-shopping)',               bg: 'var(--color-industry-shopping-bg)' },       // 4  pink
+  { text: 'var(--color-industry-other)',                  bg: 'var(--color-industry-other-bg)' },          // 5  emerald
+  { text: 'var(--color-industry-spa)',                    bg: 'var(--color-industry-spa-bg)' },            // 6  purple
+  { text: 'var(--color-industry-rental)',                 bg: 'var(--color-industry-rental-bg)' },         // 7  green
+  { text: 'var(--color-industry-food)',                   bg: 'var(--color-industry-food-bg)' },           // 8  rose
+  { text: 'var(--color-industry-transport-demand)',       bg: 'var(--color-industry-transport-demand-bg)' }, // 9 orange
+  { text: 'var(--color-industry-events)',                 bg: 'var(--color-industry-events-bg)' },         // 10 fuchsia
 ]
 
 function scrollToRegister() {
@@ -41,6 +43,7 @@ function FeatureCard({
   benefits,
   color,
   onSelect,
+  onCta,
   imageSrc,
 }: {
   icon: React.ElementType
@@ -49,6 +52,7 @@ function FeatureCard({
   benefits: string[]
   color: { text: string; bg: string }
   onSelect: () => void
+  onCta: () => void
   imageSrc?: string
 }) {
   const [hovered, setHovered] = useState(false)
@@ -75,11 +79,10 @@ function FeatureCard({
           src={imageSrc}
           alt=""
           aria-hidden="true"
-          className="absolute -bottom-16 -right-16 w-52 h-52 object-cover object-center pointer-events-none"
+          className="absolute -bottom-12 -right-12 w-60 h-60 object-cover object-center pointer-events-none"
           style={{
-            transform: hovered ? 'scale(1.18)' : 'scale(1)',
-            transformOrigin: 'bottom right',
-            transition: 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
+            transform: hovered ? 'translate(16px, 16px)' : 'translate(-16px, -16px)',
+            transition: 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)',
           }}
         />
       ) : (
@@ -129,15 +132,17 @@ function FeatureCard({
       </div>
 
       {/* CTA — luôn ở bottom left, chỉ hiện khi hover */}
-      <div
-        className="mt-auto pt-4 flex items-center gap-1 text-xs font-semibold transition-[opacity,color] duration-200"
+      <button
+        className="mt-auto pt-4 flex items-center gap-1 text-xs font-semibold transition-[opacity,color] duration-200 cursor-pointer"
         style={{
           color: 'var(--color-brand-primary)',
           opacity: hovered ? 1 : 0,
         }}
+        onClick={(e) => { e.stopPropagation(); onCta() }}
+        tabIndex={hovered ? 0 : -1}
       >
         {t('contactCta')}
-      </div>
+      </button>
     </div>
   )
 }
@@ -151,6 +156,8 @@ function MobileCard({
   benefits,
   color,
   onSelect,
+  onCta,
+  imageSrc,
 }: {
   icon: React.ElementType
   label: string
@@ -158,36 +165,55 @@ function MobileCard({
   benefits: string[]
   color: { text: string; bg: string }
   onSelect: () => void
+  onCta: () => void
+  imageSrc?: string
 }) {
   const t = useTranslations('IndustryCarousel')
 
   return (
     <div
-      className="w-full min-h-[340px] rounded-[2rem] p-6 flex flex-col items-center gap-4 text-center relative cursor-pointer"
+      className="w-full rounded-[2rem] flex flex-col cursor-pointer overflow-hidden"
       style={{
         backgroundColor: color.bg,
         boxShadow: '0 1px 3px 0 rgba(0,0,0,0.06)',
-        transition: 'box-shadow 0.25s ease',
       }}
       onClick={onSelect}
     >
-
-      <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.6)' }}>
-        <Icon className="w-8 h-8" style={{ color: color.text }} aria-hidden="true" />
+      {/* Image / icon — top of card */}
+      <div className="w-full h-44 flex items-center justify-center relative overflow-hidden">
+        {imageSrc ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={imageSrc}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-contain object-center pointer-events-none py-4"
+          />
+        ) : (
+          <Icon
+            className="w-24 h-24 pointer-events-none"
+            style={{ color: color.text, opacity: 0.15 }}
+            aria-hidden="true"
+          />
+        )}
       </div>
-      <p className="text-lg font-semibold text-[var(--color-text-default)] leading-6">{label}</p>
-      <p className="text-sm text-[var(--color-text-dim)] leading-5 text-left w-full">{desc}</p>
-      <ul className="flex flex-col gap-1.5 w-full text-left">
-        {benefits.map((b, i) => (
-          <li key={i} className="text-sm text-[var(--color-text-dim)] flex items-start gap-2">
-            <span style={{ color: color.text }} className="mt-0.5 shrink-0">•</span>
-            {b}
-          </li>
-        ))}
-      </ul>
-      <Button variant="ghost" size="sm" className="w-full mt-auto" onClick={onSelect}>
-        {t('contactCta')}
-      </Button>
+
+      {/* Text content */}
+      <div className="p-6 flex flex-col gap-3 flex-1">
+        <p className="text-lg font-medium text-[var(--color-text-default)] leading-6 text-center">{label}</p>
+        <p className="text-sm text-[var(--color-text-dim)] leading-5">{desc}</p>
+        <ul className="flex flex-col gap-1.5">
+          {benefits.map((b, i) => (
+            <li key={i} className="text-sm text-[var(--color-text-dim)] flex items-start gap-2">
+              <span style={{ color: color.text }} className="mt-0.5 shrink-0">•</span>
+              {b}
+            </li>
+          ))}
+        </ul>
+        <Button variant="ghost" size="sm" className="w-full mt-2" onClick={(e) => { e.stopPropagation(); onCta() }}>
+          {t('contactCta')}
+        </Button>
+      </div>
     </div>
   )
 }
@@ -208,10 +234,21 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
     imageSrc: i === 0 ? '/images/industry/accommodation.png'
             : i === 1 ? '/images/industry/food-beverages.png'
             : i === 2 ? '/images/industry/tour.png'
-            : undefined,
+            : i === 3 ? '/images/industry/attractions.png'
+            : i === 4 ? '/images/industry/shopping.png'
+            : i === 5 ? '/images/industry/scheduled-transport.png'
+            : i === 6 ? '/images/industry/on-demand-transport.png'
+            : i === 7 ? '/images/industry/vehicle-rental.png'
+            : i === 8 ? '/images/industry/spa.png'
+            : i === 9 ? '/images/industry/events.png'
+            : '/images/industry/other.png',
   }))
 
   function handleSelect(sectorKey: string) {
+    onSectorSelect?.(sectorKey)
+  }
+
+  function handleCta(sectorKey: string) {
     onSectorSelect?.(sectorKey)
     scrollToRegister()
   }
@@ -219,7 +256,7 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
   return (
     <section className="py-16 bg-white">
       {/* Header — left-aligned, CTA on right */}
-      <div className="max-w-[1440px] mx-auto px-8 mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
           <h2 className="text-3xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
             {t('title')}
@@ -256,6 +293,8 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
                 benefits={card.benefits}
                 color={card.color}
                 onSelect={() => handleSelect(card.sectorKey)}
+                onCta={() => handleCta(card.sectorKey)}
+                imageSrc={card.imageSrc}
               />
             </div>
           ))}
@@ -292,6 +331,7 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
               benefits={card.benefits}
               color={card.color}
               onSelect={() => handleSelect(card.sectorKey)}
+              onCta={() => handleCta(card.sectorKey)}
               imageSrc={card.imageSrc}
             />
           ))}

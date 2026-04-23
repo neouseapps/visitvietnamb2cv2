@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Navbar } from '../../components/Navbar'
 import { Footer } from '../../components/Footer'
@@ -77,25 +77,32 @@ function HeroSection() {
   const t = useTranslations('ForBusinessPage.Hero')
   const tPage = useTranslations('ForBusinessPage')
   return (
-    <section className="relative h-[90vh] min-h-[700px] flex flex-col overflow-hidden bg-[var(--color-bg-inverse)]">
-      {/* Background image */}
+    <section className="relative h-[90vh] min-h-[580px] sm:min-h-[700px] flex flex-col overflow-hidden bg-[var(--color-bg-inverse)]">
+      {/* Background image — mobile: dedicated portrait shot, desktop: landscape */}
+      <Image
+        src="/images/hero-for-business-mobile.jpg"
+        alt="Visit Vietnam for Business"
+        fill
+        className="object-cover object-center md:hidden"
+        priority
+      />
       <Image
         src="/images/hero-for-business.png"
         alt="Visit Vietnam for Business"
         fill
-        className="object-cover object-right"
+        className="object-cover object-right hidden md:block"
         priority
       />
 
       {/* Directional gradient — dark left for text legibility, clear right for subject */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
-        style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.08) 100%)' }}
+        style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.10) 65%, rgba(0,0,0,0) 100%)' }}
       />
 
       {/* Main content */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 mt-16 flex-1 flex items-center">
-        <div className="max-w-[560px] text-left">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 mt-16 flex-1 flex items-center justify-center md:justify-start">
+        <div className="max-w-[560px] text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md">
             {t('badge')}
           </div>
@@ -106,26 +113,20 @@ function HeroSection() {
             {t('subtitle')}
           </p>
           {/* Primary CTA dominates; secondary is a lightweight text link */}
-          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 items-center md:items-start justify-center md:justify-start">
             <Button variant="brand" size="lg" onClick={() => smoothScrollTo('register')}>
               {t('ctaPrimary')}
             </Button>
-            <button
-              className="text-white/70 text-sm font-medium hover:text-white transition-colors underline underline-offset-4 decoration-white/30 hover:decoration-white/70"
-              onClick={() => smoothScrollTo('how-it-works')}
-            >
-              {t('ctaSecondary')}
-            </button>
           </div>
         </div>
       </div>
 
-      {/* Stats bar — stacks on mobile, 3-col on sm+ */}
+      {/* Stats bar — 2-col top row + full-width bottom on mobile, 3-col on sm+ */}
       <div className="relative z-10 w-full border-t border-white/10 bg-black/50 backdrop-blur-sm">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-8 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-          <HeroStatItem target={100} suffix="+" label={tPage('Stats.0.label')} />
-          <HeroStatItem target={120} suffix="+" label={tPage('Stats.1.label')} />
-          <HeroStatItem target={50000} suffix="+" label={tPage('Stats.2.label')} />
+        <div className="max-w-[1440px] mx-auto px-6 md:px-8 grid grid-cols-2 sm:grid-cols-3">
+          <HeroStatItem target={100} suffix="+" label={tPage('Stats.0.label')} className="border-r border-white/10 sm:border-b-0" />
+          <HeroStatItem target={120} suffix="+" label={tPage('Stats.1.label')} className="sm:border-r sm:border-white/10" />
+          <HeroStatItem target={50000} suffix="+" label={tPage('Stats.2.label')} className="col-span-2 sm:col-span-1 border-t border-white/10 sm:border-t-0" />
         </div>
       </div>
     </section>
@@ -135,11 +136,11 @@ function HeroSection() {
 // ---------------------------------------------------------------------------
 // Hero stat item
 // ---------------------------------------------------------------------------
-function HeroStatItem({ target, suffix, label }: { target: number; suffix: string; label: string }) {
+function HeroStatItem({ target, suffix, label, className }: { target: number; suffix: string; label: string; className?: string }) {
   const { count, ref } = useCounterOnVisible(target)
   const formatted = target >= 1000 ? count.toLocaleString('en-US') : count.toString()
   return (
-    <div className="py-4 px-6 text-center" aria-live="polite">
+    <div className={`py-4 px-6 text-center ${className ?? ''}`} aria-live="polite">
       <div className="text-2xl md:text-3xl font-bold flex items-baseline justify-center">
         <span ref={ref} className="text-[var(--color-brand-secondary)]">{formatted}</span>
         <span className="text-[var(--color-brand-secondary)]/70 text-lg ml-0.5">{suffix}</span>
@@ -167,15 +168,51 @@ const featureItemVariantsReduced = {
   visible: { opacity: 1, transition: { duration: 0.3 } },
 }
 
+function FeatureItem({
+  icon: Icon,
+  title,
+  desc,
+  variants,
+}: {
+  icon: React.ElementType
+  title: string
+  desc: string
+  variants: Variants
+}) {
+  const [hovered, setHovered] = useState(false)
+  return (
+    <motion.div
+      variants={variants}
+      className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-7 px-5 py-5 sm:py-6 -mx-5"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Icon
+        className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 sm:mt-0.5 transition-colors duration-200"
+        style={{ color: hovered ? 'var(--color-text-warning-bright)' : 'var(--color-bg-brand-primary-dim)' }}
+        aria-hidden="true"
+      />
+      <div>
+        <h4 className="text-xl font-display font-medium text-[var(--color-text-default)] mb-2 leading-snug">
+          {title}
+        </h4>
+        <p className="text-[var(--color-text-dim)] text-sm leading-relaxed">
+          {desc}
+        </p>
+      </div>
+    </motion.div>
+  )
+}
+
 function FeaturesSection() {
   const t = useTranslations('ForBusinessPage.Features')
   const prefersReduced = useReducedMotion()
 
   const features = [
-    { icon: Globe,           iconColor: 'var(--color-text-info-default)' },
-    { icon: LayoutDashboard, iconColor: 'var(--color-text-warning-bright)' },
-    { icon: TrendingUp,      iconColor: 'var(--color-text-success-hover)' },
-    { icon: CreditCard,      iconColor: 'var(--color-brand-primary)' },
+    { icon: Globe },
+    { icon: LayoutDashboard },
+    { icon: TrendingUp },
+    { icon: CreditCard },
   ].map((item, i) => ({
     ...item,
     title: t(`items.${i}.title`),
@@ -191,7 +228,7 @@ function FeaturesSection() {
         <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start">
 
           {/* Left — 1/2: eyebrow + title + subtitle, sticky on desktop */}
-          <div className="md:sticky md:top-24">
+          <div className="md:sticky md:top-24 text-center md:text-left">
             <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-3">
               {t('eyebrow')}
             </p>
@@ -203,7 +240,7 @@ function FeaturesSection() {
             </p>
           </div>
 
-          {/* Right — 1/2: staggered item list with dividers */}
+          {/* Right — 1/2: staggered item list */}
           <motion.div
             className="flex flex-col gap-2"
             variants={featureContainerVariants}
@@ -211,28 +248,8 @@ function FeaturesSection() {
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
           >
-            {features.map(({ icon: Icon, iconColor, title, desc }) => (
-              <motion.div
-                key={title}
-                variants={itemVariant}
-                className="flex items-start gap-7 px-5 py-6 -mx-5"
-              >
-                {/* Icon — replaces bold number, larger for visual weight */}
-                <Icon
-                  className="w-12 h-12 shrink-0 mt-0.5"
-                  style={{ color: iconColor }}
-                  aria-hidden="true"
-                />
-                {/* Text */}
-                <div>
-                  <h4 className="text-xl font-display font-medium text-[var(--color-text-default)] mb-2 leading-snug">
-                    {title}
-                  </h4>
-                  <p className="text-[var(--color-text-dim)] text-sm leading-relaxed">
-                    {desc}
-                  </p>
-                </div>
-              </motion.div>
+            {features.map(({ icon: Icon, title, desc }) => (
+              <FeatureItem key={title} icon={Icon} title={title} desc={desc} variants={itemVariant} />
             ))}
           </motion.div>
 

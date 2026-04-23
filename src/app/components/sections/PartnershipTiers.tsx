@@ -34,7 +34,7 @@ function TierCardV2({ tier, onTierSelect }: { tier: Tier; onTierSelect?: (id: st
 
   return (
     <div
-      className={`group relative flex flex-col h-full p-8 xl:p-10 transition-colors duration-200 overflow-hidden isolate ${
+      className={`group relative flex flex-col h-full p-6 sm:p-8 xl:p-10 transition-colors duration-200 overflow-hidden isolate ${
         isFeature
           ? 'border border-white/30'
           : 'bg-[var(--color-bg-dim)] border border-[var(--color-border-default)] lg:border-0 lg:bg-transparent lg:hover:bg-[var(--color-bg-dim)]'
@@ -73,7 +73,7 @@ function TierCardV2({ tier, onTierSelect }: { tier: Tier; onTierSelect?: (id: st
         </h3>
 
         {/* Tagline */}
-        <p className={`text-sm mb-6 leading-relaxed h-[72px] ${isFeature ? 'text-white' : 'text-[var(--color-text-dim)]'}`}>
+        <p className={`text-sm mb-6 leading-relaxed sm:h-[72px] ${isFeature ? 'text-white' : 'text-[var(--color-text-dim)]'}`}>
           {tier.tagline}
         </p>
 
@@ -143,7 +143,7 @@ export function PartnershipTiers({ onTierSelect }: { onTierSelect?: (id: string,
       <div className="absolute inset-0 opacity-30 bg-dot-brand" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-primary rounded-full blur-[100px] opacity-30 pointer-events-none" />
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-primary rounded-full blur-[100px] opacity-20 pointer-events-none" />
-      <div className="max-w-[1440px] mx-auto px-8 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">

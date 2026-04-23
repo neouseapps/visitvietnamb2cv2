@@ -167,7 +167,7 @@ export const OffersSection = () => {
 
   return (
     <section className="w-full bg-bg-dim relative">
-      <div className="py-16 px-8 max-w-[1440px] mx-auto">
+      <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
         <div>

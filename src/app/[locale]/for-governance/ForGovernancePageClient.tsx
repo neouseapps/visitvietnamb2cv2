@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Navbar } from '../../components/Navbar'
 import { Footer } from '../../components/Footer'
@@ -40,61 +41,87 @@ function smoothScrollTo(id: string) {
 // ---------------------------------------------------------------------------
 function HeroSection() {
   const t = useTranslations('ForGovernancePage.Hero')
-  const tSponsor = useTranslations('ForGovernancePage.NationalSponsorship')
-  const sponsorCards = [
-    { src: '/images/governance/timeless-charm.png', label: tSponsor('cards.0.label') },
-    { src: '/images/governance/hiep-hoi.png', label: tSponsor('cards.1.label') },
-  ]
+
   return (
-    <section className="relative h-[90vh] min-h-[700px] flex items-center overflow-hidden bg-[var(--color-bg-inverse)]">
-      {/* Background image */}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--color-bg-inverse)]">
+      {/* Background image — mobile portrait */}
       <Image
-        src="/images/hero-for-governance.png"
-        alt="For Government"
+        src="/images/hero-for-governance-mobile.png"
+        alt="Panoramic view of Vietnamese government and tourism landmarks"
         fill
-        className="object-cover object-center"
+        className="object-cover object-center md:hidden"
         priority
         unoptimized
       />
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/20" />
+      {/* Background image — desktop landscape */}
+      <Image
+        src="/images/hero-for-governance.png"
+        alt="Panoramic view of Vietnamese government and tourism landmarks"
+        fill
+        className="object-cover object-center hidden md:block"
+        priority
+        unoptimized
+      />
+      {/* Directional gradient — dark on left, transparent on right */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 45%, transparent 100%)',
+        }}
+      />
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 mt-16">
-        <div className="max-w-[832px] mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md">
-            {t('badge')}
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-white leading-[1.2] mb-6">
-            {t('title')}
-          </h1>
-          <p className="text-lg text-white/80 mb-8 leading-relaxed max-w-xl mx-auto">
-            {t('subtitle')}
-          </p>
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 pt-[100px] pb-16 lg:pt-[102px] lg:pb-0">
+        <div className="max-w-[640px] mx-auto lg:mx-0">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-6 lg:pb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium bg-white/10 backdrop-blur-md">
+                {t('badge')}
+              </p>
+            </motion.div>
 
-          {/* Sponsorship block */}
-          <div className="mb-8 backdrop-blur-md rounded-[32px] px-10 py-6 inline-block" style={{ backgroundColor: 'color-mix(in srgb, var(--color-brand-primary) 30%, rgba(255,255,255,0.08))', border: '1px solid rgba(255,255,255,0.18)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 8px rgba(0,0,0,0.04)' }}>
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 mb-8">
-              <span className="text-xs font-bold tracking-widest uppercase text-white/70">{tSponsor('title')}</span>
-            </div>
-            <div className="flex items-center justify-center gap-6">
-              {sponsorCards.map(({ src, label }) => (
-                <div key={label} className="flex flex-col items-center gap-2">
-                  <div className="relative w-16 h-16">
-                    <Image src={src} alt={label} fill className="object-contain" unoptimized />
-                  </div>
-                  <span className="text-lg text-white/80 leading-relaxed text-center max-w-[140px]">
-                    {label}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-white leading-[1.2]"
+            >
+              {t('title')}
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg text-white/75 max-w-lg leading-relaxed"
+            >
+              {t('subtitle')}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-3 pt-2"
+            >
+              <Button variant="brand" size="lg" onClick={() => smoothScrollTo('contact')}>
+                {t('ctaPrimary')}
+              </Button>
+              <Button
+                variant="ghost"
+                size="lg"
+                className="text-white border-white/30 hover:bg-white/10"
+                onClick={() => smoothScrollTo('features')}
+              >
+                {t('ctaSecondary')}
+              </Button>
+            </motion.div>
           </div>
 
-          <div className="flex flex-col gap-4 items-center w-64 mx-auto">
-            <Button variant="ghost" size="lg" className="w-full text-white border-white/30 hover:bg-white/10" onClick={() => smoothScrollTo('features')}>
-              {t('ctaSecondary')}
-            </Button>
-          </div>
         </div>
       </div>
     </section>

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { Geist_Mono, Google_Sans, Source_Serif_4 } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
+import { FloatingAppBubble } from '../components/FloatingAppBubble'
 import '../globals.css'
 
 const geistMono = Geist_Mono({
@@ -63,6 +64,7 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages()
+  const tBubble = await getTranslations('FloatingBubble')
 
   return (
     <html
@@ -72,6 +74,12 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
           {children}
+          <FloatingAppBubble
+            callout={tBubble('callout')}
+            title={tBubble('title')}
+            date={tBubble('date')}
+            dismiss={tBubble('dismiss')}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

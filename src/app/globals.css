@@ -35,6 +35,8 @@
   --color-bg-dim-variant: var(--color-bg-dim-variant);
   --color-bg-inverse: var(--color-bg-inverse);
   --color-bg-inverse-hover: var(--color-bg-inverse-hover);
+  --color-bg-brand-primary-dim: var(--color-bg-brand-primary-dim);
+  --color-bg-warm-light: var(--color-bg-warm-light);
 
   /* VSVN Text */
   --color-text-default: var(--color-text-default);
@@ -176,6 +178,25 @@ h2, h3, h4, h5 {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
+}
+
+/* Contact link — underline draw from left */
+.link-draw {
+  position: relative;
+  text-decoration: none;
+}
+.link-draw::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.link-draw:hover::after {
+  width: calc(100% - 1.25rem - 0.25rem); /* exclude the arrow icon */
 }
 
 .hide-scrollbar::-webkit-scrollbar {

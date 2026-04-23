@@ -156,6 +156,8 @@
     },
     "Ecosystem": {
       "title": "Visit Vietnam Ecosystem",
+      "titleLine1": "Visit Vietnam",
+      "titleLine2": "Ecosystem",
       "centerTitle": "Visit Vietnam",
       "centerSubtitle": "National Tourism Platform",
       "government": "Government Agencies",
@@ -208,6 +210,8 @@
     },
     "Commitments": {
       "title": "Visit Vietnam is committed",
+      "titleLine1": "Visit Vietnam",
+      "titleLine2": "commits to",
       "items": {
         "0": {
           "title": "Trust",
@@ -230,6 +234,8 @@
     "Problems": {
       "eyebrow": "Journey of transformation",
       "title": "The optimal solution for Vietnam travel",
+      "titleLine1": "The optimal solution",
+      "titleLine2": "for Vietnam's travel market",
       "subtitle": "Addressing the fragmented Vietnam travel industry, we create a comprehensive platform that connects and optimizes through digital innovation.",
       "traditionalTitle": "Traditional Travel",
       "items": {
@@ -359,19 +365,19 @@
       "items": {
         "0": {
           "title": "Connect with global travelers",
-          "desc": "Reach the right audience through high-quality, organic travel demand."
+          "desc": "Reach the right audience through high-quality, organic travel demand"
         },
         "1": {
           "title": "Optimize Vietnam travel with data",
-          "desc": "Understand customer behavior and make faster, data-driven decisions."
+          "desc": "Understand customer behavior and make faster, data-driven decisions"
         },
         "2": {
           "title": "A trusted Vietnam travel platform",
-          "desc": "Strengthen your brand and boost conversion with trusted partners."
+          "desc": "Strengthen your brand and boost conversion with trusted partners"
         },
         "3": {
           "title": "Join the ecosystem",
-          "desc": "Connect, collaborate, and unlock cross-selling opportunities."
+          "desc": "Connect, collaborate, and unlock cross-selling opportunities"
         }
       }
     },
@@ -938,19 +944,19 @@
     "steps": {
       "0": {
         "title": "Register your information",
-        "desc": "Complete the partner registration form with your basic business details."
+        "desc": "Complete the partner registration form with your basic business details"
       },
       "1": {
         "title": "Quick approval",
-        "desc": "Your application is reviewed within 2 working days."
+        "desc": "Your application is reviewed within 2 working days"
       },
       "2": {
         "title": "Go live",
-        "desc": "Receive a Welcome Kit and launch your services with ease."
+        "desc": "Receive a Welcome Kit and launch your services with ease"
       },
       "3": {
         "title": "Grow with us",
-        "desc": "Start operating and manage performance with a smart dashboard."
+        "desc": "Start operating and manage performance with a smart dashboard"
       }
     }
   },
@@ -1266,5 +1272,11 @@
         }
       }
     }
+  },
+  "FloatingBubble": {
+    "callout": "Get the app",
+    "title": "All of Vietnam, in your pocket",
+    "date": "31.5",
+    "dismiss": "Close"
   }
 }

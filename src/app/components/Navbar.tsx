@@ -2,54 +2,39 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/navigation'
+import { Link, usePathname } from '@/navigation'
 import { VsvnLogo } from './VsvnLogo'
 import { Button } from '@/app/components/ui/button'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ChevronDown } from 'lucide-react'
 
-// ─── Platform dropdown items ──────────────────────────────────────────────────
+const NAV_HEIGHT = 72
 
-function PlatformDropdown({
-  t,
-  variant,
-  onNavigate,
+export const Navbar = ({
+  variant = 'dark',
+  cta,
 }: {
-  t: ReturnType<typeof useTranslations<'Nav'>>
-  variant: 'light' | 'dark'
-  onNavigate?: () => void
-}) {
-  const items = [
-    { label: t('aboutPlatform'), href: '/about' },
-    { label: t('forBusiness'), href: '/for-business' },
-    { label: t('forGovernance'), href: '/for-governance' },
-  ]
-
-  return (
-    <div className="flex flex-col py-1">
-      {items.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          onClick={onNavigate}
-          className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 font-medium"
-        >
-          {item.label}
-        </Link>
-      ))}
-    </div>
-  )
-}
-
-export const Navbar = ({ variant = 'dark', cta }: { variant?: 'dark' | 'light'; cta?: { label: string; onClick: () => void } }) => {
+  variant?: 'dark' | 'light'
+  cta?: { label: string; onClick: () => void }
+}) => {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [platformMobileOpen, setPlatformMobileOpen] = useState(false)
-  const [platformDesktopOpen, setPlatformDesktopOpen] = useState(false)
+  const [sectionOpen, setSectionOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const t = useTranslations('Nav')
-  const platformDesktopRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   const isLight = variant === 'light'
+  const isHome = pathname === '/'
+
+  const navItems = [
+    { shortLabel: t('about'), label: t('aboutPlatform'), href: '/about' },
+    { shortLabel: t('business'), label: t('forBusiness'), href: '/for-business' },
+    { shortLabel: t('governance'), label: t('forGovernance'), href: '/for-governance' },
+    { shortLabel: t('newsroom'), label: t('newsroom'), href: '/newsroom' },
+  ]
+
+  const activeItem = navItems.find(item => pathname.startsWith(item.href)) ?? null
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -58,116 +43,380 @@ export const Navbar = ({ variant = 'dark', cta }: { variant?: 'dark' | 'light'; 
   }, [])
 
   useEffect(() => {
+    if (!sectionOpen) return
     const handleClickOutside = (e: MouseEvent) => {
-      if (platformDesktopRef.current && !platformDesktopRef.current.contains(e.target as Node)) {
-        setPlatformDesktopOpen(false)
+      if (sectionRef.current && !sectionRef.current.contains(e.target as Node)) {
+        setSectionOpen(false)
       }
     }
-    if (platformDesktopOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-    }
+    document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [platformDesktopOpen])
+  }, [sectionOpen])
 
-  const inactiveColor = isLight ? 'text-[var(--color-text-dim)]' : ''
-  const linkClass = () => `hover:text-[var(--color-brand-primary)] transition-colors ${inactiveColor}`
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
 
   if (isLight) {
     return (
       <>
+        <nav
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            scrolled
+              ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[var(--color-border-default)]'
+              : 'bg-white/90 backdrop-blur-md'
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center" style={{ height: NAV_HEIGHT }}>
+
+              {/* Logo + tagline */}
+              <Link href="/" className="flex flex-col items-start leading-none gap-0.5">
+                <VsvnLogo variant="color-light" className="w-32" />
+                <span className="text-[10px] font-medium tracking-wide text-[var(--color-text-dim)] opacity-70">
+                  {t('tagline')}
+                </span>
+              </Link>
+
+              {/* Right controls */}
+              <div className="flex items-center gap-3">
+
+                {/* Section dropdown — desktop, non-home only */}
+                {!isHome && (
+                  <div className="relative hidden lg:block" ref={sectionRef}>
+                    <button
+                      onClick={() => setSectionOpen(!sectionOpen)}
+                      aria-expanded={sectionOpen}
+                      aria-haspopup="listbox"
+                      className="flex items-center gap-1.5 font-medium text-sm text-[var(--color-text-dim)] hover:text-[var(--color-brand-primary)] transition-colors"
+                    >
+                      {activeItem?.shortLabel ?? t('platform')}
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-200 ${sectionOpen ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    {sectionOpen && (
+                      <div
+                        role="listbox"
+                        aria-label={t('platform')}
+                        className="absolute right-0 z-50 py-1 bg-white rounded-xl shadow-xl min-w-[240px] overflow-hidden"
+                        style={{ top: 'calc(100% + 8px)' }}
+                      >
+                        {navItems.map(item => {
+                          const isActive = pathname.startsWith(item.href)
+                          return (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              role="option"
+                              aria-selected={isActive}
+                              aria-current={isActive ? 'page' : undefined}
+                              onClick={() => setSectionOpen(false)}
+                              className={`flex items-center gap-3 w-full px-4 py-2.5 text-sm font-medium transition-colors hover:bg-[var(--color-bg-dim)] ${
+                                isActive
+                                  ? 'text-[var(--color-brand-primary)]'
+                                  : 'text-[var(--color-text-default)]'
+                              }`}
+                            >
+                              <span
+                                className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${
+                                  isActive ? 'bg-[var(--color-brand-primary)]' : 'bg-transparent'
+                                }`}
+                              />
+                              {item.label}
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                <LanguageSwitcher variant="light" />
+                {cta && (
+                  <Button
+                    variant="primary"
+                    size="md"
+                    className="hidden lg:block"
+                    onClick={cta.onClick}
+                  >
+                    {cta.label}
+                  </Button>
+                )}
+                {/* Hamburger + dropdown — right-anchored together */}
+                <div className={`${isHome ? '' : 'lg:hidden'} relative`}>
+                  <button
+                    onClick={() => setMobileOpen(!mobileOpen)}
+                    aria-label="Menu"
+                    aria-expanded={mobileOpen}
+                    className="flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-[var(--color-bg-dim)] transition-colors gap-1.5"
+                  >
+                    <span className={`block w-5 h-0.5 bg-[var(--color-text-default)] transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                    <span className={`block w-5 h-0.5 bg-[var(--color-text-default)] transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
+                    <span className={`block w-5 h-0.5 bg-[var(--color-text-default)] transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+                  </button>
+
+                  {/* Desktop dropdown (lg+) */}
+                  <div
+                    className={`hidden lg:block absolute right-0 z-[60] w-72 bg-white rounded-2xl shadow-2xl transition-all duration-200 ease-out ${
+                      mobileOpen
+                        ? 'opacity-100 translate-y-0 pointer-events-auto'
+                        : 'opacity-0 -translate-y-2 pointer-events-none'
+                    }`}
+                    style={{ top: `calc(100% + ${(NAV_HEIGHT - 40) / 2 + 8}px)` }}
+                  >
+                    <div className="py-2">
+                      {navItems.map(item => {
+                        const isActive = pathname.startsWith(item.href)
+                        return (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            aria-current={isActive ? 'page' : undefined}
+                            onClick={() => setMobileOpen(false)}
+                            className={`flex items-center gap-3 px-4 py-3 transition-colors font-medium hover:bg-[var(--color-bg-dim)] ${
+                              isActive ? 'text-[var(--color-brand-primary)]' : 'text-[var(--color-text-default)]'
+                            }`}
+                          >
+                            <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isActive ? 'bg-[var(--color-brand-primary)]' : 'bg-transparent'}`} />
+                            {item.label}
+                          </Link>
+                        )
+                      })}
+                      {cta && (
+                        <>
+                          <div className="mx-4 my-2 border-t border-[var(--color-border-default)]" />
+                          <div className="px-3 pb-2">
+                            <Button variant="primary" size="md" className="w-full" onClick={() => { cta.onClick(); setMobileOpen(false) }}>
+                              {cta.label}
+                            </Button>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        {/* Mobile full-screen overlay (< lg) */}
+        <div
+          className={`lg:hidden fixed inset-x-0 bottom-0 z-[60] bg-white flex flex-col overflow-y-auto transition-all duration-300 ease-out ${
+            mobileOpen
+              ? 'opacity-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 -translate-y-3 pointer-events-none'
+          }`}
+          style={{ top: NAV_HEIGHT }}
+        >
+          <div className="p-6 flex flex-col gap-1 flex-1">
+            {navItems.map(item => {
+              const isActive = pathname.startsWith(item.href)
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? 'page' : undefined}
+                  onClick={() => setMobileOpen(false)}
+                  className={`px-4 py-3 rounded-xl transition-colors font-medium hover:bg-[var(--color-bg-dim)] ${
+                    isActive ? 'text-[var(--color-brand-primary)]' : 'text-[var(--color-text-default)]'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
+            <div className="mt-auto pt-3 flex flex-col gap-3">
+              <LanguageSwitcher variant="light" className="" fullWidth />
+              {cta && (
+                <Button variant="primary" size="md" className="w-full" onClick={() => { cta.onClick(); setMobileOpen(false) }}>
+                  {cta.label}
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  }
+
+  // ─── Dark variant ────────────────────────────────────────────────────────────
+
+  return (
+    <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-[var(--color-border-default)]'
-            : 'bg-white/90 backdrop-blur-md border-[var(--color-border-default)]'
+            ? 'bg-[var(--color-bg-inverse)] shadow-md'
+            : '[background:var(--Navigation-VSVN-Background)]'
         }`}
+        style={{ height: NAV_HEIGHT }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-[60px]">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-8 text-white h-full">
+          <div className="flex justify-between items-center h-full">
 
             {/* Logo + tagline */}
             <Link href="/" className="flex flex-col items-start leading-none gap-0.5">
-              <VsvnLogo variant="color-light" className="w-32" />
-              <span className="text-[10px] font-medium tracking-wide text-[var(--color-text-dim)] opacity-70">
+              <VsvnLogo variant="color-dark" className="w-32" />
+              <span className="text-[10px] font-medium tracking-wide text-white opacity-60">
                 {t('tagline')}
               </span>
             </Link>
 
-            {/* Desktop links */}
-            <div className="hidden lg:flex items-center gap-8 font-medium text-sm">
-
-              {/* Platform dropdown — click-based */}
-              <div className="relative" ref={platformDesktopRef}>
-                <button
-                  onClick={() => setPlatformDesktopOpen(!platformDesktopOpen)}
-                  className={`flex items-center gap-1 hover:text-[var(--color-brand-primary)] transition-colors ${inactiveColor}`}
-                >
-                  {t('platform')}
-                  <ChevronDown size={14} className={`transition-transform duration-200 ${platformDesktopOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {platformDesktopOpen && (
-                  <div className="absolute z-50" style={{ top: 'calc(100% + 8px)', left: '50%', transform: 'translateX(-50%)' }}>
-                    <div className="bg-white rounded-xl shadow-xl min-w-[220px] overflow-hidden">
-                      <PlatformDropdown t={t} variant="light" onNavigate={() => setPlatformDesktopOpen(false)} />
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <Link href="/newsroom" className={linkClass()}>{t('newsroom')}</Link>
-            </div>
-
+            {/* Right controls */}
             <div className="flex items-center gap-3">
-              <LanguageSwitcher variant="light" />
+
+              {/* Section dropdown — desktop, non-home only */}
+              {!isHome && (
+                <div className="relative hidden lg:block" ref={sectionRef}>
+                  <button
+                    onClick={() => setSectionOpen(!sectionOpen)}
+                    aria-expanded={sectionOpen}
+                    aria-haspopup="listbox"
+                    className="flex items-center gap-1.5 font-medium text-sm text-white/80 hover:text-[var(--color-brand-primary)] transition-colors"
+                  >
+                    {activeItem?.shortLabel ?? t('platform')}
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-200 ${sectionOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {sectionOpen && (
+                    <div
+                      role="listbox"
+                      aria-label={t('platform')}
+                      className="absolute right-0 z-50 py-1 bg-white rounded-xl shadow-xl min-w-[240px] overflow-hidden"
+                      style={{ top: 'calc(100% + 8px)' }}
+                    >
+                      {navItems.map(item => {
+                        const isActive = pathname.startsWith(item.href)
+                        return (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            role="option"
+                            aria-selected={isActive}
+                            aria-current={isActive ? 'page' : undefined}
+                            onClick={() => setSectionOpen(false)}
+                            className={`flex items-center gap-3 w-full px-4 py-2.5 text-sm font-medium transition-colors hover:bg-[var(--color-bg-dim)] ${
+                              isActive
+                                ? 'text-[var(--color-brand-primary)]'
+                                : 'text-[var(--color-text-default)]'
+                            }`}
+                          >
+                            <span
+                              className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${
+                                isActive ? 'bg-[var(--color-brand-primary)]' : 'bg-transparent'
+                              }`}
+                            />
+                            {item.label}
+                          </Link>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <LanguageSwitcher variant="dark" />
               {cta && (
-                <Button variant="primary" size="md" className="hidden lg:block" onClick={cta.onClick}>
+                <Button
+                  variant="primary"
+                  size="md"
+                  className="hidden lg:block"
+                  onClick={cta.onClick}
+                >
                   {cta.label}
                 </Button>
               )}
-              {/* Hamburger */}
-              <button
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-[var(--color-bg-dim)] transition-colors gap-1.5"
-                aria-label="Menu"
-              >
-                <span className={`block w-5 h-0.5 bg-[var(--color-text-default)] transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                <span className={`block w-5 h-0.5 bg-[var(--color-text-default)] transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
-                <span className={`block w-5 h-0.5 bg-[var(--color-text-default)] transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-              </button>
+              {/* Hamburger + dropdown — right-anchored together */}
+              <div className={`${isHome ? '' : 'lg:hidden'} relative`}>
+                <button
+                  onClick={() => setMobileOpen(!mobileOpen)}
+                  aria-label="Menu"
+                  aria-expanded={mobileOpen}
+                  className="flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-white/10 transition-colors gap-1.5"
+                >
+                  <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                  <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
+                  <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+                </button>
+
+                {/* Desktop dropdown (lg+) */}
+                <div
+                  className={`hidden lg:block absolute right-0 z-[60] w-72 bg-[var(--color-bg-inverse)] rounded-2xl shadow-2xl transition-all duration-200 ease-out ${
+                    mobileOpen
+                      ? 'opacity-100 translate-y-0 pointer-events-auto'
+                      : 'opacity-0 -translate-y-2 pointer-events-none'
+                  }`}
+                  style={{ top: `calc(100% + ${(NAV_HEIGHT - 40) / 2 + 8}px)` }}
+                >
+                  <div className="py-2">
+                    {navItems.map(item => {
+                      const isActive = pathname.startsWith(item.href)
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          aria-current={isActive ? 'page' : undefined}
+                          onClick={() => setMobileOpen(false)}
+                          className={`flex items-center gap-3 px-4 py-3 transition-colors font-medium hover:bg-white/10 ${
+                            isActive ? 'text-[var(--color-brand-primary)]' : 'text-white'
+                          }`}
+                        >
+                          <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isActive ? 'bg-[var(--color-brand-primary)]' : 'bg-white/30'}`} />
+                          {item.label}
+                        </Link>
+                      )
+                    })}
+                    {cta && (
+                      <>
+                        <div className="mx-4 my-2 border-t border-white/10" />
+                        <div className="px-3 pb-2">
+                          <Button variant="primary" size="md" className="w-full" onClick={() => { cta.onClick(); setMobileOpen(false) }}>
+                            {cta.label}
+                          </Button>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
       </nav>
 
-      {/* Mobile menu — slide-down overlay */}
-      <div className={`lg:hidden fixed top-[60px] inset-x-0 bottom-0 z-[60] bg-white flex flex-col overflow-y-auto transition-all duration-300 ease-out ${
-        mobileOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-3 pointer-events-none'
-      }`}>
+      {/* Mobile full-screen overlay (< lg) */}
+      <div
+        className={`lg:hidden fixed inset-x-0 bottom-0 z-[60] bg-[var(--color-bg-inverse)] flex flex-col overflow-y-auto transition-all duration-300 ease-out ${
+          mobileOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 -translate-y-3 pointer-events-none'
+        }`}
+        style={{ top: NAV_HEIGHT }}
+      >
         <div className="p-6 flex flex-col gap-1 flex-1">
-
-          {/* Platform accordion */}
-          <div>
-            <button
-              onClick={() => setPlatformMobileOpen(!platformMobileOpen)}
-              className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[var(--color-text-default)] hover:bg-[var(--color-bg-dim)] transition-colors font-medium"
-            >
-              {t('platform')}
-              <ChevronDown size={16} className={`transition-transform duration-200 ${platformMobileOpen ? 'rotate-180' : ''}`} />
-            </button>
-            {platformMobileOpen && (
-              <div className="ml-4 flex flex-col gap-0.5 mt-0.5">
-                <Link href="/about" className="px-4 py-2.5 rounded-xl text-[var(--color-text-dim)] hover:bg-[var(--color-bg-dim)] transition-colors text-sm font-medium" onClick={() => setMobileOpen(false)}>{t('aboutPlatform')}</Link>
-                <Link href="/for-business" className="px-4 py-2.5 rounded-xl text-[var(--color-text-dim)] hover:bg-[var(--color-bg-dim)] transition-colors text-sm font-medium" onClick={() => setMobileOpen(false)}>{t('forBusiness')}</Link>
-                <Link href="/for-governance" className="px-4 py-2.5 rounded-xl text-[var(--color-text-dim)] hover:bg-[var(--color-bg-dim)] transition-colors text-sm font-medium" onClick={() => setMobileOpen(false)}>{t('forGovernance')}</Link>
-              </div>
-            )}
-          </div>
-
-          <Link href="/newsroom" className="px-4 py-3 rounded-xl text-[var(--color-text-default)] hover:bg-[var(--color-bg-dim)] transition-colors font-medium" onClick={() => setMobileOpen(false)}>{t('newsroom')}</Link>
-
+          {navItems.map(item => {
+            const isActive = pathname.startsWith(item.href)
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? 'page' : undefined}
+                onClick={() => setMobileOpen(false)}
+                className={`px-4 py-3 rounded-xl transition-colors font-medium hover:bg-white/10 ${
+                  isActive ? 'text-[var(--color-brand-primary)]' : 'text-white'
+                }`}
+              >
+                {item.label}
+              </Link>
+            )
+          })}
           <div className="mt-auto pt-3 flex flex-col gap-3">
-            <LanguageSwitcher variant="light" className="" fullWidth />
+            <LanguageSwitcher variant="dark" className="" fullWidth />
             {cta && (
               <Button variant="primary" size="md" className="w-full" onClick={() => { cta.onClick(); setMobileOpen(false) }}>
                 {cta.label}
@@ -176,98 +425,6 @@ export const Navbar = ({ variant = 'dark', cta }: { variant?: 'dark' | 'light'; 
           </div>
         </div>
       </div>
-      </>
-    )
-  }
-
-  return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 w-full h-[60px] transition-all duration-300 ${
-      scrolled
-        ? 'bg-[var(--color-bg-inverse)] shadow-md'
-        : '[background:var(--Navigation-VSVN-Background)]'
-    }`}>
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8 text-white h-full">
-        <div className="flex justify-between items-center h-full">
-
-          {/* Logo + tagline */}
-          <Link href="/" className="flex flex-col items-start leading-none gap-0.5">
-            <VsvnLogo variant="color-dark" className="w-32" />
-            <span className="text-[10px] font-medium tracking-wide text-white opacity-60">
-              {t('tagline')}
-            </span>
-          </Link>
-
-          {/* Desktop menu */}
-          <div className="hidden lg:flex items-center gap-8 font-medium text-sm">
-
-            {/* Platform dropdown — click-based */}
-            <div className="relative" ref={platformDesktopRef}>
-              <button
-                onClick={() => setPlatformDesktopOpen(!platformDesktopOpen)}
-                className="flex items-center gap-1 hover:text-[var(--color-brand-primary)] transition-colors"
-              >
-                {t('platform')}
-                <ChevronDown size={14} className={`transition-transform duration-200 ${platformDesktopOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {platformDesktopOpen && (
-                <div className="absolute z-50" style={{ top: 'calc(100% + 8px)', left: '50%', transform: 'translateX(-50%)' }}>
-                  <div className="bg-white rounded-xl shadow-xl min-w-[220px] overflow-hidden">
-                    <PlatformDropdown t={t} variant="light" onNavigate={() => setPlatformDesktopOpen(false)} />
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <Link href="/newsroom" className={linkClass()}>{t('newsroom')}</Link>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <LanguageSwitcher variant="dark" />
-            {/* Hamburger (mobile & tablet) */}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-white/10 transition-colors gap-1.5"
-              aria-label="Menu"
-            >
-              <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-              <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile menu — slide-down overlay */}
-        <div className={`lg:hidden fixed top-[60px] inset-x-0 bottom-0 z-[60] bg-[var(--color-bg-inverse)] flex flex-col overflow-y-auto transition-all duration-300 ease-out ${
-          mobileOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-3 pointer-events-none'
-        }`}>
-          <div className="p-6 flex flex-col gap-1 flex-1">
-
-            {/* Platform accordion */}
-            <div>
-              <button
-                onClick={() => setPlatformMobileOpen(!platformMobileOpen)}
-                className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium"
-              >
-                {t('platform')}
-                <ChevronDown size={16} className={`transition-transform duration-200 ${platformMobileOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {platformMobileOpen && (
-                <div className="ml-4 flex flex-col gap-0.5 mt-0.5">
-                  <Link href="/about" className="px-4 py-2.5 rounded-xl text-white/70 hover:bg-white/10 transition-colors text-sm font-medium" onClick={() => setMobileOpen(false)}>{t('aboutPlatform')}</Link>
-                  <Link href="/for-business" className="px-4 py-2.5 rounded-xl text-white/70 hover:bg-white/10 transition-colors text-sm font-medium" onClick={() => setMobileOpen(false)}>{t('forBusiness')}</Link>
-                  <Link href="/for-governance" className="px-4 py-2.5 rounded-xl text-white/70 hover:bg-white/10 transition-colors text-sm font-medium" onClick={() => setMobileOpen(false)}>{t('forGovernance')}</Link>
-                </div>
-              )}
-            </div>
-
-            <Link href="/newsroom" className="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium" onClick={() => setMobileOpen(false)}>{t('newsroom')}</Link>
-
-            <div className="mt-2 pt-3 flex flex-col gap-3">
-              <LanguageSwitcher variant="dark" className="" fullWidth />
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+    </>
   )
 }

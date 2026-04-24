@@ -49,7 +49,7 @@ export function AppDownloadCTA() {
               <p className="inline-block text-xs font-semibold uppercase tracking-widest text-white bg-white/20 px-3 py-2 rounded-lg mb-4">
                 {t('callout')}
               </p>
-              <h2 className="text-[36px] font-medium text-[var(--color-text-bright)] mb-2">
+              <h2 className="text-[36px] font-bold text-[var(--color-text-bright)] mb-2">
                 {t('title')}
               </h2>
               <p className="text-xl text-white/60">

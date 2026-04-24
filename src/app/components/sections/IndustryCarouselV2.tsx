@@ -258,7 +258,7 @@ export function IndustryCarouselV2({ onSectorSelect }: { onSectorSelect?: (key: 
       {/* Header — left-aligned, CTA on right */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
-          <h2 className="text-3xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
+          <h2 className="text-3xl font-display font-bold text-[var(--color-text-default)] leading-[1.3] mb-4">
             {t('title')}
           </h2>
           <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-xl">

@@ -23,7 +23,7 @@ export function AppFaq() {
           <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase text-center mb-2">
             {t('callout')}
           </p>
-          <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] text-center mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-[var(--color-text-default)] text-center mb-4">
             {t('title')}
           </h2>
           <p className="text-lg text-[var(--color-text-dim)] text-center mb-10">

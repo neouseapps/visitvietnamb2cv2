@@ -150,7 +150,7 @@ export function PartnershipTiers({ onTierSelect }: { onTierSelect?: (id: string,
           <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
             {t('eyebrow')}
           </p>
-          <h2 className="text-3xl font-display font-medium text-white leading-[1.3] mb-4">
+          <h2 className="text-3xl font-display font-bold text-white leading-[1.3] mb-4">
             {t('title')}
           </h2>
           <p className="text-[var(--color-alpha-white-70)] text-lg leading-relaxed">

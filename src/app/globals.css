@@ -85,6 +85,14 @@
   --radius-panel: var(--radius-panel);
 }
 
+/* Heading utility classes responsive scaling */
+@media (max-width: 767px) {
+  .H1 { font-size: 32px; line-height: 38px; }
+  .H2 { font-size: 28px; line-height: 34px; }
+  .H3 { font-size: 20px; line-height: 26px; }
+  .H4 { font-size: 16px; line-height: 22px; }
+}
+
 /* Hero Banner typography responsive scaling */
 @media (max-width: 767px) {
   :root {
@@ -115,7 +123,35 @@ h2, h3, h4, h5 {
 
 
 @layer utilities {
-  /* Typography scale — SVN-Selecta headings */
+  /* Typography scale — heading utility classes */
+  .H1 {
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 54px;
+    letter-spacing: -0.48px;
+    font-weight: 500;
+  }
+  .H2 {
+    font-family: var(--font-default);
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -0.36px;
+    font-weight: 700;
+  }
+  .H3 {
+    font-family: var(--font-default);
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.24px;
+    font-weight: 700;
+  }
+  .H4 {
+    font-family: var(--font-default);
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.18px;
+    font-weight: 700;
+  }
   .H5 {
     font-family: var(--font-default); /* SVN-Selecta */
     font-size: 0.875rem;

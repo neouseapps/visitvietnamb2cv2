@@ -782,16 +782,7 @@ function SuggestionCard({ post }: { post: RelatedPost }) {
 function SuggestionSection({ posts }: { posts: RelatedPost[] }) {
   return (
     <div className="flex flex-col gap-4">
-      <h2
-        className="font-medium"
-        style={{
-          fontFamily: 'var(--font-default)',
-          fontSize: 24,
-          lineHeight: '28px',
-          color: 'var(--color-text-default)',
-          letterSpacing: '-0.72px',
-        }}
-      >
+      <h2 className="H3 text-[var(--color-text-default)]">
         Bài viết đến từ chuyên gia
       </h2>
       <div className="flex flex-col gap-3">
@@ -914,27 +905,11 @@ export default function BlogPostPage() {
                     transition={{ duration: 0.5, delay: i * 0.04 }}
                   >
                     {section.level === 2 ? (
-                      <h2
-                        className="font-bold mb-3"
-                        style={{
-                          fontFamily: 'var(--font-default)',
-                          fontSize: 24,
-                          lineHeight: '32px',
-                          color: 'var(--color-text-default)',
-                        }}
-                      >
+                      <h2 className="H3 mb-3 text-[var(--color-text-default)]">
                         {section.heading}
                       </h2>
                     ) : (
-                      <h3
-                        className="font-bold mb-3"
-                        style={{
-                          fontFamily: 'var(--font-default)',
-                          fontSize: 18,
-                          lineHeight: '26px',
-                          color: 'var(--color-text-default)',
-                        }}
-                      >
+                      <h3 className="H4 mb-3 text-[var(--color-text-default)]">
                         {section.heading}
                       </h3>
                     )}

@@ -146,7 +146,7 @@ const FeaturesSection = () => {
             {t('eyebrow')}
           </div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-            <h2 className="text-4xl font-bold text-[var(--color-text-default)] font-default leading-tight tracking-tight max-w-lg">
+            <h2 className="H2 text-[var(--color-text-default)] leading-tight tracking-tight max-w-lg">
               {t('title')}
             </h2>
             <p className="text-gray-500 text-base max-w-sm md:text-right md:pb-1">
@@ -171,7 +171,7 @@ const FeaturesSection = () => {
               </span>
               {/* Content */}
               <div>
-                <h3 className="text-[var(--color-text-default)] mb-1.5 font-default text-xl leading-snug font-medium tracking-tight">
+                <h3 className="H4 text-[var(--color-text-default)] mb-1.5 leading-snug tracking-tight">
                   {feat.title}
                 </h3>
                 <p className="text-gray-500 leading-relaxed text-[15px]">{feat.desc}</p>
@@ -207,7 +207,7 @@ const ForBusinessSection = () => {
             <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{color: 'var(--color-text-eyebrow)'}}>
               {t('eyebrow')}
             </p>
-            <h2 className="text-4xl font-bold text-[var(--color-text-default)] mb-4 font-default leading-tight tracking-tight">
+            <h2 className="H2 text-[var(--color-text-default)] mb-4 leading-tight tracking-tight">
               {t('title')}
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed max-w-sm">
@@ -223,7 +223,7 @@ const ForBusinessSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-2 font-default">{t('cardBusiness.title')}</h4>
+              <h4 className="H4 text-gray-900 mb-2">{t('cardBusiness.title')}</h4>
               <p className="text-gray-500 text-sm mb-6 flex-1">
                 {t('cardBusiness.desc')}
               </p>
@@ -238,7 +238,7 @@ const ForBusinessSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-2 font-default">{t('cardGov.title')}</h4>
+              <h4 className="H4 text-gray-900 mb-2">{t('cardGov.title')}</h4>
               <p className="text-gray-500 text-sm mb-6 flex-1">
                 {t('cardGov.desc')}
               </p>
@@ -275,7 +275,7 @@ const NewsSection = () => {
         <div className="flex justify-between items-end mb-12">
           <div>
             <p className="text-xs font-semibold text-[var(--color-text-dim-variant)] uppercase tracking-wider mb-4">{t('eyebrow')}</p>
-            <h2 className="text-4xl font-bold text-[var(--color-text-default)] mb-2 font-default leading-tight tracking-tight">{t('title')}</h2>
+            <h2 className="H2 text-[var(--color-text-default)] mb-2 leading-tight tracking-tight">{t('title')}</h2>
             <p className="text-gray-500">{t('subtitle')}</p>
           </div>
           <Button asChild variant="link" size="sm" rightIcon={<ArrowRight />} className="hidden sm:inline-flex">

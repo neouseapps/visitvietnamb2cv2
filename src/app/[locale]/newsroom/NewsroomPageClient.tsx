@@ -77,7 +77,7 @@ export default function NewsroomPageClient() {
         <header className="pt-36 pb-24 px-8 text-center">
           <div className="max-w-4xl mx-auto">
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-bg-inverse leading-[1.2] mb-6"
+              className="H1 text-bg-inverse leading-[1.2] mb-6"
             >
               {tHero('title')}
             </h1>
@@ -105,7 +105,7 @@ export default function NewsroomPageClient() {
                 <span className="w-1 h-1 bg-gray-300 rounded-full" />
                 <span>{tFeatured('date')}</span>
               </div>
-              <h2 className="text-4xl font-bold text-bg-inverse mb-6 leading-tight group-hover:text-[var(--color-brand-primary)] transition-colors">
+              <h2 className="H2 text-bg-inverse mb-6 leading-tight group-hover:text-[var(--color-brand-primary)] transition-colors">
                 {tFeatured('title')}
               </h2>
               <p className="text-gray-500 text-lg mb-8 leading-relaxed line-clamp-3">
@@ -118,7 +118,7 @@ export default function NewsroomPageClient() {
         {/* Latest articles */}
         <section className="max-w-[1440px] mx-auto w-full">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
-            <h3 className="text-3xl font-bold font-default text-[var(--color-text-default)] tracking-tight mb-2">{tLatest('title')}</h3>
+            <h3 className="H3 text-[var(--color-text-default)] tracking-tight mb-2">{tLatest('title')}</h3>
             <select
               value={activeFilter}
               onChange={(e) => { setActiveFilter(e.target.value as FilterKey); setVisibleCount(PAGE_SIZE) }}

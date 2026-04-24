@@ -41,15 +41,20 @@ function smoothScrollTo(id: string) {
 // ---------------------------------------------------------------------------
 function HeroSection() {
   const t = useTranslations('ForGovernancePage.Hero')
+  const tSponsor = useTranslations('ForGovernancePage.NationalSponsorship')
+  const sponsorCards = [
+    { src: '/images/governance/timeless-charm.png', label: tSponsor('cards.0.label') },
+    { src: '/images/governance/hiep-hoi.png', label: tSponsor('cards.1.label') },
+  ]
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[var(--color-bg-inverse)]">
-      {/* Background image — mobile portrait */}
+    <section className="relative min-h-[calc(100vh+30px)] flex items-end md:items-center overflow-hidden bg-[var(--color-bg-inverse)]">
+      {/* Background image — mobile portrait (object-contain anchored to top) */}
       <Image
         src="/images/hero-for-governance-mobile.png"
         alt="Panoramic view of Vietnamese government and tourism landmarks"
         fill
-        className="object-cover object-center md:hidden"
+        className="object-contain object-top md:hidden"
         priority
         unoptimized
       />
@@ -62,18 +67,20 @@ function HeroSection() {
         priority
         unoptimized
       />
-      {/* Directional gradient — dark on left, transparent on right */}
+      {/* Mobile gradient: strong black at bottom to cover letterbox bar */}
       <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 45%, transparent 100%)',
-        }}
+        className="absolute inset-0 md:hidden"
+        style={{ background: 'linear-gradient(to top, rgba(22,10,4,1) 0%, rgba(22,10,4,1) 18%, rgba(22,10,4,0.7) 38%, rgba(22,10,4,0.15) 58%, transparent 72%)' }}
+      />
+      {/* Desktop gradient: left-to-right */}
+      <div
+        className="absolute inset-0 hidden md:block"
+        style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 45%, transparent 100%)' }}
       />
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 pt-[100px] pb-16 lg:pt-[102px] lg:pb-0">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 pb-10 md:pt-[102px] md:pb-0">
         <div className="max-w-[640px] mx-auto lg:mx-0">
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-6 lg:pb-24">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-5 lg:pb-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -102,26 +109,31 @@ function HeroSection() {
               {t('subtitle')}
             </motion.p>
 
+            {/* Sponsorship block */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-3 pt-2"
+              className="w-full pt-5 border-t border-white/15"
             >
-              <Button variant="brand" size="lg" onClick={() => smoothScrollTo('contact')}>
-                {t('ctaPrimary')}
-              </Button>
-              <Button
-                variant="ghost"
-                size="lg"
-                className="text-white border-white/30 hover:bg-white/10"
-                onClick={() => smoothScrollTo('features')}
-              >
-                {t('ctaSecondary')}
-              </Button>
+              <p className="text-[11px] font-bold tracking-widest uppercase text-white/45 mb-3">
+                {tSponsor('title')}
+              </p>
+              <div className="flex items-center justify-center lg:justify-start gap-5">
+                {sponsorCards.map(({ src, label }) => (
+                  <div key={label} className="flex items-center gap-2.5">
+                    <div className="relative w-9 h-9 flex-shrink-0">
+                      <Image src={src} alt={label} fill className="object-contain" unoptimized />
+                    </div>
+                    <span className="text-xs text-white/65 leading-tight max-w-[110px] text-left">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
-          </div>
 
+          </div>
         </div>
       </div>
     </section>
@@ -142,7 +154,7 @@ function GradientBannerSection() {
       }}
     >
       <h2
-        className="absolute left-0 right-0 text-center text-white font-display font-medium text-3xl md:text-4xl px-8"
+        className="H2 absolute left-0 right-0 text-center text-white px-8"
         style={{ top: '60px' }}
       >
         {t('title')}
@@ -173,7 +185,7 @@ function PainPointsSection() {
           <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
             {t('eyebrow')}
           </h2>
-          <h3 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
+          <h3 className="H3 text-[var(--color-text-default)] leading-[1.3] mb-4">
             {t('title')}
           </h3>
           <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
@@ -187,7 +199,7 @@ function PainPointsSection() {
               <div className="w-10 h-10 flex items-center justify-center text-[var(--color-text-dim)] mb-3">
                 <Icon className="w-10 h-10" />
               </div>
-              <h4 className="text-xl font-default font-bold text-[var(--color-text-default)] mb-3">{title}</h4>
+              <h4 className="H4 text-[var(--color-text-default)] mb-3">{title}</h4>
               <p className="text-[var(--color-text-dim)] leading-relaxed text-sm">{desc}</p>
             </div>
           ))}
@@ -222,7 +234,7 @@ function DashboardFeaturesSection() {
             <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-4">
               {t('eyebrow')}
             </h2>
-            <h3 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-5">
+            <h3 className="H3 text-[var(--color-text-default)] leading-[1.3] mb-5">
               {t('title')}
             </h3>
             <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
@@ -270,7 +282,7 @@ function NationalSponsorshipSection() {
     >
       <div className="max-w-[1440px] mx-auto px-8 text-center">
         <h3
-          className="text-3xl md:text-4xl font-display font-medium leading-[1.3] mb-12"
+          className="H3 leading-[1.3] mb-12"
           style={{ background: 'linear-gradient(77deg, #FFDDB7 1%, #FFF7EE 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
         >
           {t('title')}
@@ -315,7 +327,7 @@ function ValuePropsSection() {
           <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
             {t('eyebrow')}
           </h2>
-          <h3 className="text-3xl md:text-4xl font-display font-medium text-white leading-[1.3] mb-4">
+          <h3 className="H3 text-white leading-[1.3] mb-4">
             {t('title')}
           </h3>
           <p className="text-white/70 text-lg leading-relaxed">
@@ -328,7 +340,7 @@ function ValuePropsSection() {
               <div className="flex justify-center mb-4">
                 <Icon className="w-12 h-12 text-white/80" />
               </div>
-              <h4 className="text-xl font-bold text-white mb-3">{title}</h4>
+              <h4 className="H4 text-white mb-3">{title}</h4>
               <p className="text-white/70 text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
@@ -351,7 +363,7 @@ function ContactFormSection() {
           <h2 className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
             {t('eyebrow')}
           </h2>
-          <h3 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-4">
+          <h3 className="H3 text-[var(--color-text-default)] leading-[1.3] mb-4">
             {t('title')}
           </h3>
           <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
@@ -363,7 +375,7 @@ function ContactFormSection() {
           {/* Contact info */}
           <div className="bg-white rounded-[24px] p-8">
             <div>
-              <h4 className="text-xl font-bold mb-6 text-[var(--color-text-default)]">{t('infoTitle')}</h4>
+              <h4 className="H4 mb-6 text-[var(--color-text-default)]">{t('infoTitle')}</h4>
               <div className="space-y-5 flex flex-col items-start">
                 <a
                   href={`mailto:${t('email')}`}

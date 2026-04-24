@@ -198,7 +198,7 @@ export default function AboutPageClient() {
           </motion.span>
           <motion.h1
             variants={itemVariant}
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-white leading-[1.2] mb-6"
+            className="H1 text-white leading-[1.2] mb-6"
           >
             {tHero('title')}
           </motion.h1>
@@ -297,7 +297,7 @@ export default function AboutPageClient() {
                 <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-2">
                   {tPillars('eyebrow')}
                 </p>
-                <h2 className="text-3xl md:text-4xl font-display font-medium text-white leading-[1.3] mb-4">
+                <h2 className="H2 text-white leading-[1.3] mb-4">
                   {tPillars('title')}
                 </h2>
                 <p className="text-[var(--color-alpha-white-70)] text-lg leading-relaxed">
@@ -324,7 +324,7 @@ export default function AboutPageClient() {
                       <div className="flex items-center justify-center text-[var(--color-brand-primary)] mb-5 mx-auto">
                         <Icon className="w-12 h-12 group-hover:rotate-12 transition-transform duration-300" />
                       </div>
-                      <h4 className="text-xl font-default font-bold text-white mb-3">{tPillars(`cards.${i}.title`)}</h4>
+                      <h4 className="H4 text-white mb-3">{tPillars(`cards.${i}.title`)}</h4>
                       <p className="text-[var(--color-alpha-white-70)] leading-relaxed text-sm">
                         {tPillars(`cards.${i}.desc`)}
                       </p>
@@ -361,7 +361,7 @@ export default function AboutPageClient() {
               <span className="text-xs font-bold text-[var(--color-brand-primary)] tracking-widest uppercase mb-4 block">
                 {tVision('label')}
               </span>
-              <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-6">
+              <h2 className="H2 text-[var(--color-text-default)] leading-[1.3] mb-6">
                 {tVision('title')}
               </h2>
               <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
@@ -382,7 +382,7 @@ export default function AboutPageClient() {
               <span className="text-xs font-bold text-[var(--color-brand-primary)] tracking-widest uppercase mb-4 block">
                 {tMission('label')}
               </span>
-              <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.3] mb-6">
+              <h2 className="H2 text-[var(--color-text-default)] leading-[1.3] mb-6">
                 {tMission('title')}
               </h2>
               <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
@@ -437,7 +437,7 @@ export default function AboutPageClient() {
                       <div className="text-[var(--color-brand-primary)]">
                         <Icon className="w-8 h-8" />
                       </div>
-                      <h4 className="font-default font-bold text-white text-base">
+                      <h4 className="H4 text-white">
                         {tCommitments(`items.${i}.title`)}
                       </h4>
                       <p className="text-sm text-[var(--color-alpha-white-70)] leading-relaxed">
@@ -468,7 +468,7 @@ export default function AboutPageClient() {
             <span className="text-sm font-bold text-[var(--color-brand-primary)] tracking-widest uppercase mb-3 block">
               {tProblems('eyebrow')}
             </span>
-            <h2 className="text-3xl md:text-4xl font-default font-bold text-bg-inverse mb-4">
+            <h2 className="H2 text-bg-inverse mb-4">
               <span className="block">{tProblems('titleLine1')}</span>
               <span className="block">{tProblems('titleLine2')}</span>
             </h2>
@@ -489,7 +489,7 @@ export default function AboutPageClient() {
                 className="p-8 md:p-10"
               >
                 <div className="flex items-center gap-3 mb-8">
-                  <h3 className="text-xl font-bold text-[var(--color-text-default)] font-default">
+                  <h3 className="H3 text-[var(--color-text-default)]">
                     {tProblems('traditionalTitle')}
                   </h3>
                 </div>
@@ -517,7 +517,7 @@ export default function AboutPageClient() {
                 className="bg-white rounded-card p-8 md:p-10"
               >
                 <div className="flex items-center gap-3 mb-8">
-                  <h3 className="text-xl font-bold text-[var(--color-text-default)] font-default">{tSolutions('title')}</h3>
+                  <h3 className="H3 text-[var(--color-text-default)]">{tSolutions('title')}</h3>
                 </div>
                 <ul className="space-y-6">
                   {[0, 1, 2, 3].map(i => (
@@ -556,7 +556,7 @@ export default function AboutPageClient() {
           >
             {/* Text — spans 2 cols */}
             <motion.div variants={itemVariant} className="col-span-2 flex flex-col justify-center py-6 lg:py-0">
-              <h2 className="text-4xl md:text-5xl font-default font-bold text-white leading-[1.1] mb-4">
+              <h2 className="H2 text-white leading-[1.1] mb-4">
                 {tStats('title')}
               </h2>
               <p className="text-white/80 text-lg">
@@ -606,7 +606,7 @@ export default function AboutPageClient() {
             viewport={{ once: true, margin: '-60px' }}
             className="text-center max-w-2xl mx-auto mb-10"
           >
-            <h2 className="text-3xl md:text-4xl font-default font-bold text-bg-inverse mb-4">
+            <h2 className="H2 text-bg-inverse mb-4">
               {tContact('title')}
             </h2>
             <p className="text-[var(--color-text-dim)] mb-8">
@@ -641,7 +641,7 @@ export default function AboutPageClient() {
                   <div className="w-12 h-12 rounded-2xl bg-[var(--color-brand-primary)]/10 flex items-center justify-center mb-6 text-[var(--color-brand-primary)]">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h4 className="font-bold text-bg-inverse mb-2">{tContact(`items.${i}.title`)}</h4>
+                  <h4 className="H4 text-bg-inverse mb-2">{tContact(`items.${i}.title`)}</h4>
                   <p className="text-sm text-[var(--color-text-dim-variant)] mb-4">{tContact(`items.${i}.desc`)}</p>
                   <a
                     href={`mailto:${email}`}

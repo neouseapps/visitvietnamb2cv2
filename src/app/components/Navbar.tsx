@@ -67,12 +67,12 @@ export const Navbar = ({
               : 'bg-white/90 backdrop-blur-md'
           }`}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center" style={{ height: NAV_HEIGHT }}>
 
               {/* Logo + tagline */}
               <Link href="/" className="flex flex-col items-start leading-none gap-0.5">
-                <VsvnLogo variant="color-light" className="w-32" />
+                <VsvnLogo variant="color-light" className="w-24 md:w-32" />
                 <span className="text-[10px] font-medium tracking-wide text-[var(--color-text-dim)] opacity-70">
                   {t('tagline')}
                 </span>
@@ -259,7 +259,7 @@ export const Navbar = ({
 
             {/* Logo + tagline */}
             <Link href="/" className="flex flex-col items-start leading-none gap-0.5">
-              <VsvnLogo variant="color-dark" className="w-32" />
+              <VsvnLogo variant="color-dark" className="w-24 md:w-32" />
               <span className="text-[10px] font-medium tracking-wide text-white opacity-60">
                 {t('tagline')}
               </span>

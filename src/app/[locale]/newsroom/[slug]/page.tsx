@@ -386,13 +386,7 @@ export default function NewsArticlePage() {
           <Breadcrumb title={post.title} />
 
           <h1
-            className="font-medium mb-5 leading-tight"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(32px, 4vw, 56px)',
-              letterSpacing: '-0.02em',
-              color: 'var(--color-text-default)',
-            }}
+            className="H1 mb-5 leading-tight text-[var(--color-text-default)]"
           >
             {post.title}
           </h1>
@@ -436,13 +430,11 @@ export default function NewsArticlePage() {
                     transition={{ duration: 0.5, delay: i * 0.05 }}
                   >
                     {section.level === 2 ? (
-                      <h2 className="font-bold mb-3"
-                        style={{ fontFamily: 'var(--font-default)', fontSize: 24, lineHeight: '32px', color: 'var(--color-text-default)' }}>
+                      <h2 className="H3 mb-3 text-[var(--color-text-default)]">
                         {section.heading}
                       </h2>
                     ) : (
-                      <h3 className="font-bold mb-3"
-                        style={{ fontFamily: 'var(--font-default)', fontSize: 18, lineHeight: '26px', color: 'var(--color-text-default)' }}>
+                      <h3 className="H4 mb-3 text-[var(--color-text-default)]">
                         {section.heading}
                       </h3>
                     )}
@@ -484,12 +476,8 @@ export default function NewsArticlePage() {
         <section className="border-t" style={{ borderColor: 'var(--color-border-default)' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <h2
-              className="font-bold text-xl pb-2 mb-8 inline-block"
-              style={{
-                fontFamily: 'var(--font-default)',
-                color: 'var(--color-text-default)',
-                borderBottom: '2px solid var(--color-brand-primary)',
-              }}
+              className="H3 pb-2 mb-8 inline-block text-[var(--color-text-default)]"
+              style={{ borderBottom: '2px solid var(--color-brand-primary)' }}
             >
               Bài viết liên quan
             </h2>

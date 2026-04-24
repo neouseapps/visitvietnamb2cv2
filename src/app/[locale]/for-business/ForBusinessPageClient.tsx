@@ -77,59 +77,75 @@ function HeroSection() {
   const t = useTranslations('ForBusinessPage.Hero')
   const tPage = useTranslations('ForBusinessPage')
   return (
-    <section className="relative h-[90vh] min-h-[580px] sm:min-h-[700px] flex flex-col overflow-hidden bg-[var(--color-bg-inverse)]">
-      {/* Background image — mobile: dedicated portrait shot, desktop: landscape */}
-      <Image
-        src="/images/hero-for-business-mobile.jpg"
-        alt="Visit Vietnam for Business"
-        fill
-        className="object-cover object-center md:hidden"
-        priority
-      />
-      <Image
-        src="/images/hero-for-business.png"
-        alt="Visit Vietnam for Business"
-        fill
-        className="object-cover object-right hidden md:block"
-        priority
-      />
+    <>
+      <section className="relative h-[90vh] min-h-[610px] sm:min-h-[700px] flex flex-col overflow-hidden bg-[var(--color-bg-inverse)]">
+        {/* Background image — mobile: portrait, desktop: landscape */}
+        <Image
+          src="/images/hero-for-business-mobile.png"
+          alt="Visit Vietnam for Business"
+          fill
+          className="object-cover md:hidden"
+        style={{ objectPosition: 'center -40px' }}
+          priority
+        />
+        <Image
+          src="/images/hero-for-business.png"
+          alt="Visit Vietnam for Business"
+          fill
+          className="object-cover object-right hidden md:block"
+          priority
+        />
 
-      {/* Directional gradient — dark left for text legibility, clear right for subject */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.10) 65%, rgba(0,0,0,0) 100%)' }}
-      />
+        {/* Mobile gradient: bottom → top (tối phần dưới nơi text đứng) */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none md:hidden"
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.60) 40%, rgba(0,0,0,0.15) 70%, transparent 100%)' }}
+        />
+        {/* Desktop gradient: left → right */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none hidden md:block"
+          style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.10) 65%, rgba(0,0,0,0) 100%)' }}
+        />
 
-      {/* Main content */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 mt-16 flex-1 flex items-center justify-center md:justify-start">
-        <div className="max-w-[560px] text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md">
-            {t('badge')}
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-white leading-[1.2] mb-6">
-            {t('title')}
-          </h1>
-          <p className="text-lg text-white/80 mb-8 leading-relaxed max-w-xl">
-            {t('subtitle')}
-          </p>
-          {/* Primary CTA dominates; secondary is a lightweight text link */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center md:items-start justify-center md:justify-start">
-            <Button variant="brand" size="lg" onClick={() => smoothScrollTo('register')}>
-              {t('ctaPrimary')}
-            </Button>
+        {/* Main content */}
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 md:mt-16 flex-1 flex items-end md:items-center justify-center md:justify-start pb-6 md:pb-0">
+          <div className="max-w-[560px] text-center md:text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white/90 text-sm font-medium mb-6 bg-white/10 backdrop-blur-md">
+              {t('badge')}
+            </div>
+            <h1 className="H1 text-white leading-[1.2] mb-6">
+              {t('title')}
+            </h1>
+            <p className="text-lg text-white/80 mb-8 leading-relaxed max-w-xl">
+              {t('subtitle')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 items-center md:items-start justify-center md:justify-start">
+              <Button variant="brand" size="lg" onClick={() => smoothScrollTo('register')}>
+                {t('ctaPrimary')}
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Stats bar — 2-col top row + full-width bottom on mobile, 3-col on sm+ */}
-      <div className="relative z-10 w-full border-t border-white/10 bg-black/50 backdrop-blur-sm">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-8 grid grid-cols-2 sm:grid-cols-3">
-          <HeroStatItem target={100} suffix="+" label={tPage('Stats.0.label')} className="border-r border-white/10 sm:border-b-0" />
-          <HeroStatItem target={120} suffix="+" label={tPage('Stats.1.label')} className="sm:border-r sm:border-white/10" />
-          <HeroStatItem target={50000} suffix="+" label={tPage('Stats.2.label')} className="col-span-2 sm:col-span-1 border-t border-white/10 sm:border-t-0" />
+        {/* Stats bar — desktop only, inside hero */}
+        <div className="hidden md:block relative z-10 w-full border-t border-white/10 bg-black/50 backdrop-blur-sm">
+          <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-3 divide-x divide-white/10">
+            <HeroStatItem target={100} suffix="+" label={tPage('Stats.0.label')} />
+            <HeroStatItem target={120} suffix="+" label={tPage('Stats.1.label')} />
+            <HeroStatItem target={50000} suffix="+" label={tPage('Stats.2.label')} />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats bar — mobile only, separate section below hero */}
+      <div className="md:hidden w-full border-t border-white/10 bg-[var(--color-bg-inverse)]">
+        <div className="grid grid-cols-2">
+          <HeroStatItem target={100} suffix="+" label={tPage('Stats.0.label')} className="border-r border-white/10" />
+          <HeroStatItem target={120} suffix="+" label={tPage('Stats.1.label')} />
+          <HeroStatItem target={50000} suffix="+" label={tPage('Stats.2.label')} className="col-span-2 border-t border-white/10" />
         </div>
       </div>
-    </section>
+    </>
   )
 }
 
@@ -193,7 +209,7 @@ function FeatureItem({
         aria-hidden="true"
       />
       <div>
-        <h4 className="text-xl font-display font-medium text-[var(--color-text-default)] mb-2 leading-snug">
+        <h4 className="H4 text-[var(--color-text-default)] mb-2 leading-snug">
           {title}
         </h4>
         <p className="text-[var(--color-text-dim)] text-sm leading-relaxed">
@@ -232,7 +248,7 @@ function FeaturesSection() {
             <p className="text-sm font-bold text-[var(--color-brand-primary)] tracking-wider uppercase mb-3">
               {t('eyebrow')}
             </p>
-            <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] leading-[1.25] mb-6">
+            <h2 className="H2 text-[var(--color-text-default)] leading-[1.25] mb-6">
               {t('title')}
             </h2>
             <p className="text-[var(--color-text-dim)] text-lg leading-relaxed">
@@ -278,7 +294,7 @@ function FaqSection() {
     <section className="py-16 bg-[var(--color-bg-default)]">
       <div className="max-w-[1440px] mx-auto px-6 md:px-8">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-medium text-[var(--color-text-default)] text-center mb-4">
+          <h2 className="H2 text-[var(--color-text-default)] text-center mb-4">
             {t('title')}
           </h2>
 
